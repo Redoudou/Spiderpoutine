@@ -2,6 +2,16 @@
 
 ## 2026-10-07
 
+### V3.2 : relecture éditoriale et scientifique
+
+- Chapitre 1 : la vitesse affichée retombait à 0 km/h et « un piéton » après l'atterrissage ; on garde maintenant la vitesse d'arrivée. Texte honnête sur la distance (chute jusqu'au coussin). Verdicts cohérents avec la valeur en g. Seuil autoroute à 130 km/h.
+- Chapitre 2 : la distance parcourue par le héros est comparée à la longueur d'une voiture.
+- Chapitre 5 : « 2,5 balles de tennis » remplacé par une boule de bowling de 7 kg lâchée de la même énergie (en mètres et en étages). Pointe de 5 g = un morceau de sucre.
+- Chapitre 6 : « Accélération » devient « Ce qu'on ressent » ; poids ressenti formulé « sur une balance » ; pilote à 9 g = un cheval ; boucle de grand huit 12 m à 65 km/h (≈ 4 g).
+- Chapitre 7 : explication affichée dès le lancer.
+- Chapitre 8 : Statue de la Liberté « sans son socle » ; 229 g comparé au record de survie en course automobile (214 g).
+- Échelle de références g revue : apesanteur, canapé, manège, grand huit, pilote de chasse, siège éjectable, accident de voiture, accident de course, record de 214 g, balle de tennis ou de golf frappée, balle contre une plaque d'acier.
+
 ### V3.1 : tests et corrections
 
 Suite de 114 vérifications automatisées (téléphone 390 px et ordinateur) : liens de chapitres, boutons, curseurs, gestes au doigt, absence d'erreurs JS et de défilement horizontal.

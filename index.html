@@ -106,9 +106,9 @@ footer{color:var(--muted);font-size:14px;margin:0}
     <div class="stage"><canvas id="c1" tabindex="0" aria-label="Animation : le héros tombe d'un immeuble sur un coussin"></canvas></div>
     <div class="readouts">
       <div><span>Temps</span><b id="r1t">0,00 s</b></div>
-      <div><span>Vitesse</span><b id="r1v">0 km/h</b></div>
+      <div><span>Vitesse max</span><b id="r1v">0 km/h</b></div>
       <div><span>Chute</span><b id="r1d">0,0 m</b></div>
-      <div><span>Aussi vite que</span><b id="r1c">un piéton</b></div>
+      <div><span>Comparaison</span><b id="r1c">immobile</b></div>
     </div>
     <div class="controls">
       <label class="range" for="h1">Hauteur <input type="range" id="h1" min="5" max="100" step="5" value="50"><output id="h1v">50 m</output></label>
@@ -117,7 +117,7 @@ footer{color:var(--muted);font-size:14px;margin:0}
     <p class="ref" id="ref1">50 m : un peu plus haut que la Statue de la Liberté sans son socle (46 m).</p>
     <p class="takeaway" id="t1" aria-live="polite">Regarde les ombres : à chaque quart de seconde, l'écart grandit. La gravité ajoute environ <strong>35 km/h</strong> chaque seconde.</p>
     <p class="verdict"><i class="g">Verdict</i>Depuis 50 m, le héros a un peu plus de 3 secondes pour agir. Assez pour tirer une toile.</p>
-    <p class="savant">v = √(2gh) · g = 9,81 m/s² · freinage sur une distance d : a = v² ÷ (2d)</p>
+    <p class="savant">v = √(2gh) · g = 9,81 m/s² · freinage sur une distance d : a = v² ÷ (2d) · on néglige le frottement de l'air, qui ralentit un peu la chute au-delà de 50 m</p>
   </section>
 
   <!-- 2 -->
@@ -158,8 +158,8 @@ footer{color:var(--muted);font-size:14px;margin:0}
       <button class="btn" id="b3">Tirer !</button>
     </div>
     <p class="takeaway" id="t3" aria-live="polite">Sous 343 m/s, les ondes partent devant la toile : petit « thwip ». Au-dessus, elles s'empilent en <strong>cône</strong> : c'est le bang supersonique, comme le claquement d'un fouet.</p>
-    <p class="verdict"><i class="o">Verdict</i>À 300 m/s, la toile fait « thwip »… de justesse. Un peu plus vite, ce serait un vrai CRACK.</p>
-    <p class="savant">Mach = v ÷ 343 m/s · angle du cône : sin μ = 1 ÷ Mach</p>
+    <p class="verdict"><i class="o">Verdict</i>À 300 m/s, la toile reste sous la vitesse du son : « thwip ». À partir de 343 m/s, ce serait un vrai CRACK.</p>
+    <p class="savant">Mach = v ÷ 343 m/s (vitesse du son dans l'air à 20 °C) · angle du cône : sin μ = 1 ÷ Mach</p>
   </section>
 
   <!-- 4 -->
@@ -187,21 +187,21 @@ footer{color:var(--muted);font-size:14px;margin:0}
   <section class="scene" id="impact">
     <p class="step">05 · L'impact</p>
     <h2>Comment la toile colle-t-elle au mur ?</h2>
-    <p class="hint">La pointe pèse 5 grammes, comme une pièce de monnaie. Choisis sa vitesse et lance-la. Chaque carré vaut 10 joules d'énergie.</p>
+    <p class="hint">La pointe pèse 5 grammes, comme un morceau de sucre. Choisis sa vitesse et lance-la. Son énergie est comparée à une boule de bowling de 7 kg lâchée d'une certaine hauteur : plus elle tombe de haut, plus ça fait mal.</p>
     <div class="stage"><canvas id="c5" class="pany" tabindex="0" aria-label="Animation : une petite pointe frappe un mur, avec son énergie en carrés"></canvas></div>
     <div class="readouts">
       <div><span>Vitesse</span><b id="r5v">300 m/s</b></div>
       <div><span>Énergie</span><b id="r5e">225 J</b></div>
-      <div><span>Comme</span><b id="r5c">2,5 balles de tennis</b></div>
+      <div><span>Même énergie que</span><b id="r5c">une boule de bowling lâchée de 3,3 m</b></div>
       <div><span>Choc de la pointe</span><b id="r5g">4,6 millions de g</b></div>
     </div>
     <div class="controls">
       <label class="range" for="v5">Vitesse <input type="range" id="v5" min="50" max="600" step="10" value="300"><output id="v5v">300 m/s</output></label>
       <button class="btn" id="b5">Lancer !</button>
     </div>
-    <p class="takeaway" id="t5" aria-live="polite">Essaie 150 m/s puis 300 m/s. <strong>Deux fois plus vite = quatre fois plus d'énergie.</strong> La pointe doit encaisser tout ça en s'arrêtant sur 1 mm : des millions de g, comme une balle de fusil qu'on tire.</p>
+    <p class="takeaway" id="t5" aria-live="polite">Essaie 150 m/s puis 300 m/s. <strong>Deux fois plus vite = quatre fois plus d'énergie</strong> : la boule de bowling tombe de 4 fois plus haut. Et la pointe doit s'arrêter sur 1 mm : des millions de g, comme une balle de fusil qui s'écrase sur une plaque d'acier.</p>
     <p class="verdict"><i class="r">Verdict</i>La pointe subit des millions de g. Il faudrait un matériau incroyable, ou une pointe qui s'écrase pour absorber le choc.</p>
-    <p class="savant">E = ½mv² · m = 0,005 kg · arrêt sur 1 mm : a = v² ÷ (2 × 0,001 m) · balle de tennis servie ≈ 90 J</p>
+    <p class="savant">E = ½mv² · m = 0,005 kg · hauteur de la boule : h = E ÷ (7 kg × 9,81) · arrêt sur 1 mm : a = v² ÷ (2 × 0,001 m)</p>
   </section>
 
   <!-- 6 -->
@@ -212,7 +212,7 @@ footer{color:var(--muted);font-size:14px;margin:0}
     <div class="stage"><canvas id="c6" class="pany" tabindex="0" aria-label="Comparaison des accélérations, du canapé au pilote de chasse"></canvas></div>
     <div class="readouts">
       <div><span>Situation</span><b id="r6n">Canapé</b></div>
-      <div><span>Accélération</span><b id="r6g">1 g</b></div>
+      <div><span>Ce qu'on ressent</span><b id="r6g">1 g</b></div>
       <div><span>La balance indique</span><b id="r6k">75 kg</b></div>
       <div><span>Autant que</span><b id="r6c">un adulte</b></div>
       <div><span>Toi (25 kg), tu pèserais</span><b id="r6y">25 kg</b></div>
@@ -241,7 +241,7 @@ footer{color:var(--muted);font-size:14px;margin:0}
       <button class="btn" id="b7">Lancer !</button>
     </div>
     <p class="takeaway" id="t7" aria-live="polite">Pour courber la trajectoire, la toile doit tirer vers le point d'accroche. Lâché à l'horizontale, le héros pèse <strong>3 fois son poids</strong> en bas, autant que dans la boucle d'un grand huit, quelle que soit la longueur de la toile.</p>
-    <p class="verdict"><i class="o">Verdict</i>La toile doit tenir au moins 3 fois le poids du héros, et plus de 5 fois s'il arrive à 30 m/s. L'immeuble aussi !</p>
+    <p class="verdict"><i class="o">Verdict</i>La toile doit tenir au moins 3 fois le poids du héros, et plus de 5 fois s'il arrive à 30 m/s au bout d'une toile de 20 m. L'immeuble aussi !</p>
     <p class="savant">tension en bas = m × (v² ÷ r + g) · lâché à l'horizontale : v² = 2gr, donc 3 × son poids · à 30 m/s avec 20 m : 75 × (30² ÷ 20 + 9,81) ≈ 4,1 kN ≈ 5,6 ×</p>
   </section>
 
@@ -249,7 +249,7 @@ footer{color:var(--muted);font-size:14px;margin:0}
   <section class="scene" id="elasticite">
     <p class="step">08 · L'élasticité</p>
     <h2>Pourquoi la toile doit-elle s'étirer ?</h2>
-    <p class="hint">Deux héros tombent de 46 m, la hauteur de la Statue de la Liberté. À gauche, une toile rigide. À droite, ta toile : règle de combien elle s'étire.</p>
+    <p class="hint">Deux héros tombent de 46 m, la hauteur de la Statue de la Liberté sans son socle. À gauche, une toile rigide. À droite, ta toile : règle de combien elle s'étire.</p>
     <div class="stage"><canvas id="c8" class="pany" tabindex="0" aria-label="Comparaison : toile rigide et toile élastique qui arrêtent une chute"></canvas></div>
     <div class="readouts">
       <div><span>Vitesse avant l'arrêt</span><b id="r8v">108 km/h</b></div>
@@ -261,9 +261,9 @@ footer{color:var(--muted);font-size:14px;margin:0}
       <label class="range" for="d8">Étirement <input type="range" id="d8" min="0.4" max="8" step="0.2" value="2"><output id="d8v">2,0 m</output></label>
       <button class="btn" id="b8">Lâcher !</button>
     </div>
-    <p class="takeaway" id="t8" aria-live="polite">Toile rigide : 229 g, comme tomber d'un toit sur le béton. Toile de 2 m : 23 g, comme un accident de voiture. Plus la distance d'arrêt est grande, moins l'arrêt est brutal. C'est le principe de l'<strong>airbag</strong> et des zones qui s'écrasent à l'avant des voitures.</p>
+    <p class="takeaway" id="t8" aria-live="polite">Toile rigide : 229 g, plus que le pire accident de course auquel un pilote a survécu (214 g). Toile qui s'étire de 2 m : 23 g, comme un accident de voiture avec ceinture et airbag. Plus la distance d'arrêt est grande, moins l'arrêt est brutal. C'est le principe de l'<strong>airbag</strong> et des zones qui s'écrasent à l'avant des voitures.</p>
     <p class="verdict"><i class="g">Verdict</i>Une toile qui s'étire de quelques mètres rend le choc supportable pour un super-héros.</p>
-    <p class="savant">a = v² ÷ (2d) · v = 30 m/s · d = 2 m → a ≈ 225 m/s² ≈ 23 g</p>
+    <p class="savant">après 46 m de chute : v = √(2 × 9,81 × 46) ≈ 30 m/s · freinage sur d : a = v² ÷ (2d) · d = 2 m → a ≈ 225 m/s² ≈ 23 g</p>
   </section>
 
   <!-- Finale -->
@@ -413,11 +413,23 @@ function drawParts(c,arr){for(const p of arr){c.globalAlpha=1-p.life/p.max;c.fil
 function mono(c,size,w){c.font=(w||500)+' '+size+'px "DM Mono", ui-monospace, monospace';}
 function disp(c,size){c.font=size+'px Bungee, "Arial Black", sans-serif';}
 /* Every g value gets a picture a kid can relate to */
-const GREF=[[0.3,'apesanteur','un astronaute qui flotte'],[1.3,'canapé','être assis sur le canapé'],[2.5,'manège','un manège de fête foraine'],[5,'grand huit','la boucle d\u2019un grand huit'],[10,'pilote de chasse','un pilote de chasse en plein virage'],[20,'pilote qui s\u2019évanouit','un pilote de chasse qui s\u2019évanouit'],[80,'accident de voiture','un accident de voiture'],[1000,'chute sur le béton','tomber d\u2019un toit sur le béton'],[1e5,'balle de golf','une balle de golf frappée par le club'],[Infinity,'balle de fusil','une balle de fusil qu\u2019on tire']];
+const GREF=[
+ [0.3,'apesanteur','un astronaute qui flotte dans la station spatiale'],
+ [1.3,'canapé','être assis sur le canapé'],
+ [2.5,'manège','un manège qui tourne vite'],
+ [5,'grand huit','la boucle d’un grand huit'],
+ [10,'pilote de chasse','un pilote de chasse en plein virage'],
+ [20,'siège éjectable','un pilote éjecté de son avion par son siège éjectable'],
+ [60,'accident de voiture','un accident de voiture, avec ceinture et airbag'],
+ [214,'accident de course grave','un très grave accident de course automobile'],
+ [300,'plus que le record','plus que le pire accident de course auquel un pilote a survécu (214 g)'],
+ [3000,'balle de tennis frappée','une balle de tennis frappée par la raquette'],
+ [1e5,'balle de golf frappée','une balle de golf frappée par le club'],
+ [Infinity,'balle contre l’acier','une balle de fusil qui s’écrase sur une plaque d’acier']];
 function gRef(g){for(const r of GREF)if(g<r[0])return r;return GREF[GREF.length-1];}
 const gShort=g=>gRef(g)[1],gLong=g=>gRef(g)[2];
 function gTag(c,x,y,g,align){c.save();mono(c,11);const t='= '+gShort(g),w=c.measureText(t).width,x0=align==='left'?x:align==='right'?x-w:x-w/2;c.fillStyle='rgba(11,16,38,.82)';c.fillRect(x0-5,y-9,w+10,18);c.fillStyle='#ffd23f';c.textAlign='left';c.textBaseline='middle';c.fillText(t,x0,y);c.restore();}
-function speedName(k){if(k<6)return 'un piéton';if(k<25)return 'un vélo';if(k<50)return 'une voiture en ville';if(k<110)return 'plus qu’une voiture en ville';if(k<200)return 'plus que l’autoroute';if(k<900)return 'plus qu’un parachutiste';if(k<1235)return 'plus qu’un avion de ligne';return 'plus que le son';}
+function speedName(k){if(k<1)return 'immobile';if(k<6)return 'un piéton qui marche';if(k<20)return 'plus qu’un piéton qui marche';if(k<50)return 'plus qu’un vélo';if(k<110)return 'plus qu’une voiture en ville';if(k<130)return 'plus qu’une voiture sur la route';if(k<200)return 'plus qu’une voiture sur l’autoroute';if(k<300)return 'plus qu’un parachutiste';if(k<900)return 'plus qu’un TGV';if(k<1235)return 'plus qu’un avion de ligne';return 'plus que le son';}
 
 /* =========================================================
    1 — La chute
@@ -428,7 +440,7 @@ const STOP=1.8,CUSH=2;
 const A={h0:50,y:50,v:0,t:0,phase:'aim',drag:false,ghosts:[],gT:0,landV:0,stopG:0,bt:0,pen0:0,parts:[]};
 const geo=()=>{const W=s1.W,H=s1.H,ground=H-30,top=40,ppm=(ground-top)/104,bx=Math.max(48,W*0.07),bw=clamp(W*0.2,78,170),hx=bx+bw+Math.max(36,W*0.07),s=clamp(H*0.1,32,48);return{W,H,ground,ppm,bx,bw,hx,s,Y:m=>ground-m*ppm};};
 function ref(h){if(h<=10)return h+' m : un immeuble de 3 étages environ.';if(h<=30)return h+' m : un immeuble de '+Math.round(h/3)+' étages environ.';if(h<46)return h+' m : un peu moins que la Statue de la Liberté sans son socle (46 m).';if(h<=50)return h+' m : à peu près la Statue de la Liberté sans son socle (46 m).';if(h<90)return h+' m : un grand immeuble de '+Math.round(h/3)+' étages environ.';if(h<=95)return h+' m : la Statue de la Liberté avec son socle, jusqu’à la torche (93 m).';return h+' m : un peu plus que la Statue de la Liberté avec son socle (93 m).';}
-function rd(){$('r1t').textContent=fmt(A.t,2)+' s';$('r1v').textContent=fmt(A.v*3.6)+' km/h';$('r1d').textContent=fmt(Math.max(0,A.h0-Math.max(A.y,CUSH)),1)+' m';$('r1c').textContent=speedName(A.v*3.6);}
+function rd(){const landed=A.phase==='land'||A.phase==='bounce'||A.phase==='rest',v=landed?A.landV:A.v;$('r1t').textContent=fmt(A.t,2)+' s';$('r1v').textContent=fmt(v*3.6)+' km/h';$('r1d').textContent=fmt(Math.max(0,A.h0-Math.max(A.y,CUSH)),1)+' m';$('r1c').textContent=speedName(v*3.6);}
 function reset(){A.phase='aim';A.y=A.h0;A.v=0;A.t=0;A.ghosts=[];A.parts=[];rd();}
 function setH(h){if(A.phase==='fall'||A.phase==='land'){$('h1').value=A.h0;return;}A.h0=clamp(Math.round(h/5)*5,5,100);$('h1').value=A.h0;$('h1v').textContent=A.h0+' m';$('ref1').textContent=ref(A.h0);if(A.phase!=='fall'&&A.phase!=='land')reset();}
 function drop(){Snd.init();if(A.phase==='fall'||A.phase==='land')return;reset();A.phase='fall';A.ghosts=[{y:A.h0,t:0}];A.gT=0;Snd.tone(600,300,0.2,0.08,'triangle');}
@@ -453,7 +465,7 @@ function update(dt){
     const a=A.landV*A.landV/(2*STOP);A.v=Math.max(0,A.v-a*dt);A.y-=A.v*dt;
     if(A.v<=0){A.phase='bounce';A.bt=0;A.pen0=CUSH-A.y;rd();markDone(1);
       const k=A.landV*3.6;
-      $('t1').innerHTML=`Depuis <strong>${A.h0} m</strong> : ${fmt(A.t,2)} s de chute et <strong>${fmt(k)} km/h</strong> à l'arrivée (${speedName(k)}). Le coussin le freine sur ${fmt(STOP,1)} m : environ <strong>${fmt(A.stopG)} g</strong>, comme ${gLong(A.stopG)}. ${A.stopG>15?'Beaucoup trop pour un humain : il faudrait un coussin bien plus épais.':'Supportable pour un super-héros entraîné.'}`;}
+      $('t1').innerHTML=`Lâché à <strong>${A.h0} m</strong>, il tombe ${A.h0-CUSH} m jusqu'au coussin en ${fmt(A.t,2)} s et arrive à <strong>${fmt(k)} km/h</strong>, ${speedName(k)}. Le coussin le freine sur ${fmt(STOP,1)} m : environ <strong>${fmt(A.stopG)} g</strong>, comme ${gLong(A.stopG)}. ${A.stopG<5?'Sans danger, même pour un humain.':A.stopG<15?'Dur pour un humain normal, facile pour un super-héros.':A.stopG<60?'Dangereux pour un humain : les cascadeurs utilisent des coussins plus épais pour freiner plus en douceur.':'Mortel pour un humain : il faudrait un coussin beaucoup plus épais.'}`;}
   }else if(A.phase==='bounce'){
     A.bt+=dt;A.y=CUSH-A.pen0*Math.exp(-3.2*A.bt)*Math.cos(9*A.bt);
     if(A.bt>1.6){A.phase='rest';A.y=CUSH;Snd.ding();}
@@ -523,7 +535,7 @@ function update(dt){
     R.t+=dt/SLOW;
     L.forEach((l,i)=>{if(!R.fin.includes(i)&&l.v*R.t>=30){R.fin.push(i);if(l.k==='web'){Snd.ding();buzz(20);}}});
     if(R.fin.length===L.length){R.phase='done';markDone(2);const w=L[4].v,place=R.fin.indexOf(4)+1;
-      $('t2').innerHTML=`La toile arrive <strong>${place===1?'1re':place+'e'}</strong> en <strong>${fmt(30/w,2)} s</strong>. Pendant ce temps, le héros a avancé de <strong>${fmt(900/w,1)} m</strong>${900/w>5?' : il risque de rater sa cible !':' : il est presque au même endroit.'} La voiture met ${fmt(30/27.8,2)} s.`;}
+      $('t2').innerHTML=`La toile arrive <strong>${place===1?'1re':place+'e'}</strong> en <strong>${fmt(30/w,2)} s</strong>. Pendant ce temps, le héros a avancé de <strong>${fmt(900/w,1)} m</strong>, ${900/w<5?'à peu près la longueur d’une voiture':'la longueur de '+fmt(900/w/4,0)+' voitures mises bout à bout'}${900/w>5?' : il risque de rater sa cible !':'.'} La voiture met ${fmt(30/27.8,2)} s.`;}
   }
   return 0;
 }
@@ -711,7 +723,7 @@ const s5=stage($('c5'),0.5,320,430),cv=$('c5');
 const I={v:300,phase:'ready',x:0,hitT:0,dent:0,parts:[],E:0,shown:0};
 const geo=()=>{const W=s5.W,H=s5.H,wall=W-Math.max(50,W*0.08),x0=W*0.08,y=H*0.62;return{W,H,wall,x0,y};};
 function E(v){return 0.5*0.005*v*v;}
-function rd(){const v=I.v,e=E(v);$('r5v').textContent=v+' m/s';$('r5e').textContent=fmt(e)+' J';$('r5c').textContent=fmt(e/90,1)+' balle'+(e/90>=2?'s':'')+' de tennis';$('r5g').textContent=fmt(v*v/0.002/G/1e6,1)+' millions de g';$('v5v').textContent=v+' m/s';$('v5').value=v;}
+function rd(){const v=I.v,e=E(v);$('r5v').textContent=v+' m/s';$('r5e').textContent=fmt(e)+' J';$('r5c').textContent='une boule de bowling lâchée de '+fmt(e/(7*G),1)+' m';$('r5g').textContent=fmt(v*v/0.002/G/1e6,1)+' millions de g';$('v5v').textContent=v+' m/s';$('v5').value=v;}
 function setV(v){I.v=clamp(Math.round(v/10)*10,50,600);rd();if(I.phase!=='fly'){I.phase='ready';I.shown=0;I.dent=0;}}
 function fire(){Snd.init();if(I.phase==='fly')return;I.phase='fly';I.x=0;I.parts=[];I.shown=0;I.dent=0;Snd.thwip();}
 $('v5').addEventListener('input',e=>setV(+e.target.value));$('b5').addEventListener('click',fire);
@@ -723,7 +735,7 @@ function update(dt){
     I.dent=4+Math.sqrt(I.E)*1.1;s5.shake=clamp(Math.sqrt(I.E)/1.8,3,18);addParts(I.parts,g.wall,g.y,Math.round(clamp(I.E/8,10,80)),120+Math.sqrt(I.E)*14,['#c98aa0','#fff2d6','#ffd23f']);
     if(I.E>300)Snd.crack();else Snd.thump(Math.min(1,I.E/400));buzz(Math.min(120,Math.round(I.E/6)));markDone(5);
     const ratio=prevE?I.E/prevE:null;
-    const pg=I.v*I.v/0.002/G;$('t5').innerHTML=`<strong>${fmt(I.E)} J</strong>, l'énergie de ${fmt(I.E/90,1)} balle(s) de tennis servie(s), concentrée sur une pointe de 5 g. En s'arrêtant sur 1 mm, elle subit <strong>${fmt(pg/1e6,1)} millions de g</strong>, comme ${gLong(pg)}.`+(ratio&&Math.abs(ratio-1)>0.05?` Par rapport au tir précédent : vitesse ×${fmt(Math.sqrt(ratio),1)}, énergie <strong>×${fmt(ratio,1)}</strong>.`:' Change la vitesse et relance pour comparer.');
+    const pg=I.v*I.v/0.002/G;$('t5').innerHTML=`<strong>${fmt(I.E)} J</strong> dans une pointe de 5 g : autant qu'une boule de bowling de 7 kg lâchée de <strong>${fmt(I.E/(7*G),1)} m</strong> (${fmt(I.E/(7*G)/3,1)} étage${I.E/(7*G)/3>=2?'s':''}). En s'arrêtant sur 1 mm, elle subit <strong>${fmt(pg/1e6,1)} millions de g</strong>, comme ${gLong(pg)}.`+(ratio&&Math.abs(ratio-1)>0.05?` Par rapport au tir précédent : vitesse ×${fmt(Math.sqrt(ratio),1)}, énergie <strong>×${fmt(ratio,1)}</strong> : la boule tombe de ${fmt(ratio,1)} fois plus haut.`:' Change la vitesse et relance pour comparer.');
     prevE=I.E;}}
   else if(I.phase==='hit'){I.hitT+=dt;I.shown=Math.min(I.E/10,I.shown+dt*Math.max(30,I.E/10/0.8));}
   stepParts(I.parts,dt,500);return 0;
@@ -738,14 +750,18 @@ function draw(){
   if(I.phase==='fly'){c.strokeStyle='rgba(234,244,255,.5)';c.lineWidth=2;seg(c,x0,y,dx,y);for(let i=0;i<5;i++){c.globalAlpha=0.15*(5-i);dart(c,dx-i*18,y,0,9);}c.globalAlpha=1;}
   dart(c,dx,y,0,10);
   mono(c,11);c.fillStyle='#a3abcf';c.textAlign='left';c.textBaseline='top';if(I.phase==='ready')c.fillText('pointe de 5 g',x0-10,y+14);
-  // energy grid
-  const cell=clamp(W*0.022,8,14),gap=2,cols=15,gx=16,gy=16,n=I.phase==='hit'?Math.floor(I.shown):(I.phase==='ready'?Math.floor(E(I.v)/10):0);
-  const preview=I.phase==='ready';
-  for(let i=0;i<Math.max(n,9);i++){const r=Math.floor(i/cols),k=i%cols,x=gx+k*(cell+gap),yy=gy+22+r*(cell+gap);
-    if(i<n){c.globalAlpha=preview?0.35:1;c.fillStyle=i<9?'#1fc8b4':'#ff7a1a';c.fillRect(x,yy,cell,cell);c.globalAlpha=1;}
-    if(i<9){c.strokeStyle='#ffd23f';c.lineWidth=1;c.strokeRect(x+0.5,yy+0.5,cell-1,cell-1);}}
-  mono(c,11);c.fillStyle='#f4efe4';c.textAlign='left';c.textBaseline='top';c.fillText((preview?'Prévu : ':'')+fmt(n*10)+' J · 1 carré = 10 J',gx,gy);
-  const rows=Math.ceil(Math.max(n,9)/cols);mono(c,10);c.fillStyle='#ffd23f';c.fillText('cadre jaune = 1 balle de tennis servie (≈ 90 J)',gx,gy+26+rows*(cell+gap));
+  // energy as a bowling ball (7 kg) raised to the same energy: h = E / (m g), on a 5-floor ruler
+  const Eh=(I.phase==='hit'?I.shown*10:(I.phase==='ready'?E(I.v):0))/(7*G),pw=clamp(W*0.3,120,210),px=14,py=14,ph=Math.min(H*0.78,H-40),base=py+ph,mpx=(ph-34)/15;
+  c.fillStyle='rgba(11,16,38,.78)';rr(c,px-6,py-6,pw+12,ph+20,10);c.fill();
+  mono(c,11);c.fillStyle='#f4efe4';c.textAlign='left';c.textBaseline='top';c.fillText(I.phase==='ready'?'Prévu :':'Même énergie que :',px,py);
+  mono(c,10);c.fillStyle='#a3abcf';c.fillText('boule de bowling, 7 kg',px,py+15);
+  const tx=px+6,tw=pw*0.34;
+  for(let f=0;f<5;f++){const fy=base-(f+1)*3*mpx;c.fillStyle=f%2?'#1a2150':'#141a3c';c.fillRect(tx,fy,tw,3*mpx);mono(c,9);c.fillStyle='#6f79a8';c.textAlign='left';c.textBaseline='middle';c.fillText('étage '+(f+1),tx+tw+6,fy+1.5*mpx);}
+  c.fillStyle='#2a3466';c.fillRect(px,base,pw,2);
+  const bh=Math.min(Eh,15),by=base-bh*mpx,bx=tx+tw*0.5,br=Math.max(6,Math.min(11,mpx*0.6));
+  c.setLineDash([4,4]);c.strokeStyle='rgba(255,210,63,.6)';c.lineWidth=1.5;seg(c,bx,by+br,bx,base);c.setLineDash([]);
+  c.globalAlpha=I.phase==='ready'?0.55:1;c.fillStyle='#ff7a1a';c.beginPath();c.arc(bx,by,br,0,7);c.fill();c.fillStyle='#0b1026';for(const [ox,oy] of [[-0.3,-0.3],[0.1,-0.4],[-0.05,0]]){c.beginPath();c.arc(bx+ox*br,by+oy*br,br*0.14,0,7);c.fill();}c.globalAlpha=1;
+  disp(c,14);c.fillStyle='#ffd23f';c.textAlign='left';c.textBaseline='middle';c.fillText(fmt(Eh,1)+' m'+(Eh>15?' !':''),Math.min(bx+br+6,px+pw-60),Math.max(by,py+40));
   drawParts(c,I.parts);
   if(I.phase==='hit')burst(c,wall-Math.max(80,W*0.13),y-60,I.E>300?'BAM !':'tac',I.E>300?24:16,I.E>300?'#ff4766':'#ffd23f',Math.min(1,I.hitT*4));
   c.restore();
@@ -762,20 +778,20 @@ const P=[
  {n:'Canapé',g:1,k:'still',c:'un adulte'},
  {n:'Avion de ligne',g:1,k:'cruise',c:'un adulte'},
  {n:'Grand huit',g:4,k:'loop',c:'un piano'},
- {n:'Pilote de chasse',g:9,k:'turn',c:'une petite voiture'},
- {n:'Pointe de toile',g:4.6e6,k:'hit',c:'un camion'}];
+ {n:'Pilote de chasse',g:9,k:'turn',c:'un cheval'},
+ {n:'Pointe de toile',g:4.6e6,k:'hit',c:'un adulte : le héros ne sent rien'}];
 const S={sel:0,t:0,gD:1,sq:1,seen:new Set([0])};
 const box=$('g6opts');
 P.forEach((p,i)=>{const b=document.createElement('button');b.className='opt';b.textContent=p.n;b.setAttribute('aria-pressed',i===0);b.addEventListener('click',()=>pick(i));box.appendChild(b);});
 function pick(i){Snd.init();S.sel=i;S.t=0;S.seen.add(i);[...box.children].forEach((b,k)=>b.setAttribute('aria-pressed',k===i));const p=P[i];
   $('r6n').textContent=p.n;$('r6g').textContent=p.g>1000?'≈ 4,6 millions de g':fmt(p.g)+' g';
-  $('r6k').textContent=p.k==='hit'?'≈ 23 tonnes':fmt(75*p.g)+' kg';$('r6y').textContent=p.k==='hit'?'25 kg : tu ne sens rien':fmt(25*p.g)+' kg';$('r6c').textContent=p.c;
+  $('r6k').textContent=fmt(75*(p.k==='hit'?1:p.g))+' kg';$('r6y').textContent=fmt(25*(p.k==='hit'?1:p.g))+' kg';$('r6c').textContent=p.c;
   if(p.k==='hit'){s6.shake=14;Snd.crack();buzz(80);}else if(p.g>=4){Snd.thump(p.g/10);buzz(p.g*8);}else Snd.ding();
   const msg={still:'Assis sur le canapé : <strong>1 g</strong>. C’est le poids normal, celui que la Terre te donne tout le temps.',
     cruise:'À 900 km/h en ligne droite : toujours <strong>1 g</strong> ! On ne sent pas la vitesse, seulement les changements de vitesse.',
     loop:'Dans la boucle du grand huit : environ <strong>4 g</strong>. La balance indique 300 kg, le poids d’un piano.',
-    turn:'Virage serré à 900 km/h : environ <strong>9 g</strong>. Le pilote pèse comme une petite voiture. Au-delà, on peut s’évanouir.',
-    hit:'La pointe s’arrête en un millimètre : <strong>des millions de g</strong>, pendant quelques millionièmes de seconde. Le héros ne sent pas ça : c’est la pointe qui encaisse.'}[p.k];
+    turn:'Virage serré à 900 km/h : environ <strong>9 g</strong>. Sur une balance, le pilote pèserait 675 kg, autant qu’un cheval. C’est la limite : au-delà, même un pilote entraîné peut s’évanouir.',
+    hit:'La pointe s’arrête en un millimètre : <strong>des millions de g</strong>, pendant quelques millionièmes de seconde. Sur une balance, cette pointe de 5 g pèserait 23 tonnes, autant qu’un camion. Le héros ne sent rien : c’est la pointe qui encaisse.'}[p.k];
   $('t6').innerHTML=msg;if(S.seen.size>=3)markDone(6);}
 cv.addEventListener('pointerup',()=>pick((S.sel+1)%P.length));
 cv.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'||e.key==='ArrowRight'){pick((S.sel+1)%P.length);e.preventDefault();}});
@@ -806,7 +822,7 @@ function draw(){
     for(let i=1;i<14;i++){const b=a-i*0.06;c.fillStyle=`rgba(255,122,26,${0.5-i*0.035})`;c.beginPath();c.arc(pcx+Math.cos(b)*rr2,pcy+Math.sin(b)*rr2,4,0,7);c.fill();}
     c.save();c.translate(x,y);c.rotate(a+Math.PI/2);if(p.k==='loop'){c.fillStyle='#ff7a1a';rr(c,-12,-8,24,14,4);c.fill();c.fillStyle='#0b1026';c.beginPath();c.arc(-7,7,3,0,7);c.arc(7,7,3,0,7);c.fill();}else{c.fillStyle='#e8ecf7';c.beginPath();c.moveTo(14,0);c.lineTo(-10,-9);c.lineTo(-6,0);c.lineTo(-10,9);c.closePath();c.fill();}c.restore();
     c.strokeStyle='rgba(255,210,63,.7)';arrow(c,x,y,x+(pcx-x)*0.45,y+(pcy-y)*0.45,'rgba(255,210,63,.85)',2);
-    mono(c,11);c.fillStyle='#a3abcf';c.textAlign='center';c.textBaseline='top';c.fillText(p.k==='loop'?'boucle de 10 m · 70 km/h':'virage à 900 km/h',pcx,H-26);}
+    mono(c,11);c.fillStyle='#a3abcf';c.textAlign='center';c.textBaseline='top';c.fillText(p.k==='loop'?'boucle de 12 m · 65 km/h':'virage à 900 km/h',pcx,H-26);}
   else{const wx=split-40,cyc=(t%1.4)/1.4,x=24+(wx-34)*Math.min(1,cyc*3);brick(c,wx,split,H);c.fillStyle='#4a2236';if(cyc>=0.33){c.fillStyle='#1a0d16';c.beginPath();c.arc(wx,pcy,10,Math.PI/2,Math.PI*1.5);c.fill();}
     dart(c,x,pcy,0,10);if(cyc>=0.33&&cyc<0.45)burst(c,wx-50,pcy-40,'CRAC',14,'#ff4766',1);mono(c,11);c.fillStyle='#a3abcf';c.textAlign='left';c.textBaseline='top';c.fillText('arrêt sur 1 mm',24,H-26);}
   // right: seat + scale
@@ -837,7 +853,8 @@ function tension(){return M*(P.L*P.w*P.w+G*Math.cos(P.th));}
 function syncSlider(){const v=$('v7'),mx=Math.floor(vmax());v.max=mx;if(+v.value>mx)v.value=mx;$('v7v').textContent=v.value+' m/s';}
 function rd(){const Tn=tension(),x=Tn/(M*G),sp=Math.abs(P.w)*P.L;$('r7v').textContent=fmt(sp*3.6)+' km/h';$('r7t').textContent=fmt(Tn/1000,1)+' kN';$('r7x').textContent=fmt(x,1)+' ×';$('r7m').textContent=fmt(P.maxX,1)+' ×';}
 function hang(){P.th=0;P.w=0;P.run=false;P.trail=[];P.maxX=1;P.told=false;}
-function launch(){Snd.init();P.th=0;P.w=(+$('v7').value)/P.L;P.run=true;P.trail=[];P.maxX=1;P.told=false;P.lastSide=0;Snd.thwip();}
+function launch(){Snd.init();const v=+$('v7').value;P.th=0;P.w=v/P.L;P.run=true;P.trail=[];P.maxX=1;P.told=true;P.toldV=v;P.lastSide=0;Snd.thwip();const xb=tension()/(M*G);if(xb>=2)markDone(7);
+  $('t7').innerHTML=`En bas, à <strong>${fmt(v*3.6)} km/h</strong> avec une toile de ${P.L} m, la toile tire <strong>${fmt(xb,1)} fois son poids</strong> (${fmt(tension()/1000,1)} kN), comme ${gLong(xb)}. Sans toile, il continuerait tout droit : c'est elle qui courbe sa trajectoire.`;}
 $('v7').addEventListener('input',e=>{$('v7v').textContent=e.target.value+' m/s';});
 $('l7').addEventListener('input',e=>{P.L=+e.target.value;$('l7v').textContent=P.L+' m';syncSlider();hang();});
 $('b7').addEventListener('click',launch);
@@ -858,7 +875,7 @@ function update(dt){
       const v=Math.abs(P.w)*P.L,xb=tension()/(M*G);
       if(xb>2)buzz(25);
       if(!P.told||Math.abs(v-P.toldV)>1){P.told=true;P.toldV=v;
-        $('t7').innerHTML=`En bas, à <strong>${fmt(v*3.6)} km/h</strong> avec une toile de ${P.L} m, la toile tire <strong>${fmt(xb,1)} fois son poids</strong> (${fmt(tension()/1000,1)} kN) , autant que ${gLong(xb)}. Sans toile, il continuerait tout droit : c'est elle qui courbe sa trajectoire.`;}
+        $('t7').innerHTML=`En bas, à <strong>${fmt(v*3.6)} km/h</strong> avec une toile de ${P.L} m, la toile tire <strong>${fmt(xb,1)} fois son poids</strong> (${fmt(tension()/1000,1)} kN) , comme ${gLong(xb)}. Sans toile, il continuerait tout droit : c'est elle qui courbe sa trajectoire.`;}
       if(xb>=2)markDone(7);
     }
     if(side!==0)P.lastSide=side;
@@ -932,7 +949,7 @@ function update(dt){
     stepParts(o.parts,dt,300);
   });
   if(S.phase==='run'&&cols.every(o=>o.ph==='rest'||o.ph==='osc')){S.phase='done';markDone(8);
-    $('t8').innerHTML=`Même chute, même vitesse (${fmt(V0*3.6)} km/h). Toile rigide : arrêt sur ${fmt(cols[0].d,1)} m, <strong>${fmt(gOf(cols[0].d))} g</strong>, comme ${gLong(gOf(cols[0].d))}. Ta toile : arrêt sur ${fmt(cols[1].d,1)} m, <strong>${fmt(gOf(cols[1].d))} g</strong>, comme ${gLong(gOf(cols[1].d))}. ${gOf(cols[1].d)<=10?'Presque aussi doux qu’un virage de pilote !':gOf(cols[1].d)<=30?'Dur, mais un super-héros tient le coup.':'Encore trop brutal : étire-la davantage.'}`;}
+    $('t8').innerHTML=`Même chute, même vitesse (${fmt(V0*3.6)} km/h). Toile rigide : arrêt sur ${fmt(cols[0].d,1)} m, <strong>${fmt(gOf(cols[0].d))} g</strong>, ${gOf(cols[0].d)>=214?'':'comme '}${gLong(gOf(cols[0].d))}. Ta toile : arrêt sur ${fmt(cols[1].d,1)} m, <strong>${fmt(gOf(cols[1].d))} g</strong>, ${gOf(cols[1].d)>=214?'':'comme '}${gLong(gOf(cols[1].d))}. ${gOf(cols[1].d)<=10?'Presque aussi doux qu’un virage de pilote !':gOf(cols[1].d)<=30?'Dur, mais un super-héros tient le coup.':'Encore trop brutal : étire-la davantage.'}`;}
   return w;
 }
 function bar(c,x,y0,y1,val,peak){
