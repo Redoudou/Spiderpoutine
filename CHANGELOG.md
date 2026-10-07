@@ -2,6 +2,15 @@
 
 ## 2026-10-07
 
+### Le labo animé (labo.html)
+
+Nouvelle page autonome, liée depuis l'accueil, avec trois scènes Canvas jouables et un héros original (combinaison orange, lunettes turquoise) :
+- chute stroboscopique (ombres toutes les 0,25 s, compteur km/h, coussin et g à l'arrêt) ;
+- tir de toile avec ondes sonores visibles : le cône de Mach apparaît au-delà de 343 m/s ;
+- jeu de swing à travers la ville, jauge de g en direct, réglage rigide/élastique, record.
+
+Son (Web Audio), vibration et mode savant en option. Aucune dépendance, aucun build.
+
 ### Origine
 
 Analyse de la physique de Spider-Man : chute, vitesse de la toile, Mach 1, lancement d'une matiere flexible, impact, tension du swing et elasticite.
