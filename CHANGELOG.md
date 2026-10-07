@@ -2,6 +2,17 @@
 
 ## 2026-10-07
 
+### V3.1 : tests et corrections
+
+Suite de 114 vérifications automatisées (téléphone 390 px et ordinateur) : liens de chapitres, boutons, curseurs, gestes au doigt, absence d'erreurs JS et de défilement horizontal.
+
+Corrigé :
+- Mode savant masquait toute la page (la classe du body correspondait au style des formules).
+- Chapitre 7 : le héros passait au-dessus du point d'accroche, la toile se pliait, le corps se détachait de la toile, étiquettes coupées au bord. Remplacé par un vrai pendule accroché à une poutre ; élan limité pour que la toile reste tendue ; frottement mal réglé qui faisait perdre 2/3 de la vitesse.
+- Curseurs des chapitres 1 et 2 modifiables pendant l'animation.
+
+Ajouté : chaque valeur en g a un repère pour enfant (canapé, manège, grand huit, pilote de chasse, accident de voiture, chute sur le béton, balle de fusil) dans les textes, les compteurs et sur les animations. Chapitre 6 : « Toi (25 kg), tu pèserais… ».
+
 ### V3 : 8 chapitres animés
 
 index.html réécrit : chaque chapitre devient une scène Canvas jouable dans le style du labo animé, plus une mission finale (jeu de swing).
