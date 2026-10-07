@@ -2,6 +2,16 @@
 
 ## 2026-10-07
 
+### V3 : 8 chapitres animés
+
+index.html réécrit : chaque chapitre devient une scène Canvas jouable dans le style du labo animé, plus une mission finale (jeu de swing).
+
+Nouvelles scènes : course sur 30 m (chapitre 2), corde poussée ou tirée au doigt (4), énergie de la pointe en carrés (5), comparaison des g avec héros écrasé sur son siège (6), pendule avec flèches de forces (7), toile rigide contre toile élastique (8).
+
+Ajouts : barre de chapitres avec progression 1/8 à 8/8, verdict par chapitre, références concrètes (Statue de la Liberté, balle de tennis, piano, petite voiture). labo.html redirige vers la mission finale.
+
+Les anciennes scènes DOM sont supprimées (pas de double moteur de rendu).
+
 ### Le labo animé (labo.html)
 
 Nouvelle page autonome, liée depuis l'accueil, avec trois scènes Canvas jouables et un héros original (combinaison orange, lunettes turquoise) :

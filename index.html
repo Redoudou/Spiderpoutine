@@ -1,40 +1,1047 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>La physique de Spider-Man</title><style>
-:root{--r:#e62429;--b:#1769e0;--bg:#050914;--p:#0d1d39;--t:#f8fbff;--m:#b9c8dc;--y:#ffd166}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:17px/1.55 system-ui;background:radial-gradient(circle at 80% 0,#174a85,#07142b 28%,#050914 60%);color:var(--t)}header{text-align:center;padding:70px 18px}.wrap{max-width:960px;margin:auto}.tag,.n{color:#ff5157;font-size:.78rem;font-weight:900;letter-spacing:.15em}.tag{letter-spacing:.2em}h1{font-size:clamp(3rem,11vw,6rem);line-height:.9;margin:.2em}h2{font-size:clamp(2rem,6vw,3.3rem);line-height:1;margin:.25em 0}.red{color:var(--r)}.lead,.q{color:var(--m);font-size:1.12rem}.cta{display:inline-block;background:var(--r);color:white;text-decoration:none;font-weight:900;padding:13px 20px;border-radius:99px;margin-top:20px}.sec{padding:50px 0;border-top:1px solid #29476e}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}.card{background:linear-gradient(145deg,#10264b,#08152b);border:1px solid #31558a;border-radius:19px;padding:20px}.eq{font:1.5rem Georgia;text-align:center;background:#050b16;border-radius:12px;padding:14px}.big{font-size:2.7rem;color:var(--y);font-weight:900;line-height:1}.slider{width:100%;min-height:44px;accent-color:var(--r)}.scale{display:grid;gap:8px}.scale div{background:#07111f;border-radius:10px;padding:10px}.scale b{color:#62b7ff}.note{border-left:4px solid var(--y);background:#ffd16610;padding:11px 14px;margin-top:15px}.sim{margin:18px 0;background:linear-gradient(#174a85,#07111f);border:1px solid #31558a;border-radius:20px;overflow:hidden}.sky{height:360px;position:relative;overflow:hidden}.building{position:absolute;bottom:0;background:#050914;border-top:2px solid #31558a}.bl{left:0;width:22%;height:52%}.br{right:0;width:27%;height:78%}.win{position:absolute;width:7px;height:10px;background:#ffd16699;border-radius:2px}.fallhero{position:absolute;left:46%;top:34px;width:30px;height:30px;border-radius:50%;background:var(--r);box-shadow:inset 0 0 0 8px var(--b),0 4px 12px #0008;z-index:4}.trail{position:absolute;left:calc(46% + 13px);top:10px;width:3px;height:40px;background:linear-gradient(#fff0,#fff8);z-index:3}.ground{position:absolute;bottom:0;left:0;right:0;height:14px;background:#111}.hud{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#31558a}.hud div{background:#08152b;padding:11px;text-align:center;font-size:.78rem}.hud b{display:block;color:var(--y);font-size:1.25rem}.controls{display:flex;gap:9px;flex-wrap:wrap;padding:12px;background:#08152b}.controls button.primary{background:var(--r);border-color:#ff5157}.websim{height:260px;position:relative;overflow:hidden;background:linear-gradient(#174a85,#07111f);border-radius:18px;margin-top:14px}.target{position:absolute;right:8%;top:20%;width:28%;height:80%;background:#050914}.anchor{position:absolute;right:20%;top:25%;width:14px;height:14px;border-radius:50%;background:var(--y);box-shadow:0 0 0 6px #ffd16622}.webhero{position:absolute;left:12%;top:38%;width:28px;height:28px;border-radius:50%;background:var(--r);box-shadow:inset 0 0 0 7px var(--b)}.shot{position:absolute;height:3px;background:#eaf6ff;transform-origin:left center;left:calc(12% + 25px);top:43%;width:0;box-shadow:0 0 7px #fff}.swingbox{height:300px;position:relative;overflow:hidden;background:linear-gradient(#174a85,#07111f);border-radius:18px;margin-top:14px}.sanchor{position:absolute;left:50%;top:28px;width:15px;height:15px;background:var(--y);border-radius:50%}.sline{position:absolute;left:calc(50% + 7px);top:35px;width:3px;height:190px;background:#eaf6ff;transform-origin:top center}.sbody{position:absolute;left:-13px;bottom:-13px;width:29px;height:29px;border-radius:50%;background:var(--r);box-shadow:inset 0 0 0 7px var(--b)}.waves{height:160px;position:relative;overflow:hidden;border-radius:16px;background:radial-gradient(circle at 28% 50%,#16427d,#07111f 60%)}.src{position:absolute;left:28%;top:50%;width:16px;height:16px;background:var(--r);border-radius:50%;z-index:2}.ring{position:absolute;left:28%;top:50%;border:2px solid #fff9;border-radius:50%;transform:translate(-50%,-50%);animation:r 2.2s linear infinite}.r2{animation-delay:.55s}.r3{animation-delay:1.1s}.r4{animation-delay:1.65s}@keyframes r{from{width:16px;height:16px;opacity:1}to{width:250px;height:250px;opacity:0}}button{min-height:46px;padding:10px 16px;border-radius:11px;border:1px solid #42658e;background:#112a4d;color:white;font-weight:800;font-size:1rem}footer{text-align:center;color:var(--m);padding:35px}@media(max-width:700px){.grid{grid-template-columns:1fr}.frames{grid-template-columns:repeat(2,1fr)}.wrap{padding:0 16px}}@media(prefers-reduced-motion:reduce){.ring{animation:none;opacity:.3}}.herochar{position:relative;width:34px;height:34px;border-radius:48%;background:var(--r);border:2px solid #07111f;box-shadow:inset 0 -10px 0 var(--b),0 5px 12px #0007}.herochar:before,.herochar:after{content:"";position:absolute;top:8px;width:7px;height:12px;background:white;border-radius:70% 20%;transform:rotate(18deg)}.herochar:before{left:7px}.herochar:after{right:7px;transform:scaleX(-1) rotate(18deg)}.fallhero,.webhero,.sbody{background:none!important;box-shadow:none!important;border-radius:0!important}.citylights{position:absolute;inset:0;background-image:radial-gradient(circle,#ffd166aa 0 1px,transparent 2px);background-size:36px 42px;opacity:.24}.guide{position:fixed;right:14px;bottom:12px;width:64px;height:78px;z-index:20;filter:drop-shadow(0 8px 10px #0008)}.thread{position:absolute;left:31px;top:-100px;width:2px;height:108px;background:#dceeff88}.spider{position:absolute;left:9px;top:8px;width:46px;height:46px}.sb{position:absolute;left:11px;top:10px;width:25px;height:29px;border-radius:50%;background:#171d2b;border:2px solid #738098}.eye{position:absolute;top:17px;width:8px;height:10px;border-radius:50%;background:white;overflow:hidden}.eye.l{left:16px}.eye.r{left:28px}.pupil{position:absolute;width:4px;height:4px;border-radius:50%;background:#111;left:2px;top:3px}.leg{position:absolute;width:20px;height:2px;background:#738098}.l1{left:-2px;top:16px;transform:rotate(25deg)}.l2{left:-4px;top:25px}.l3{left:-2px;top:34px;transform:rotate(-25deg)}.r1{right:-2px;top:16px;transform:rotate(-25deg)}.r2{right:-4px;top:25px}.r3{right:-2px;top:34px;transform:rotate(25deg)}.sec h2:after{content:"";display:block;width:54px;height:4px;margin-top:12px;border-radius:8px;background:linear-gradient(90deg,var(--r),var(--b))}@media(max-width:700px){.guide{transform:scale(.78);transform-origin:bottom right;right:4px;bottom:5px}}.why{margin:15px 0;padding:14px 16px;border:1px solid #3a5d86;border-radius:14px;background:linear-gradient(90deg,#e6242916,#1769e012)}.why b{color:var(--y)}.observe{border-left:4px solid #59d98e;background:#59d98e10;padding:11px 14px;margin-top:14px}.verdict{border:1px solid #31558a;background:#091a31;border-radius:14px;padding:13px 14px;margin-top:14px}.ropebox,.impactbox{height:240px;position:relative;overflow:hidden;border-radius:18px;background:linear-gradient(#174a85,#07111f);margin-top:14px}.ropehand{position:absolute;left:7%;top:42%;font-size:2.4rem}.rope{position:absolute;left:16%;top:50%;width:62%;height:5px;background:#eaf6ff;border-radius:9px;transform-origin:left center}.ropetip{position:absolute;left:77%;top:calc(50% - 7px);width:15px;height:15px;border-radius:50%;background:var(--y)}.wall{position:absolute;right:6%;top:8%;width:14%;height:92%;background:#050914;border-left:3px solid #4a607d}.projectile{position:absolute;left:9%;top:46%;width:20px;height:20px;border-radius:50%;background:var(--y);box-shadow:0 0 12px #ffd166aa}.impactflash{position:absolute;right:20%;top:40%;width:0;height:50px;border-radius:50%;background:#ff5a6877}.gbox{padding:18px;background:#07111f;border-radius:18px;margin-top:14px}.gbars{height:210px;display:grid;grid-template-columns:repeat(4,1fr);gap:9px;align-items:end;padding-bottom:48px}.gbar{position:relative;border-radius:10px 10px 3px 3px;background:linear-gradient(#39a9ff,#1763b0)}.gbar.hot{background:linear-gradient(#ef3340,#991624)}.gbar b{position:absolute;top:-26px;left:50%;transform:translateX(-50%)}.gbar span{position:absolute;bottom:-44px;left:50%;transform:translateX(-50%);font-size:.72rem;width:100px;text-align:center;color:var(--m)}.springviz{height:220px;position:relative;overflow:hidden;background:linear-gradient(#174a85,#07111f);border-radius:18px;margin-top:14px}.springwall{position:absolute;right:7%;top:10%;height:90%;width:15%;background:#050914}.springhero{position:absolute;left:12%;top:45%}.springline{position:absolute;left:16%;top:51%;height:4px;width:68%;background:#eaf6ff;transform-origin:left center}
-.cinematic{position:relative;min-height:360px;overflow:hidden;border-radius:24px;border:1px solid #31558a;background:linear-gradient(#1762a5 0,#102c54 48%,#07111f 100%);isolation:isolate}.cinematic:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 15%,#fff3 0 2px,transparent 3px),radial-gradient(circle at 30% 25%,#fff2 0 1px,transparent 2px);background-size:90px 80px,55px 65px;opacity:.7}.moon{position:absolute;right:8%;top:8%;width:68px;height:68px;border-radius:50%;background:#f8f2d2;box-shadow:0 0 35px #fff8}.skyline{position:absolute;left:0;right:0;bottom:0;height:48%;background:linear-gradient(90deg,#06101e 0 11%,transparent 11% 14%,#081426 14% 31%,transparent 31% 35%,#050d18 35% 48%,transparent 48% 52%,#081426 52% 72%,transparent 72% 76%,#050d18 76% 100%);filter:drop-shadow(0 -4px 10px #0005)}.speedline{position:absolute;height:2px;background:linear-gradient(90deg,transparent,#fff8,transparent);width:90px;opacity:0}.burst{position:absolute;width:8px;height:8px;border-radius:50%;background:var(--y);opacity:0}.comic{position:absolute;z-index:8;font-weight:1000;font-style:italic;letter-spacing:-.04em;color:white;text-shadow:3px 3px 0 #07111f,-2px -2px 0 #07111f;opacity:0;transform:scale(.5) rotate(-8deg)}.comic.show{animation:pop .65s cubic-bezier(.2,1.6,.4,1) forwards}@keyframes pop{50%{opacity:1;transform:scale(1.25) rotate(4deg)}100%{opacity:1;transform:scale(1) rotate(-3deg)}}.heroBig{position:absolute;width:46px;height:60px;z-index:6}.heroBig .head{position:absolute;left:8px;top:0;width:30px;height:30px;border-radius:48%;background:var(--r);border:2px solid #07111f}.heroBig .head:before,.heroBig .head:after{content:"";position:absolute;top:7px;width:7px;height:13px;background:#fff;border-radius:70% 20%}.heroBig .head:before{left:6px;transform:rotate(15deg)}.heroBig .head:after{right:6px;transform:scaleX(-1) rotate(15deg)}.heroBig .torso{position:absolute;left:11px;top:27px;width:25px;height:28px;border-radius:8px 8px 12px 12px;background:linear-gradient(var(--r) 0 55%,var(--b) 55%)}.heroBig .arm{position:absolute;top:30px;width:22px;height:7px;border-radius:7px;background:var(--r);transform-origin:3px center}.heroBig .arm.a{left:5px;transform:rotate(145deg)}.heroBig .arm.b{right:-8px;transform:rotate(-25deg)}.heroBig .legx{position:absolute;top:50px;width:24px;height:8px;border-radius:8px;background:var(--b);transform-origin:3px center}.heroBig .legx.a{left:12px;transform:rotate(125deg)}.heroBig .legx.b{left:25px;transform:rotate(45deg)}.chapterScene{margin:18px 0}.sceneHud{position:absolute;left:12px;right:12px;bottom:12px;display:flex;gap:7px;z-index:10}.sceneHud div{flex:1;background:#06101ecc;border:1px solid #ffffff24;backdrop-filter:blur(8px);padding:8px;border-radius:11px;text-align:center;font-size:.67rem}.sceneHud b{display:block;color:var(--y);font-size:1.05rem}.tapHint{text-align:center;color:#d7e8fa;font-size:.8rem;margin:8px 0 0}.shockcone{position:absolute;width:0;height:0;border-top:70px solid transparent;border-bottom:70px solid transparent;border-left:180px solid #dff5ff20;opacity:0;transform-origin:left center}.star{position:absolute;width:3px;height:3px;background:white;border-radius:50%;opacity:.7}.impactCrater{position:absolute;width:18px;height:18px;border:3px solid #111;border-radius:50%;opacity:0}.screenShake{animation:shake .35s linear}@keyframes shake{20%{transform:translateX(-5px)}40%{transform:translateX(5px)}60%{transform:translateX(-3px)}80%{transform:translateX(3px)}}@media(max-width:700px){.cinematic{min-height:420px;border-radius:18px}.heroBig{transform:scale(.9)}.sceneHud{bottom:9px}.comic{font-size:2rem}}@media(prefers-reduced-motion:reduce){.comic.show,.screenShake{animation:none}.comic{opacity:1;transform:none}}
-.canvasLab{position:relative;margin:18px 0;border-radius:22px;overflow:hidden;border:1px solid #31558a;background:#07111f}.canvasLab canvas{display:block;width:100%;height:360px;touch-action:manipulation}.canvasLabel{position:absolute;left:12px;top:12px;z-index:3;background:#06101ecc;border:1px solid #ffffff25;border-radius:999px;padding:7px 11px;font-size:.72rem;font-weight:900;letter-spacing:.08em}.canvasTip{position:absolute;left:12px;right:12px;bottom:12px;z-index:3;text-align:center;background:#06101ecc;border:1px solid #ffffff25;border-radius:12px;padding:8px;font-size:.76rem;color:#dcecff;backdrop-filter:blur(8px)}@media(max-width:700px){.canvasLab canvas{height:430px}}.canvasLab + .cinematic{display:none}.sec{overflow:hidden}.canvasLab,.ropebox,.impactbox,.gbox,.springviz{max-width:100%}.controls{overflow:visible}.controls button{flex:1 1 145px}.why,.observe,.verdict,.note{font-size:.96rem}.progressRail{position:sticky;top:0;z-index:30;display:flex;gap:5px;padding:8px 10px;background:#050914e8;backdrop-filter:blur(10px);border-bottom:1px solid #29476e;overflow-x:auto;scrollbar-width:none}.progressRail a{flex:0 0 auto;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;text-decoration:none;color:#b9c8dc;background:#0d1d39;border:1px solid #31558a;font-size:.75rem;font-weight:900}.progressRail a:first-child{background:#e62429;color:white}@media(max-width:420px){h2{font-size:2rem}.card{padding:16px}.canvasLab canvas{height:390px}.why{padding:12px}.gbar span{width:70px;font-size:.62rem}.big{font-size:2.2rem}}#fallCinema,#webSim,#soundCinema,#swingCinema{display:none!important}#fallCinema + .controls,#webSim + .controls,#swingCinema + .controls{display:none!important}.canvasLab + .cinematic{display:none!important}.landmarks{position:relative;height:180px;margin-top:14px;background:linear-gradient(#0b2342,#07111f);border-radius:16px;overflow:hidden;border:1px solid #31558a}.lm{position:absolute;bottom:24px;width:46px;text-align:center;transition:.25s}.lmshape{margin:auto;background:#385b80;border:1px solid #6e91b7;border-radius:4px 4px 0 0;transition:.25s}.lm.active .lmshape{background:#ffd166;border-color:#ffe4a0;box-shadow:0 0 18px #ffd16655}.lm span{position:absolute;top:100%;left:50%;transform:translateX(-50%);font-size:.58rem;width:82px;color:#b9c8dc;line-height:1.15;margin-top:3px}.lm.active span{color:#fff;font-weight:800}.youline{position:absolute;left:0;right:0;height:2px;background:#ff5157;bottom:24px;transition:.25s;z-index:5}.youline:before{content:"Spider-Man";position:absolute;right:5px;top:-19px;color:#ff7a7e;font-size:.65rem;font-weight:900}.reftext{margin-top:10px;padding:10px 12px;border-radius:12px;background:#07111f;color:#dcecff;font-size:.9rem}.concept{display:grid;grid-template-columns:42px 1fr;gap:10px;align-items:start;margin-top:14px}.conceptIcon{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#1769e022;border:1px solid #31558a;font-size:1.2rem}.concept b{color:#fff}.concept small{display:block;color:#b9c8dc;margin-top:2px}@media(max-width:420px){.landmarks{height:165px}.lm{width:38px}.lm span{width:65px;font-size:.52rem}}</style></head><body><nav class="progressRail" aria-label="Chapitres"><a href="#chute">1</a><a href="#toile">2</a><a href="#son">3</a><a href="#corde">4</a><a href="#impact">5</a><a href="#gforce">6</a><a href="#swing">7</a><a href="#elasticite">8</a></nav>
-<header><div class="wrap"><div class="tag">POUR IMANE ET KENZO</div><h1>La physique de <span class="red">Spider-Man</span></h1><p class="lead">Spider-Man pourrait-il vraiment se balancer entre les immeubles ? Testons ses pouvoirs avec la physique.</p><a class="cta" href="#chute">Commencer ↓</a> <a class="cta" href="labo.html" style="background:#ff7a1a;color:#1a0e04;margin-left:8px">Le labo animé →</a></div></header><main class="wrap">
-<section class="sec" id="chute"><div class="n">01 · LA CHUTE</div><h2>À quelle vitesse tombe Spider-Man ?</h2><p class="q">La gravité ajoute environ 35 km/h de vitesse chaque seconde au début de la chute.</p><div class="why"><b>La question :</b> si Spider-Man lâche sa toile, combien de temps a-t-il avant d’aller vraiment vite ?</div><div class="concept"><div class="conceptIcon">🍎</div><div><b>Idée à découvrir : la gravité accélère.</b><small>Plus il tombe longtemps, plus sa vitesse augmente. La hauteur nous donne donc le temps disponible.</small></div></div><div class="canvasLab"><div class="canvasLabel">SIMULATION TEMPS RÉEL</div><canvas id="fallCanvas"></canvas><div class="canvasTip">Touchez la scène pour relancer la chute</div></div><div class="cinematic chapterScene" id="fallCinema"><div class="moon"></div><div class="skyline"></div><div class="comic" id="fallComic" style="left:12%;top:18%">WOOOAH!</div><div class="sky" id="fallSky"><div class="citylights"></div><div class="building bl"></div><div class="building br"></div><div class="ground"></div><div class="trail" id="trail"></div><div class="fallhero" id="fallHero"><div class="heroBig"><div class="head"></div><div class="torso"></div><div class="arm a"></div><div class="arm b"></div><div class="legx a"></div><div class="legx b"></div></div></div></div><div class="hud"><div>TEMPS<b id="fallT">0,00 s</b></div><div>VITESSE<b id="fallV">0 km/h</b></div><div>CHUTE<b id="fallD">0 m</b></div></div></div><div class="controls"><button class="primary" id="fallPlay">▶ Lancer la chute</button><button id="fallReset">↺ Rejouer</button></div></div><div class="grid"><div class="card"><div class="eq">v = √(2gh)</div><label>Hauteur : <b><span id="hv">50</span> m</b></label><input id="height" class="slider" type="range" min="5" max="250" value="50"><p class="big"><span id="speed">113</span> km/h</p><div class="landmarks" id="landmarks"><div class="youline" id="youline"></div><div class="lm" data-h="46" style="left:7%"><div class="lmshape" style="height:20px"></div><span>Statue seule<br>46 m</span></div><div class="lm" data-h="93" style="left:28%"><div class="lmshape" style="height:40px"></div><span>Statue de la Liberté<br>93 m</span></div><div class="lm" data-h="115" style="left:49%"><div class="lmshape" style="height:50px"></div><span>2e étage Eiffel<br>115 m</span></div><div class="lm" data-h="330" style="left:70%"><div class="lmshape" style="height:142px"></div><span>Tour Eiffel<br>330 m</span></div><div class="lm" data-h="381" style="left:88%"><div class="lmshape" style="height:164px"></div><span>Empire State<br>381 m</span></div></div><div class="reftext" id="heightRef">50 m : un peu plus haut que la Statue de la Liberté sans son socle.</div></div><div class="card"><div class="scale"><div><b>50 km/h</b> · voiture en ville</div><div><b>110 km/h</b> · autoroute</div><div><b>~200 km/h</b> · parachutiste à plat</div></div></div></div></section>
-<section class="sec" id="toile"><div class="n">02 · LA TOILE</div><h2>À quelle vitesse doit partir la toile ?</h2><p class="q">La cible est à 30 m. Spider-Man avance à 30 m/s. Pendant que la toile vole, lui continue de bouger.</p><div class="why"><b>La question :</b> sa toile peut-elle atteindre l’immeuble avant que Spider-Man ne soit déjà beaucoup plus bas ?</div><div class="concept"><div class="conceptIcon">⏱</div><div><b>Idée à découvrir : distance = vitesse × temps.</b><small>Une fraction de seconde peut représenter plusieurs mètres quand on va très vite.</small></div></div><div class="canvasLab"><div class="canvasLabel">VITESSE DE LA TOILE</div><canvas id="webCanvas"></canvas><div class="canvasTip">Touchez pour tirer. Changez ensuite la vitesse avec le curseur.</div></div><div class="cinematic chapterScene websim" id="webSim"><div class="moon"></div><div class="skyline"></div><div class="comic" id="webComic" style="left:42%;top:13%">THWIP!</div><div class="target"></div><div class="anchor"></div><div class="webhero" id="webHero"><div class="heroBig"><div class="head"></div><div class="torso"></div><div class="arm a"></div><div class="arm b"></div><div class="legx a"></div><div class="legx b"></div></div></div><div class="shot" id="shot"></div></div><div class="controls"><button class="primary" id="shootBtn">Tirer la toile</button><button id="shootReset">↺ Rejouer</button></div><div class="grid"><div class="card"><label>Vitesse : <b><span id="wv">300</span> m/s</b></label><input id="web" class="slider" type="range" min="50" max="450" value="300"><div class="eq">temps = distance ÷ vitesse</div><p>Arrivée en <b id="time">0,10 s</b>. Spider-Man parcourt encore <b id="travel">3,0 m</b>.</p></div><div class="card"><div class="scale"><div><b>100 km/h</b> · voiture</div><div><b>300 km/h</b> · TGV</div><div><b>~900 km/h</b> · avion</div><div><b id="webkmh">1 080 km/h</b> · toile</div><div><b>~1 235 km/h</b> · son</div></div></div></div></section>
-<section class="sec" id="son"><div class="n">03 · LE SON</div><h2>« Thwip »... ou <span class="red">CRACK</span> ?</h2><p class="q">Le son va à environ 343 m/s. Au-delà, la pointe devient supersonique et peut créer une onde de choc.</p><div class="why"><b>La question :</b> si la toile part presque aussi vite que le son, est-ce qu’on entendrait vraiment seulement « thwip » ?</div><div class="concept"><div class="conceptIcon">🔊</div><div><b>Idée à découvrir : le son est lui aussi une vitesse.</b><small>Dépasser cette vitesse change la manière dont les ondes peuvent se propager.</small></div></div><div class="canvasLab"><div class="canvasLabel">MACH 1</div><canvas id="machCanvas"></canvas><div class="canvasTip">La toile accélère de subsonique à supersonique.</div></div><div class="cinematic chapterScene" id="soundCinema"><div class="moon"></div><div class="skyline"></div><div class="comic" id="soundComic" style="right:8%;top:12%">CRACK!</div><div class="waves"><span class="src"></span><span class="ring"></span><span class="ring r2"></span><span class="ring r3"></span><span class="ring r4"></span></div><div class="shockcone" id="shockcone" style="left:30%;top:32%"></div></div><div class="card" style="margin-top:14px"><p class="big">Mach <span id="mach">0,87</span></p><p id="mt">Très proche de la vitesse du son.</p></div></section>
-<section class="sec" id="corde"><div class="n">04 · LA CORDE</div><h2>Peut-on tirer une ficelle ?</h2><p class="q">Une corde se plie si on la pousse. Il faudrait probablement une petite pointe qui vole devant et tire la toile derrière elle.</p><div class="why"><b>Pourquoi on regarde ça :</b> même avec une toile très résistante, il faut encore trouver comment la lancer. Une matière flexible se comporte très différemment d’une balle.</div><div class="cinematic chapterScene ropebox" id="ropeCinema"><div class="skyline"></div><div class="comic" id="ropeComic" style="left:35%;top:10%">PLOP...</div><div class="ropehand">✊</div><div class="rope" id="rope"></div><div class="ropetip" id="ropeTip"></div><div class="wall"></div></div><div class="controls"><button class="primary" id="pushRope">Pousser la corde</button><button id="pullRope">La tirer avec une pointe</button></div><div class="observe" id="ropeObs"><b>Expérience :</b> essaye les deux. En compression, une corde flambe et se plie. En tension, elle peut transmettre une force.</div><div class="note">Comme une balle attachée à une ficelle. Mais toute la toile rencontre l'air et crée de la traînée.</div></section>
-<section class="sec" id="impact"><div class="n">05 · L’IMPACT</div><h2>Comment colle-t-elle au mur ?</h2><div class="why"><b>Pourquoi on regarde ça :</b> si la toile arrive à près de 1 000 km/h, elle ne peut pas simplement toucher le mur et devenir une ancre. Il faut absorber son énergie.</div><div class="cinematic chapterScene impactbox" id="impactCinema"><div class="skyline"></div><div class="comic" id="impactComic" style="right:17%;top:13%">BAM!</div><div class="projectile" id="proj"></div><div class="impactflash" id="flash"></div><div class="wall"></div></div><div class="controls"><button class="primary" id="impactBtn">Lancer l’impact</button></div><div class="grid"><div class="card"><p>Une pointe de <b>5 g</b> à <b>300 m/s</b> :</p><div class="eq">E = ½mv²</div><p class="big">225 J</p><p>Deux fois plus vite = quatre fois plus d'énergie.</p></div><div class="card"><p>Si elle s'arrête sur seulement <b>1 mm</b>, le modèle idéal donne environ <b>4,6 millions de g</b>.</p><div class="note">C'est le choc de la petite pointe, pas ce que ressent Spider-Man.</div></div></div></section>
-<section class="sec" id="gforce"><div class="n">06 · LES g</div><h2>Que représente 1 g ?</h2><div class="why"><b>Pourquoi on regarde ça :</b> dire « 5 g » ou « 9 g » ne veut rien dire si on ne peut pas l’imaginer. Ici on construit une échelle intuitive des accélérations.</div><div class="gbox"><div class="gbars"><div class="gbar" style="height:12%"><b>1 g</b><span>sur Terre</span></div><div class="gbar" style="height:45%"><b>~4 g</b><span>grand huit intense</span></div><div class="gbar hot" style="height:100%"><b>~9 g</b><span>pilote de chasse</span></div><div class="gbar hot" style="height:100%"><b>≫</b><span>impact bref</span></div></div></div><div class="scale"><div><b>1 g</b> · gravité terrestre</div><div><b>quelques g</b> · grande montagne russe</div><div><b>~9 g</b> · pilote de chasse entraîné</div><div><b>millions de g</b> · impact extrêmement bref</div></div><div class="note">Vitesse et accélération sont différentes. À 900 km/h dans un avion stable, tu ne sens presque pas la vitesse. Dans un grand huit plus lent, tu sens les changements de mouvement.</div></section>
-<section class="sec" id="swing"><div class="n">07 · LE SWING</div><h2>Pourquoi la toile tire-t-elle si fort ?</h2><div class="why"><b>Pourquoi on regarde ça :</b> la toile ne sert pas seulement à empêcher Spider-Man de tomber. Elle doit courber sa trajectoire, donc exercer une force vers le point d’ancrage.</div><div class="canvasLab"><div class="canvasLabel">FORCES EN MOUVEMENT</div><canvas id="swingCanvas"></canvas><div class="canvasTip">Touchez pour donner une impulsion au swing.</div></div><div class="cinematic chapterScene swingbox" id="swingCinema"><div class="moon"></div><div class="skyline"></div><div class="comic" id="swingComic" style="right:10%;top:10%">SWOOSH!</div><div class="sanchor"></div><div class="sline" id="sline"><div class="sbody"><div class="heroBig"><div class="head"></div><div class="torso"></div><div class="arm a"></div><div class="arm b"></div><div class="legx a"></div><div class="legx b"></div></div></div></div></div><div class="controls"><button class="primary" id="swingBtn">▶ Lancer le swing</button><button id="swingReset">↺ Rejouer</button></div><div class="grid"><div class="card"><div class="eq">Fᶜ = mv²/r</div><p>75 kg · 30 m/s · toile de 20 m</p><p class="big">≈ 4,1 kN</p><p>En bas du swing : environ <b>5,5 fois son poids</b>.</p></div><div class="card"><p>On accepte que Spider-Man soit surhumain. La question devient : <b>la toile et le bâtiment peuvent-ils tenir ?</b></p></div></div></section>
-<section class="sec" id="elasticite"><div class="n">08 · L’ÉLASTICITÉ</div><h2>Pourquoi la toile doit-elle s’étirer ?</h2><div class="why"><b>Pourquoi on regarde ça :</b> même si Spider-Man est très solide, une toile parfaitement rigide créerait un choc énorme. L’élasticité donne du temps et de la distance pour changer son mouvement.</div><div class="cinematic chapterScene springviz" id="springCinema"><div class="skyline"></div><div class="comic" id="springComic" style="left:38%;top:10%">BOING!</div><div class="springwall"></div><div class="springline" id="springLine"></div><div class="springhero" id="springHero"><div class="heroBig"><div class="head"></div><div class="torso"></div><div class="arm a"></div><div class="arm b"></div><div class="legx a"></div><div class="legx b"></div></div></div></div><div class="card"><label>Distance d'absorption : <b><span id="dv">2,0</span> m</b></label><input id="dist" class="slider" type="range" min=".2" max="8" step=".2" value="2"><p class="big" id="gval">≈ 23 g</p><div class="note">Plus la distance d'arrêt est grande, moins l'arrêt est brutal. Même principe qu'un airbag ou une zone déformable.</div></div></section>
-<section class="sec"><div class="n">MISSION FINALE</div><h2>À vous de jouer.</h2><p>Une toile à <b>400 m/s</b> est-elle supersonique ?</p><button id="no">Non</button> <button id="yes">Oui</button><p id="answer" class="big" style="font-size:1.5rem"></p></section>
-</main><div class="guide" id="guide" aria-hidden="true"><div class="thread"></div><div class="spider"><span class="leg l1"></span><span class="leg l2"></span><span class="leg l3"></span><span class="leg r1"></span><span class="leg r2"></span><span class="leg r3"></span><div class="sb"></div><span class="eye l"><span class="pupil"></span></span><span class="eye r"><span class="pupil"></span></span></div></div><footer>Exploration éducative. Modèles simplifiés et valeurs arrondies.</footer>
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>La Physique de la Toile</title>
+<meta name="description" content="Huit expériences interactives pour comprendre la physique d'un héros qui se balance entre les immeubles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Baloo+2:wght@400;600;800&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one column of eight chapters + a finale; each chapter is a live canvas stage framed like a lit window in a night city */
+:root{
+  --night:#0b1026; --panel:#131a3a; --line:#2a3466;
+  --ink:#f4efe4; --muted:#a3abcf;
+  --suit:#ff7a1a; --mask:#1fc8b4; --gold:#ffd23f; --warn:#ff4766;
+  --display:"Bungee","Arial Black",system-ui,sans-serif;
+  --body:"Baloo 2","Trebuchet MS",system-ui,sans-serif;
+  --mono:"DM Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+html,body{background:var(--night);color:var(--ink)}
+body{margin:0;font-family:var(--body);font-size:17px;line-height:1.5;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:var(--mask)}
+.wrap{max-width:980px;margin:0 auto;padding-inline:16px;padding-block:28px 64px;display:flex;flex-direction:column;gap:72px}
+.top{display:flex;flex-direction:column;gap:14px}
+.eyebrow{font-family:var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mask);font-size:13px;margin:0}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(34px,7.4vw,66px);line-height:1;margin:0;text-wrap:balance}
+h1 span{color:var(--suit)}
+.lede{max-width:58ch;color:var(--muted);margin:0;font-size:19px}
+.toggles{display:flex;gap:10px;flex-wrap:wrap}
+.chip{font:600 15px var(--body);background:var(--panel);color:var(--ink);border:1.5px solid var(--line);border-radius:999px;padding:6px 16px;cursor:pointer}
+.chip[aria-pressed="true"]{border-color:var(--mask);color:var(--mask)}
+nav.prog{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:rgba(11,16,38,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.prog .in{max-width:980px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:8px;overflow-x:auto}
+nav.prog a{flex:0 0 auto;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;text-decoration:none;font:400 14px var(--display);color:var(--muted);border:1.5px solid var(--line);background:var(--panel)}
+nav.prog a.done{background:var(--mask);border-color:var(--mask);color:#0b1026}
+nav.prog a.here{border-color:var(--gold);color:var(--gold)}
+nav.prog a.done.here{color:#0b1026;box-shadow:0 0 0 2px var(--gold)}
+nav.prog .count{margin-left:auto;flex:0 0 auto;font-family:var(--mono);font-size:13px;color:var(--muted);padding-left:8px}
+.scene{display:flex;flex-direction:column;gap:14px}
+.step{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--suit);margin:0}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(24px,4.6vw,40px);line-height:1.08;margin:0;text-wrap:balance}
+.hint{margin:0;max-width:62ch;font-size:18px}
+.stage{border-radius:14px;overflow:hidden;border:2px solid var(--line);background:#070b1f;box-shadow:0 0 0 6px #0f1533}
+canvas{display:block;width:100%;touch-action:none;cursor:grab;outline:none}
+canvas.pany{touch-action:pan-y}
+.readouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.readouts div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 12px;display:flex;flex-direction:column;min-width:0}
+.readouts span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.readouts b{font-family:var(--mono);font-weight:500;font-size:20px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.controls{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center}
+.btn{font:400 16px var(--display);background:var(--suit);color:#1a0e04;border:0;border-radius:10px;padding:10px 20px;min-height:46px;cursor:pointer;box-shadow:0 4px 0 #a8460a}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 #a8460a}
+.opt{font:600 16px var(--body);background:var(--panel);color:var(--ink);border:1.5px solid var(--line);border-radius:10px;padding:8px 14px;min-height:46px;cursor:pointer}
+.opt[aria-pressed="true"]{border-color:var(--suit);color:var(--suit);background:#21183a}
+.range{display:flex;align-items:center;gap:10px;font-weight:600;flex:1 1 260px;min-width:0}
+.range output{font-family:var(--mono);font-variant-numeric:tabular-nums;min-width:6.5ch;color:var(--gold)}
+input[type=range]{flex:1;accent-color:var(--suit);min-width:0;min-height:44px}
+.ref{margin:0;color:var(--muted);font-size:16px}
+.takeaway{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 16px;max-width:70ch}
+.takeaway strong{color:var(--gold);font-weight:800}
+.verdict{margin:0;display:flex;gap:10px;align-items:baseline;max-width:70ch}
+.verdict i{flex:0 0 auto;font:normal 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:2px 9px;border-radius:999px;color:#0b1026}
+.verdict i.g{background:var(--mask)}.verdict i.o{background:var(--gold)}.verdict i.r{background:var(--warn)}
+.savant{display:none;font-family:var(--mono);font-size:14px;color:var(--mask);margin:0;line-height:1.7}
+body.savant .savant{display:block}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+footer{color:var(--muted);font-size:14px;margin:0}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav class="prog" aria-label="Chapitres">
+  <div class="in">
+    <a href="#chute" data-n="1" aria-label="Chapitre 1 : la chute">1</a>
+    <a href="#toile" data-n="2" aria-label="Chapitre 2 : la toile">2</a>
+    <a href="#son" data-n="3" aria-label="Chapitre 3 : le son">3</a>
+    <a href="#corde" data-n="4" aria-label="Chapitre 4 : la corde">4</a>
+    <a href="#impact" data-n="5" aria-label="Chapitre 5 : l'impact">5</a>
+    <a href="#g" data-n="6" aria-label="Chapitre 6 : les g">6</a>
+    <a href="#swing" data-n="7" aria-label="Chapitre 7 : le swing">7</a>
+    <a href="#elasticite" data-n="8" aria-label="Chapitre 8 : l'élasticité">8</a>
+    <a href="#mission" data-n="9" aria-label="Mission finale">★</a>
+    <span class="count" id="count">0/8</span>
+  </div>
+</nav>
+<div class="wrap">
+  <header class="top">
+    <p class="eyebrow">Pour Imane et Kenzo</p>
+    <h1>La physique de <span>la toile</span></h1>
+    <p class="lede">Un héros qui se balance entre les immeubles, c'est possible ? Huit expériences pour tester ses pouvoirs, puis une mission pour traverser la ville.</p>
+    <div class="toggles">
+      <button class="chip" id="snd" aria-pressed="true">Son : oui</button>
+      <button class="chip" id="sav" aria-pressed="false">Mode savant : non</button>
+    </div>
+  </header>
+
+  <!-- 1 -->
+  <section class="scene" id="chute">
+    <p class="step">01 · La chute</p>
+    <h2>À quelle vitesse tombe le héros ?</h2>
+    <p class="hint">Attrape le héros et monte-le le long de l'immeuble. Lâche-le, et regarde ses ombres : une toutes les 0,25 seconde.</p>
+    <div class="stage"><canvas id="c1" tabindex="0" aria-label="Animation : le héros tombe d'un immeuble sur un coussin"></canvas></div>
+    <div class="readouts">
+      <div><span>Temps</span><b id="r1t">0,00 s</b></div>
+      <div><span>Vitesse</span><b id="r1v">0 km/h</b></div>
+      <div><span>Chute</span><b id="r1d">0,0 m</b></div>
+      <div><span>Aussi vite que</span><b id="r1c">un piéton</b></div>
+    </div>
+    <div class="controls">
+      <label class="range" for="h1">Hauteur <input type="range" id="h1" min="5" max="100" step="5" value="50"><output id="h1v">50 m</output></label>
+      <button class="btn" id="b1">Lâcher !</button>
+    </div>
+    <p class="ref" id="ref1">50 m : un peu plus haut que la Statue de la Liberté sans son socle (46 m).</p>
+    <p class="takeaway" id="t1" aria-live="polite">Regarde les ombres : à chaque quart de seconde, l'écart grandit. La gravité ajoute environ <strong>35 km/h</strong> chaque seconde.</p>
+    <p class="verdict"><i class="g">Verdict</i>Depuis 50 m, le héros a un peu plus de 3 secondes pour agir. Assez pour tirer une toile.</p>
+    <p class="savant">v = √(2gh) · g = 9,81 m/s² · freinage sur une distance d : a = v² ÷ (2d)</p>
+  </section>
+
+  <!-- 2 -->
+  <section class="scene" id="toile">
+    <p class="step">02 · La toile</p>
+    <h2>La grande course jusqu'au mur</h2>
+    <p class="hint">Six concurrents, 30 mètres. Règle la vitesse de la toile, puis touche la piste pour le départ. Pendant que la toile vole, le héros continue d'avancer.</p>
+    <div class="stage"><canvas id="c2" class="pany" tabindex="0" aria-label="Course entre le héros, une voiture, un TGV, un avion, la toile et le son"></canvas></div>
+    <div class="readouts">
+      <div><span>Toile</span><b id="r2v">300 m/s</b></div>
+      <div><span>En km/h</span><b id="r2k">1 080 km/h</b></div>
+      <div><span>Temps de vol</span><b id="r2f">0,10 s</b></div>
+      <div><span>Le héros avance de</span><b id="r2h">3,0 m</b></div>
+    </div>
+    <div class="controls">
+      <label class="range" for="v2">Vitesse <input type="range" id="v2" min="20" max="600" step="10" value="300"><output id="v2v">300 m/s</output></label>
+      <button class="btn" id="b2">Partez !</button>
+    </div>
+    <p class="takeaway" id="t2" aria-live="polite">Une fraction de seconde, c'est déjà plusieurs mètres quand on va vite. <strong>Distance = vitesse × temps.</strong></p>
+    <p class="verdict"><i class="o">Verdict</i>Il faut une toile ultra-rapide : à 300 m/s, elle va plus vite qu'un avion de ligne.</p>
+    <p class="savant">temps = distance ÷ vitesse · 30 m ÷ 300 m/s = 0,10 s · le héros à 30 m/s parcourt 30 × 0,10 = 3 m</p>
+  </section>
+
+  <!-- 3 -->
+  <section class="scene" id="son">
+    <p class="step">03 · Le son</p>
+    <h2>« Thwip »… ou CRACK ?</h2>
+    <p class="hint">Tire vers la gauche pour armer le lance-toile, puis lâche. Les cercles bleus sont le son. Va plus vite que lui (343 m/s) et regarde ce qui se forme.</p>
+    <div class="stage"><canvas id="c3" class="pany" tabindex="0" aria-label="Animation : la toile part vers un mur, avec les ondes sonores"></canvas></div>
+    <div class="readouts">
+      <div><span>Vitesse</span><b id="r3v">300 m/s</b></div>
+      <div><span>En km/h</span><b id="r3k">1 080 km/h</b></div>
+      <div><span>Mach</span><b id="r3m">0,87</b></div>
+      <div><span>Le bruit</span><b id="r3b">thwip</b></div>
+    </div>
+    <div class="controls">
+      <label class="range" for="v3">Vitesse <input type="range" id="v3" min="50" max="600" step="10" value="300"><output id="v3v">300 m/s</output></label>
+      <button class="btn" id="b3">Tirer !</button>
+    </div>
+    <p class="takeaway" id="t3" aria-live="polite">Sous 343 m/s, les ondes partent devant la toile : petit « thwip ». Au-dessus, elles s'empilent en <strong>cône</strong> : c'est le bang supersonique, comme le claquement d'un fouet.</p>
+    <p class="verdict"><i class="o">Verdict</i>À 300 m/s, la toile fait « thwip »… de justesse. Un peu plus vite, ce serait un vrai CRACK.</p>
+    <p class="savant">Mach = v ÷ 343 m/s · angle du cône : sin μ = 1 ÷ Mach</p>
+  </section>
+
+  <!-- 4 -->
+  <section class="scene" id="corde">
+    <p class="step">04 · La corde</p>
+    <h2>Peut-on lancer une ficelle ?</h2>
+    <p class="hint">Choisis une méthode, puis attrape le bout de la corde avec le doigt et bouge-le vers la droite.</p>
+    <div class="stage"><canvas id="c4" tabindex="0" aria-label="Expérience : pousser ou tirer une corde"></canvas></div>
+    <div class="readouts">
+      <div><span>Méthode</span><b id="r4m">Pousser</b></div>
+      <div><span>Corde bien droite</span><b id="r4s">100 %</b></div>
+      <div><span>Résultat</span><b id="r4r">à tester</b></div>
+    </div>
+    <div class="controls">
+      <button class="opt" id="b4p" aria-pressed="true">Pousser la corde</button>
+      <button class="opt" id="b4t" aria-pressed="false">La tirer avec une pointe</button>
+      <button class="btn" id="b4">Essayer !</button>
+    </div>
+    <p class="takeaway" id="t4" aria-live="polite">Une corde poussée se plie : on dit qu'elle <strong>flambe</strong>. Tirée par une petite pointe, elle reste tendue et suit, comme une balle attachée à une ficelle.</p>
+    <p class="verdict"><i class="o">Verdict</i>Le lance-toile doit tirer une petite pointe qui emmène la toile derrière elle.</p>
+    <p class="savant">En compression, une corde ne transmet presque aucune force. En tension, elle transmet la force sur toute sa longueur.</p>
+  </section>
+
+  <!-- 5 -->
+  <section class="scene" id="impact">
+    <p class="step">05 · L'impact</p>
+    <h2>Comment la toile colle-t-elle au mur ?</h2>
+    <p class="hint">La pointe pèse 5 grammes, comme une pièce de monnaie. Choisis sa vitesse et lance-la. Chaque carré vaut 10 joules d'énergie.</p>
+    <div class="stage"><canvas id="c5" class="pany" tabindex="0" aria-label="Animation : une petite pointe frappe un mur, avec son énergie en carrés"></canvas></div>
+    <div class="readouts">
+      <div><span>Vitesse</span><b id="r5v">300 m/s</b></div>
+      <div><span>Énergie</span><b id="r5e">225 J</b></div>
+      <div><span>Comme</span><b id="r5c">2,5 balles de tennis</b></div>
+      <div><span>Choc de la pointe</span><b id="r5g">4,6 millions de g</b></div>
+    </div>
+    <div class="controls">
+      <label class="range" for="v5">Vitesse <input type="range" id="v5" min="50" max="600" step="10" value="300"><output id="v5v">300 m/s</output></label>
+      <button class="btn" id="b5">Lancer !</button>
+    </div>
+    <p class="takeaway" id="t5" aria-live="polite">Essaie 150 m/s puis 300 m/s. <strong>Deux fois plus vite = quatre fois plus d'énergie.</strong> La pointe doit encaisser tout ça en s'arrêtant sur 1 mm.</p>
+    <p class="verdict"><i class="r">Verdict</i>La pointe subit des millions de g. Il faudrait un matériau incroyable, ou une pointe qui s'écrase pour absorber le choc.</p>
+    <p class="savant">E = ½mv² · m = 0,005 kg · arrêt sur 1 mm : a = v² ÷ (2 × 0,001 m) · balle de tennis servie ≈ 90 J</p>
+  </section>
+
+  <!-- 6 -->
+  <section class="scene" id="g">
+    <p class="step">06 · Les g</p>
+    <h2>Que veut dire « 9 g » ?</h2>
+    <p class="hint">Choisis une situation. Regarde le héros sur son siège et la balance sous lui : 1 g, c'est ton poids normal.</p>
+    <div class="stage"><canvas id="c6" class="pany" tabindex="0" aria-label="Comparaison des accélérations, du canapé au pilote de chasse"></canvas></div>
+    <div class="readouts">
+      <div><span>Situation</span><b id="r6n">Canapé</b></div>
+      <div><span>Accélération</span><b id="r6g">1 g</b></div>
+      <div><span>La balance indique</span><b id="r6k">75 kg</b></div>
+      <div><span>Autant que</span><b id="r6c">un adulte</b></div>
+    </div>
+    <div class="controls" id="g6opts"></div>
+    <p class="takeaway" id="t6" aria-live="polite">Compare le canapé et l'avion de ligne : les deux font <strong>1 g</strong>. On ne sent pas la vitesse, on sent les <strong>changements</strong> de vitesse.</p>
+    <p class="verdict"><i class="g">Verdict</i>Un pilote entraîné supporte environ 9 g. Le héros, lui, est surhumain : on lui accorde un peu plus.</p>
+    <p class="savant">g ressenti = accélération ÷ 9,81 m/s² · virage : a = v² ÷ r · poids ressenti = masse × g</p>
+  </section>
+
+  <!-- 7 -->
+  <section class="scene" id="swing">
+    <p class="step">07 · Le swing</p>
+    <h2>Pourquoi la toile tire-t-elle si fort ?</h2>
+    <p class="hint">Tire le héros sur le côté et lâche-le, ou lance-le avec de l'élan. Regarde les flèches : la flèche orange est son poids, la blanche est la force de la toile.</p>
+    <div class="stage"><canvas id="c7" tabindex="0" aria-label="Pendule : le héros se balance au bout de la toile, avec les forces"></canvas></div>
+    <div class="readouts">
+      <div><span>Vitesse</span><b id="r7v">0 km/h</b></div>
+      <div><span>Force de la toile</span><b id="r7t">0,7 kN</b></div>
+      <div><span>Fois son poids</span><b id="r7x">1,0 ×</b></div>
+      <div><span>Record</span><b id="r7m">1,0 ×</b></div>
+    </div>
+    <div class="controls">
+      <label class="range" for="v7">Élan <input type="range" id="v7" min="5" max="40" step="1" value="30"><output id="v7v">30 m/s</output></label>
+      <label class="range" for="l7">Toile <input type="range" id="l7" min="10" max="40" step="1" value="20"><output id="l7v">20 m</output></label>
+      <button class="btn" id="b7">Lancer !</button>
+    </div>
+    <p class="takeaway" id="t7" aria-live="polite">Pour courber la trajectoire, la toile doit tirer vers le point d'accroche. À 30 m/s avec une toile de 20 m, elle tire environ <strong>5,6 fois son poids</strong> en bas.</p>
+    <p class="verdict"><i class="o">Verdict</i>La toile doit tenir plus de 5 fois le poids du héros. Et l'immeuble aussi !</p>
+    <p class="savant">tension en bas = m × (v² ÷ r + g) · 75 kg × (30² ÷ 20 + 9,81) ≈ 4,1 kN</p>
+  </section>
+
+  <!-- 8 -->
+  <section class="scene" id="elasticite">
+    <p class="step">08 · L'élasticité</p>
+    <h2>Pourquoi la toile doit-elle s'étirer ?</h2>
+    <p class="hint">Deux héros tombent de 46 m, la hauteur de la Statue de la Liberté. À gauche, une toile rigide. À droite, ta toile : règle de combien elle s'étire.</p>
+    <div class="stage"><canvas id="c8" class="pany" tabindex="0" aria-label="Comparaison : toile rigide et toile élastique qui arrêtent une chute"></canvas></div>
+    <div class="readouts">
+      <div><span>Vitesse avant l'arrêt</span><b id="r8v">108 km/h</b></div>
+      <div><span>Toile rigide</span><b id="r8a">229 g</b></div>
+      <div><span>Ta toile</span><b id="r8b">23 g</b></div>
+    </div>
+    <div class="controls">
+      <label class="range" for="d8">Étirement <input type="range" id="d8" min="0.4" max="8" step="0.2" value="2"><output id="d8v">2,0 m</output></label>
+      <button class="btn" id="b8">Lâcher !</button>
+    </div>
+    <p class="takeaway" id="t8" aria-live="polite">Plus la distance d'arrêt est grande, moins l'arrêt est brutal. C'est le principe de l'<strong>airbag</strong> et des zones qui s'écrasent à l'avant des voitures.</p>
+    <p class="verdict"><i class="g">Verdict</i>Une toile qui s'étire de quelques mètres rend le choc supportable pour un super-héros.</p>
+    <p class="savant">a = v² ÷ (2d) · v = 30 m/s · d = 2 m → a ≈ 225 m/s² ≈ 23 g</p>
+  </section>
+
+  <!-- Finale -->
+  <section class="scene" id="mission">
+    <p class="step">Mission finale</p>
+    <h2>Traverse la ville !</h2>
+    <p class="hint">Tout ce que tu as appris, d'un coup. Garde le doigt appuyé (ou la barre espace) : la toile s'accroche au toit qui brille. Lâche pour t'envoler. Ne touche pas la rue.</p>
+    <div class="stage"><canvas id="c9" tabindex="0" aria-label="Jeu : se balancer d'immeuble en immeuble avec la toile"></canvas></div>
+    <div class="readouts">
+      <div><span>Distance</span><b id="r9d">0 m</b></div>
+      <div><span>Vitesse</span><b id="r9v">0 km/h</b></div>
+      <div><span>Pic de g</span><b id="r9g">1,0 g</b></div>
+      <div><span>Record</span><b id="r9b">0 m</b></div>
+    </div>
+    <div class="controls">
+      <label class="range" for="k9">Toile <input type="range" id="k9" min="0" max="100" step="1" value="55"><output id="k9v">normale</output></label>
+    </div>
+    <p class="takeaway" id="t9" aria-live="polite">Toile <strong>rigide</strong> : choc brutal, l'aiguille des g s'affole. Toile <strong>élastique</strong> : arrêt doux, mais elle s'étire et le héros descend plus bas. Trouve le bon réglage, puis bats le record !</p>
+    <p class="savant">tension = k × allongement · g ressenti = tension ÷ (m × g) · en vol libre on ressent 0 g (apesanteur)</p>
+  </section>
+
+  <footer>Exploration éducative. Modèles simplifiés et valeurs arrondies.</footer>
+</div>
+
 <script>
-const $=x=>document.getElementById(x);
-function calcFall(){let h=+$("height").value;$("hv").textContent=h;$("speed").textContent=Math.round(Math.sqrt(19.62*h)*3.6);let max=400,b=Math.min(155,h/max*155);$("youline").style.bottom=(24+b)+"px";document.querySelectorAll(".lm").forEach(el=>el.classList.toggle("active",h>=+el.dataset.h));let txt=h<46?"C'est la hauteur d'un immeuble de quelques étages.":h<93?"Tu dépasses la Statue de la Liberté sans son piédestal (46 m).":h<115?"Tu dépasses toute la Statue de la Liberté, socle compris (93 m).":h<330?"Tu dépasses le 2e étage de la tour Eiffel (115 m).":h<381?"Tu approches ou dépasses la tour Eiffel (330 m).":"Tu dépasses même la hauteur architecturale de l'Empire State Building (381 m).";$("heightRef").textContent=h+" m : "+txt}
-function calcWeb(){let v=+$("web").value,t=30/v,m=v/343;if($("shockcone"))$("shockcone").style.opacity=m>=1?"1":"0";if(m>=1&&$("soundComic"))$("soundComic").classList.add("show");$("wv").textContent=v;$("time").textContent=t.toFixed(2).replace(".",",")+" s";$("travel").textContent=(30*t).toFixed(1).replace(".",",")+" m";$("webkmh").textContent=Math.round(v*3.6).toLocaleString("fr-FR")+" km/h";$("mach").textContent=m.toFixed(2).replace(".",",");$("mt").textContent=m>=1?"Supersonique : une onde de choc devient possible.":"Encore subsonique, mais proche de Mach 1."}
-function calcStretch(){let x=+$("dist").value,g=(450/x)/9.81;$("dv").textContent=x.toFixed(1).replace(".",",");$("gval").textContent="≈ "+g.toFixed(g>99?0:1).replace(".",",")+" g"}
-let fallRAF=null,fallStart=0;
-function resetFall(){if(fallRAF)cancelAnimationFrame(fallRAF);fallRAF=null;$("fallHero").style.transform="translateY(0)";$("trail").style.height="40px";$("fallT").textContent="0,00 s";$("fallV").textContent="0 km/h";$("fallD").textContent="0 m";$("fallPlay").textContent="▶ Lancer la chute"}
-function playFall(){resetFall();$("fallComic").classList.remove("show");void $("fallComic").offsetWidth;$("fallComic").classList.add("show");fallStart=performance.now();$("fallPlay").textContent="⏸ En cours";function tick(now){let H=+$("height").value,t=(now-fallStart)/1000,d=4.905*t*t,v=9.81*t,maxPx=$("fallSky").clientHeight-76;if(d>=H){d=H;t=Math.sqrt(2*H/9.81);v=9.81*t}$("fallHero").style.transform="translateY("+Math.min(maxPx,d/H*maxPx)+"px) rotate("+t*80+"deg)";$("trail").style.height=(40+Math.min(110,v*3))+"px";$("fallT").textContent=t.toFixed(2).replace(".",",")+" s";$("fallV").textContent=Math.round(v*3.6)+" km/h";$("fallD").textContent=d.toFixed(1).replace(".",",")+" m";if(d<H)fallRAF=requestAnimationFrame(tick);else $("fallPlay").textContent="▶ Rejouer"}fallRAF=requestAnimationFrame(tick)}
-let shotRAF=null;
-function resetShot(){if(shotRAF)cancelAnimationFrame(shotRAF);shotRAF=null;$("shot").style.width="0";$("webHero").style.transform="translate(0,0) rotate(0)"}
-function shoot(){resetShot();$("webComic").classList.remove("show");void $("webComic").offsetWidth;$("webComic").classList.add("show");let start=performance.now(),v=+$("web").value,total=30/v,duration=Math.max(.35,total*3);function tick(now){let p=Math.min(1,(now-start)/(duration*1000));$("shot").style.width=(p*62)+"%";$("webHero").style.transform="translate("+(p*55)+"px,"+(p*65)+"px) rotate("+(p*45)+"deg)";if(p<1)shotRAF=requestAnimationFrame(tick)}shotRAF=requestAnimationFrame(tick)}
-let swingRAF=null;
-function resetSwing(){if(swingRAF)cancelAnimationFrame(swingRAF);swingRAF=null;$("sline").style.transform="rotate(-48deg)"}
-function swing(){resetSwing();$("swingComic").classList.remove("show");void $("swingComic").offsetWidth;$("swingComic").classList.add("show");let st=performance.now();function tick(now){let t=(now-st)/1000,a=-48+96*(.5-.5*Math.cos(Math.min(1,t/2.2)*Math.PI));$("sline").style.transform="rotate("+a+"deg)";if(t<2.2)swingRAF=requestAnimationFrame(tick)}swingRAF=requestAnimationFrame(tick)}
-$("height").addEventListener("input",calcFall);$("web").addEventListener("input",calcWeb);$("dist").addEventListener("input",calcStretch);$("fallPlay").addEventListener("click",playFall);$("fallReset").addEventListener("click",resetFall);$("shootBtn").addEventListener("click",shoot);$("shootReset").addEventListener("click",resetShot);$("swingBtn").addEventListener("click",swing);$("swingReset").addEventListener("click",resetSwing);$("yes").addEventListener("click",()=>$("answer").textContent="Oui. 400 m/s ≈ Mach 1,17.");$("no").addEventListener("click",()=>$("answer").textContent="Non : 400 m/s dépasse 343 m/s.");
-document.addEventListener("pointermove",e=>{let g=$("guide"),r=g.getBoundingClientRect(),dx=Math.max(-1,Math.min(1,(e.clientX-(r.left+r.width/2))/160)),dy=Math.max(-1,Math.min(1,(e.clientY-(r.top+r.height/2))/160));document.querySelectorAll(".pupil").forEach(p=>p.style.transform="translate("+(dx*2)+"px,"+(dy*2)+"px)")});$("guide").addEventListener("click",()=>$("guide").animate([{transform:"rotate(0)"},{transform:"rotate(-10deg) translateY(-8px)"},{transform:"rotate(8deg)"},{transform:"rotate(0)"}],{duration:550}));$("pushRope").addEventListener("click",()=>{$("ropeComic").textContent="PLOP...";$("ropeComic").classList.remove("show");void $("ropeComic").offsetWidth;$("ropeComic").classList.add("show");$("rope").animate([{transform:"scaleX(1)"},{transform:"scaleX(.65) rotate(8deg)"},{transform:"scaleX(.45) rotate(-12deg)"},{transform:"scaleX(.7) rotate(10deg)"}],{duration:900,fill:"forwards"});$("ropeObs").innerHTML="<b>Compression :</b> la corde se déforme au lieu de pousser proprement la pointe."});$("pullRope").addEventListener("click",()=>{$("ropeComic").textContent="ZIP!";$("ropeComic").classList.remove("show");void $("ropeComic").offsetWidth;$("ropeComic").classList.add("show");$("rope").animate([{transform:"scaleX(.55)"},{transform:"scaleX(1)"}],{duration:650,fill:"forwards"});$("ropeTip").animate([{transform:"translateX(-180px)"},{transform:"translateX(0)"}],{duration:650});$("ropeObs").innerHTML="<b>Tension :</b> une pointe peut tirer la corde derrière elle. C’est beaucoup plus plausible."});$("impactBtn").addEventListener("click",()=>{$("impactComic").classList.remove("show");void $("impactComic").offsetWidth;$("impactComic").classList.add("show");$("impactCinema").classList.remove("screenShake");$("proj").animate([{left:"9%"},{left:"77%"}],{duration:650,easing:"cubic-bezier(.3,0,.8,1)"});setTimeout(()=>{$("impactCinema").classList.add("screenShake");$("flash").animate([{width:"0",opacity:1},{width:"90px",opacity:.8},{width:"130px",opacity:0}],{duration:500})},610)});$("dist").addEventListener("input",()=>{$("springComic").classList.remove("show");void $("springComic").offsetWidth;$("springComic").classList.add("show");let x=+$("dist").value,p=Math.min(1,x/8);$("springLine").style.transform="scaleX("+(0.45+0.55*p)+")";$("springHero").style.transform="translateX("+(p*120)+"px)"});
-function makeCanvas(id,draw,tap){const c=$(id),ctx=c.getContext("2d");let W=0,H=0,dpr=1,last=performance.now(),state={t:0,burst:0};function resize(){dpr=Math.min(2,window.devicePixelRatio||1);W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}resize();window.addEventListener("resize",resize);c.addEventListener("pointerdown",e=>{state.t=0;state.burst=1;if(tap)tap(state,e)});function loop(now){let dt=Math.min(.033,(now-last)/1000);last=now;state.t+=dt;ctx.clearRect(0,0,W,H);draw(ctx,W,H,state,dt);requestAnimationFrame(loop)}requestAnimationFrame(loop);return state}
-function bg(ctx,W,H){let g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,"#1762a5");g.addColorStop(.55,"#102c54");g.addColorStop(1,"#050914");ctx.fillStyle=g;ctx.fillRect(0,0,W,H);ctx.fillStyle="#f8f2d2";ctx.beginPath();ctx.arc(W*.82,H*.15,28,0,7);ctx.fill();ctx.fillStyle="#050914";for(let i=0;i<9;i++){let x=i*W/8-10,h=60+(i%4)*30;ctx.fillRect(x,H-h,W/10+12,h)}}
-function mask(ctx,x,y,r,rot=0){ctx.save();ctx.translate(x,y);ctx.rotate(rot);ctx.fillStyle="#e62429";ctx.beginPath();ctx.arc(0,0,r,0,7);ctx.fill();ctx.fillStyle="#1769e0";ctx.fillRect(-r*.7,r*.35,r*1.4,r*.55);ctx.fillStyle="white";ctx.beginPath();ctx.ellipse(-r*.35,-r*.18,r*.18,r*.34,-.25,0,7);ctx.ellipse(r*.35,-r*.18,r*.18,r*.34,.25,0,7);ctx.fill();ctx.restore()}
-let fallState=makeCanvas("fallCanvas",(ctx,W,H,s)=>{bg(ctx,W,H);let T=Math.sqrt(2*(+$("height").value)/9.81),t=s.t%(T+.8),d=Math.min(+$("height").value,4.905*t*t),p=d/(+$("height").value),x=W*.48+Math.sin(t*3)*8,y=45+p*(H-115);for(let i=0;i<10;i++){ctx.strokeStyle="rgba(255,255,255,"+(i/18)+")";ctx.beginPath();ctx.moveTo(x-70-i*8,y-15-i*4);ctx.lineTo(x-20-i*4,y-5);ctx.stroke()}mask(ctx,x,y,16,t*2.4);ctx.fillStyle="#fff";ctx.font="800 15px system-ui";ctx.fillText(Math.round(9.81*t*3.6)+" km/h",16,30);ctx.fillStyle="#ffd166";ctx.fillText(d.toFixed(1)+" m",16,51)});
-let webState=makeCanvas("webCanvas",(ctx,W,H,s)=>{bg(ctx,W,H);let v=+$("web").value,dur=Math.max(.25,30/v*2.4),p=Math.min(1,(s.t%dur)/dur),x1=W*.15,y1=H*.62,x2=W*.83,y2=H*.28,x=x1+(x2-x1)*p,y=y1+(y2-y1)*p;ctx.strokeStyle="#eaf6ff";ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x,y);ctx.stroke();for(let i=0;i<16;i++){ctx.fillStyle="rgba(255,255,255,"+(1-i/16)*.5+")";ctx.fillRect(x-i*9,y+i*2,18,2)}mask(ctx,x1,y1+Math.min(45,p*45),15,p);ctx.fillStyle="#ffd166";ctx.beginPath();ctx.arc(x,y,5,0,7);ctx.fill();ctx.fillStyle="white";ctx.font="800 15px system-ui";ctx.fillText(Math.round(v*3.6)+" km/h",15,28)});
-makeCanvas("machCanvas",(ctx,W,H,s)=>{bg(ctx,W,H);let cyc=(s.t%5)/5,v=180+260*cyc,m=v/343,x=W*(.12+.72*cyc),y=H*.48;for(let i=0;i<5;i++){let r=(s.t*85+i*48)%220;ctx.strokeStyle="rgba(220,245,255,"+(1-r/220)*.45+")";ctx.beginPath();ctx.arc(x-r*.12,y,r,0,7);ctx.stroke()}if(m>=1){ctx.fillStyle="rgba(210,240,255,.14)";ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-180,y-90);ctx.lineTo(x-180,y+90);ctx.closePath();ctx.fill()}ctx.fillStyle="#ffd166";ctx.beginPath();ctx.arc(x,y,6,0,7);ctx.fill();ctx.fillStyle="white";ctx.font="900 18px system-ui";ctx.fillText("Mach "+m.toFixed(2),15,30);if(m>=1){ctx.fillStyle="#ff5157";ctx.font="1000 28px system-ui";ctx.fillText("CRACK!",W*.58,H*.22)}});
-let swingKick=0;makeCanvas("swingCanvas",(ctx,W,H,s)=>{bg(ctx,W,H);let ax=W*.5,ay=55,L=Math.min(190,H*.48),a=Math.sin(s.t*1.8)*.85+swingKick*Math.exp(-s.t*.8),x=ax+Math.sin(a)*L,y=ay+Math.cos(a)*L;ctx.strokeStyle="#eaf6ff";ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(ax,ay);ctx.lineTo(x,y);ctx.stroke();ctx.fillStyle="#ffd166";ctx.beginPath();ctx.arc(ax,ay,7,0,7);ctx.fill();mask(ctx,x,y,16,-a);let vx=Math.cos(a)*55;ctx.strokeStyle="#59d98e";ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+vx,y-15);ctx.stroke();ctx.fillStyle="white";ctx.font="800 14px system-ui";ctx.fillText("vitesse →",x+10,y-25);ctx.strokeStyle="#ff5157";ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+(ax-x)*.25,y+(ay-y)*.25);ctx.stroke();ctx.fillStyle="#ff8a8e";ctx.fillText("tension",x+(ax-x)*.12,y+(ay-y)*.12)},()=>{swingKick=.55});
-calcFall();calcWeb();calcStretch();resetFall();resetShot();resetSwing();
-</script></body></html>
+(()=>{
+'use strict';
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const G=9.81,M=75,SND=343;
+const $=id=>document.getElementById(id);
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const fmt=(n,d=0)=>Number(n).toLocaleString('fr-FR',{minimumFractionDigits:d,maximumFractionDigits:d});
+function hash(a,b,c){let h=Math.imul(a|0,374761393)+Math.imul(b|0,668265263)+Math.imul(c|0,1442695041);h=Math.imul(h^(h>>>13),1274126177);h^=h>>>16;return (h>>>0)/4294967296;}
+function buzz(ms){try{if(navigator.vibrate)navigator.vibrate(ms)}catch(e){}}
+function ptr(e,cv){const r=cv.getBoundingClientRect();return [e.clientX-r.left,e.clientY-r.top];}
+function cap(cv,e){try{cv.setPointerCapture(e.pointerId)}catch(_){}}
+
+/* ---------- Progress ---------- */
+const done=new Set();
+try{(JSON.parse(localStorage.getItem('toile-done')||'[]')).forEach(n=>done.add(n))}catch(e){}
+function paintDone(){document.querySelectorAll('nav.prog a').forEach(a=>a.classList.toggle('done',done.has(+a.dataset.n)));$('count').textContent=[...done].filter(n=>n<=8).length+'/8';}
+function markDone(n){if(done.has(n))return;done.add(n);paintDone();try{localStorage.setItem('toile-done',JSON.stringify([...done]))}catch(e){}}
+paintDone();
+{const links=[...document.querySelectorAll('nav.prog a')];const io=new IntersectionObserver(es=>{for(const e of es)if(e.isIntersecting){links.forEach(a=>a.classList.toggle('here',a.getAttribute('href')==='#'+e.target.id));}},{rootMargin:'-45% 0px -50% 0px'});document.querySelectorAll('section.scene').forEach(s=>io.observe(s));}
+
+/* ---------- Sound ---------- */
+const Snd={ctx:null,on:true,
+  init(){
+    if(this.ctx){if(this.ctx.state==='suspended')this.ctx.resume();return;}
+    try{
+      const C=window.AudioContext||window.webkitAudioContext;this.ctx=new C();
+      const len=this.ctx.sampleRate*2,buf=this.ctx.createBuffer(1,len,this.ctx.sampleRate),d=buf.getChannelData(0);
+      for(let i=0;i<len;i++)d[i]=Math.random()*2-1;this.noise=buf;
+      const src=this.ctx.createBufferSource();src.buffer=buf;src.loop=true;
+      const f=this.ctx.createBiquadFilter();f.type='bandpass';f.frequency.value=400;f.Q.value=0.8;
+      const g=this.ctx.createGain();g.gain.value=0;src.connect(f).connect(g).connect(this.ctx.destination);src.start();
+      this.wg=g;this.wf=f;
+    }catch(e){this.ctx=null}
+  },
+  ok(){return this.ctx&&this.on},
+  wind(l){if(!this.ctx||!this.wg)return;const t=this.ctx.currentTime;this.wg.gain.setTargetAtTime(this.on?Math.min(0.3,l*0.3):0,t,0.08);this.wf.frequency.setTargetAtTime(250+Math.min(1.5,l)*1400,t,0.1);},
+  hiss(dur,freq,vol){const c=this.ctx,t=c.currentTime,s=c.createBufferSource();s.buffer=this.noise;const f=c.createBiquadFilter();f.type='highpass';f.frequency.value=freq;const g=c.createGain();g.gain.setValueAtTime(vol,t);g.gain.exponentialRampToValueAtTime(0.0001,t+dur);s.connect(f).connect(g).connect(c.destination);s.start(t,Math.random());s.stop(t+dur+0.05);},
+  tone(f0,f1,dur,vol,type){const c=this.ctx,t=c.currentTime,o=c.createOscillator(),g=c.createGain();o.type=type||'sine';o.frequency.setValueAtTime(f0,t);o.frequency.exponentialRampToValueAtTime(f1,t+dur);g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(vol,t+0.008);g.gain.exponentialRampToValueAtTime(0.0001,t+dur);o.connect(g).connect(c.destination);o.start(t);o.stop(t+dur+0.05);},
+  thwip(){if(!this.ok())return;this.tone(1500,240,0.15,0.3,'triangle');this.hiss(0.08,3500,0.12);},
+  crack(){if(!this.ok())return;this.hiss(0.35,900,0.9);this.tone(160,35,0.45,0.7,'sine');},
+  thump(p){if(!this.ok())return;this.tone(150,38,0.35,0.25+0.5*p,'sine');this.hiss(0.12,600,0.15*p);},
+  boing(){if(!this.ok())return;this.tone(180,420,0.3,0.3,'sine');},
+  beep(hi){if(!this.ok())return;this.tone(hi?1320:660,hi?1320:660,0.14,0.2,'square');},
+  ding(){if(!this.ok())return;this.tone(880,1320,0.25,0.15,'triangle');}
+};
+document.addEventListener('pointerdown',()=>Snd.init(),{once:true});
+$('snd').addEventListener('click',e=>{Snd.on=!Snd.on;Snd.init();e.currentTarget.setAttribute('aria-pressed',Snd.on);e.currentTarget.textContent='Son : '+(Snd.on?'oui':'non');});
+$('sav').addEventListener('click',e=>{const on=document.body.classList.toggle('savant');e.currentTarget.setAttribute('aria-pressed',on);e.currentTarget.textContent='Mode savant : '+(on?'oui':'non');});
+
+/* ---------- Stage helper ---------- */
+const scenes=[];
+function stage(cv,ratio,minH,maxH){
+  const st={cv,c:cv.getContext('2d'),W:300,H:200,shake:0,visible:true};
+  const resize=()=>{const dpr=Math.min(2,window.devicePixelRatio||1),w=cv.parentElement.clientWidth||300,h=Math.round(clamp(w*ratio,minH,maxH));
+    if(st.W===w&&st.H===h&&st.dpr===dpr)return;cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);cv.style.height=h+'px';st.c.setTransform(dpr,0,0,dpr,0,0);st.W=w;st.H=h;st.dpr=dpr;};
+  resize();new ResizeObserver(resize).observe(cv.parentElement);
+  new IntersectionObserver(es=>{st.visible=es[0].isIntersecting},{threshold:0.02}).observe(cv);
+  return st;
+}
+function shakeIt(st){if(st.shake>0.3&&!reduce)st.c.translate((Math.random()-.5)*st.shake,(Math.random()-.5)*st.shake);st.shake*=0.86;}
+
+/* ---------- Drawing helpers ---------- */
+const STARS=Array.from({length:90},(_,i)=>({x:hash(i,1,2),y:hash(i,3,4)*0.6,r:0.4+hash(i,5,6)*1.3,p:hash(i,7,8)*6.28}));
+let T=0;
+function sky(c,W,H,moon){
+  const g=c.createLinearGradient(0,0,0,H);g.addColorStop(0,'#060a1d');g.addColorStop(1,'#1d2658');c.fillStyle=g;c.fillRect(0,0,W,H);
+  for(const s of STARS){c.globalAlpha=0.35+0.55*Math.abs(Math.sin(T*0.8+s.p));c.fillStyle='#fff6dc';c.fillRect(s.x*W,s.y*H,s.r,s.r);}
+  c.globalAlpha=1;
+  if(moon){c.fillStyle='rgba(255,236,190,.12)';c.beginPath();c.arc(moon[0],moon[1],moon[2]*2.2,0,7);c.fill();c.fillStyle='#ffeccc';c.beginPath();c.arc(moon[0],moon[1],moon[2],0,7);c.fill();c.fillStyle='#e9d4ad';c.beginPath();c.arc(moon[0]-moon[2]*0.3,moon[1]+moon[2]*0.2,moon[2]*0.18,0,7);c.fill();}
+}
+function building(c,x,y,w,h,seed,cell){
+  c.fillStyle='#141a3c';c.fillRect(x,y,w,h);c.fillStyle='#232d63';c.fillRect(x,y,w,3);
+  const cols=Math.max(1,Math.floor((w-6)/cell)),rows=Math.max(0,Math.floor((h-10)/(cell*1.35))),ox=x+(w-cols*cell)/2+cell*0.2;
+  for(let r=0;r<rows;r++)for(let k=0;k<cols;k++){const lit=hash(seed,r,k)<0.36;c.fillStyle=lit?'rgba(255,214,120,.85)':'rgba(64,76,138,.45)';c.fillRect(ox+k*cell,y+9+r*cell*1.35,cell*0.58,cell*0.78);}
+}
+function skyline(c,W,H,off,base,col,scale){
+  c.fillStyle=col;const step=34*scale;const i0=Math.floor(off/step)-1;
+  for(let i=i0;i<i0+W/step+3;i++){const h=(40+hash(i,77,3)*110)*scale,w=step*(0.7+hash(i,77,4)*0.3);c.fillRect(i*step-off,base-h,w,h);}
+}
+function brick(c,x,W,H){c.fillStyle='#4a2236';c.fillRect(x,0,W-x,H);c.fillStyle='rgba(11,16,38,.45)';for(let y=0,r=0;y<H;y+=14,r++)for(let bx=x+(r%2?-12:0);bx<W;bx+=24){c.fillRect(Math.max(x,bx),y,24,1.5);if(bx>=x)c.fillRect(bx,y,1.5,14);}}
+function seg(c,a,b,x,y){c.beginPath();c.moveTo(a,b);c.lineTo(x,y);c.stroke();}
+function rr(c,x,y,w,h,r){c.beginPath();if(c.roundRect)c.roundRect(x,y,w,h,r);else c.rect(x,y,w,h);}
+function arrow(c,x1,y1,x2,y2,col,w){const a=Math.atan2(y2-y1,x2-x1),L=Math.hypot(x2-x1,y2-y1);if(L<4)return;c.strokeStyle=col;c.fillStyle=col;c.lineWidth=w;c.lineCap='round';seg(c,x1,y1,x2-Math.cos(a)*w*2,y2-Math.sin(a)*w*2);c.beginPath();c.moveTo(x2,y2);c.lineTo(x2-Math.cos(a-0.45)*w*4,y2-Math.sin(a-0.45)*w*4);c.lineTo(x2-Math.cos(a+0.45)*w*4,y2-Math.sin(a+0.45)*w*4);c.closePath();c.fill();}
+function dart(c,x,y,ang,sz){c.save();c.translate(x,y);c.rotate(ang||0);c.fillStyle='#fff';c.beginPath();c.moveTo(sz,0);c.lineTo(-sz*0.6,-sz*0.55);c.lineTo(-sz*0.3,0);c.lineTo(-sz*0.6,sz*0.55);c.closePath();c.fill();c.restore();}
+/* Original hero: orange suit, teal goggle band. Returns the hand position for the web. */
+function hero(c,x,y,s,o={}){
+  const rot=o.rot||0;c.save();c.translate(x,y);c.rotate(rot);if(o.sx||o.sy)c.scale(o.sx||1,o.sy||1);c.lineCap='round';c.lineJoin='round';
+  const k=o.kick||0,t=T,P=Math.PI;
+  c.strokeStyle='#2a3478';c.lineWidth=s*0.15;
+  if(o.pose==='sit'){seg(c,-s*0.07,0,s*0.25,s*0.02);seg(c,s*0.25,s*0.02,s*0.25,s*0.36);seg(c,s*0.07,0,s*0.32,s*0.02);seg(c,s*0.32,s*0.02,s*0.32,s*0.36);}
+  else{seg(c,-s*0.07,0,-s*0.13-k*s*0.1,s*0.42);seg(c,s*0.07,0,s*0.14+k*s*0.14,s*0.4);}
+  let a1,a2;
+  if(o.pose==='flail'){a1=-P/2-0.7+Math.sin(t*22)*0.5;a2=-P/2+0.7+Math.cos(t*19)*0.5;}
+  else if(o.pose==='reach'){a1=o.arm-rot;a2=a1+2.5;}
+  else if(o.pose==='cheer'){a1=-P/2+0.5;a2=-P/2-0.5;}
+  else if(o.pose==='sit'){a1=0.5;a2=0.9;}
+  else{a1=P/2-0.3;a2=P/2+0.3;}
+  const sy=-s*0.34;
+  c.strokeStyle='#d9611a';c.lineWidth=s*0.11;seg(c,0,sy,Math.cos(a2)*s*0.4,sy+Math.sin(a2)*s*0.4);
+  c.fillStyle='#ff7a1a';rr(c,-s*0.17,-s*0.44,s*0.34,s*0.48,s*0.11);c.fill();
+  c.fillStyle='#1fc8b4';c.fillRect(-s*0.17,-s*0.08,s*0.34,s*0.07);
+  c.fillStyle='#fff2d6';c.beginPath();c.arc(0,-s*0.27,s*0.055,0,7);c.fill();
+  const hx=Math.cos(a1)*s*0.42,hy=sy+Math.sin(a1)*s*0.42;
+  c.strokeStyle='#ff7a1a';c.lineWidth=s*0.11;seg(c,0,sy,hx,hy);
+  c.fillStyle='#1fc8b4';c.beginPath();c.arc(hx,hy,s*0.06,0,7);c.fill();
+  c.fillStyle='#ff7a1a';c.beginPath();c.arc(0,-s*0.6,s*0.18,0,7);c.fill();
+  c.save();c.beginPath();c.arc(0,-s*0.6,s*0.18,0,7);c.clip();c.fillStyle='#1fc8b4';c.fillRect(-s*0.2,-s*0.68,s*0.4,s*0.12);c.restore();
+  for(const gx of [-0.075,0.075]){c.fillStyle='#fff';c.beginPath();c.arc(gx*s,-s*0.62,s*0.05,0,7);c.fill();c.fillStyle='#10163a';c.beginPath();c.arc(gx*s+s*0.012,-s*0.615+(o.droop||0)*s*0.03,s*0.022,0,7);c.fill();}
+  c.restore();
+  return [x+Math.cos(rot)*hx-Math.sin(rot)*hy,y+Math.sin(rot)*hx+Math.cos(rot)*hy];
+}
+function burst(c,x,y,txt,size,fill,alpha){
+  c.save();c.globalAlpha=clamp(alpha,0,1);c.translate(x,y);c.font=size+'px Bungee, "Arial Black", sans-serif';
+  const w=c.measureText(txt).width,rx=w*0.72+size*0.7,ry=size*1.25,n=14;
+  c.beginPath();for(let i=0;i<n*2;i++){const a=i*Math.PI/n,f=i%2?0.78:1.08;c.lineTo(Math.cos(a)*rx*f,Math.sin(a)*ry*f);}c.closePath();
+  c.fillStyle=fill;c.fill();c.lineWidth=3;c.strokeStyle='#0b1026';c.stroke();
+  c.textAlign='center';c.textBaseline='middle';c.fillStyle='#0b1026';c.fillText(txt,0,size*0.06);c.restore();
+}
+function addParts(arr,x,y,n,spd,cols,up){for(let i=0;i<n;i++){const a=up?(-Math.PI*Math.random()):Math.random()*6.28,v=spd*(0.3+Math.random());arr.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,life:0,max:0.5+Math.random()*0.6,col:cols[i%cols.length],r:1.5+Math.random()*2.5});}}
+function stepParts(arr,dt,gpx){for(let i=arr.length-1;i>=0;i--){const p=arr[i];p.life+=dt;p.vy+=gpx*dt;p.x+=p.vx*dt;p.y+=p.vy*dt;if(p.life>p.max)arr.splice(i,1);}}
+function drawParts(c,arr){for(const p of arr){c.globalAlpha=1-p.life/p.max;c.fillStyle=p.col;c.fillRect(p.x-p.r/2,p.y-p.r/2,p.r,p.r);}c.globalAlpha=1;}
+function mono(c,size,w){c.font=(w||500)+' '+size+'px "DM Mono", ui-monospace, monospace';}
+function disp(c,size){c.font=size+'px Bungee, "Arial Black", sans-serif';}
+function speedName(k){if(k<6)return 'un piéton';if(k<25)return 'un vélo';if(k<50)return 'une voiture en ville';if(k<110)return 'plus qu’une voiture en ville';if(k<200)return 'plus que l’autoroute';if(k<900)return 'plus qu’un parachutiste';if(k<1235)return 'plus qu’un avion de ligne';return 'plus que le son';}
+
+/* =========================================================
+   1 — La chute
+   ========================================================= */
+{
+const s1=stage($('c1'),0.6,360,480),cv=$('c1');
+const STOP=1.8,CUSH=2;
+const A={h0:50,y:50,v:0,t:0,phase:'aim',drag:false,ghosts:[],gT:0,landV:0,stopG:0,bt:0,pen0:0,parts:[]};
+const geo=()=>{const W=s1.W,H=s1.H,ground=H-30,top=40,ppm=(ground-top)/104,bx=Math.max(48,W*0.07),bw=clamp(W*0.2,78,170),hx=bx+bw+Math.max(36,W*0.07),s=clamp(H*0.1,32,48);return{W,H,ground,ppm,bx,bw,hx,s,Y:m=>ground-m*ppm};};
+function ref(h){if(h<=10)return h+' m : un immeuble de 3 étages environ.';if(h<=30)return h+' m : un immeuble de '+Math.round(h/3)+' étages environ.';if(h<46)return h+' m : un peu moins que la Statue de la Liberté sans son socle (46 m).';if(h<=50)return h+' m : à peu près la Statue de la Liberté sans son socle (46 m).';if(h<90)return h+' m : un grand immeuble de '+Math.round(h/3)+' étages environ.';if(h<=95)return h+' m : la Statue de la Liberté avec son socle, jusqu’à la torche (93 m).';return h+' m : un peu plus que la Statue de la Liberté avec son socle (93 m).';}
+function rd(){$('r1t').textContent=fmt(A.t,2)+' s';$('r1v').textContent=fmt(A.v*3.6)+' km/h';$('r1d').textContent=fmt(Math.max(0,A.h0-Math.max(A.y,CUSH)),1)+' m';$('r1c').textContent=speedName(A.v*3.6);}
+function reset(){A.phase='aim';A.y=A.h0;A.v=0;A.t=0;A.ghosts=[];A.parts=[];rd();}
+function setH(h){A.h0=clamp(Math.round(h/5)*5,5,100);$('h1').value=A.h0;$('h1v').textContent=A.h0+' m';$('ref1').textContent=ref(A.h0);if(A.phase!=='fall'&&A.phase!=='land')reset();}
+function drop(){Snd.init();if(A.phase==='fall'||A.phase==='land')return;reset();A.phase='fall';A.ghosts=[{y:A.h0,t:0}];A.gT=0;Snd.tone(600,300,0.2,0.08,'triangle');}
+cv.addEventListener('pointerdown',e=>{if(A.phase==='fall'||A.phase==='land')return;A.drag=true;cap(cv,e);const g=geo();setH((g.ground-ptr(e,cv)[1])/g.ppm);});
+cv.addEventListener('pointermove',e=>{if(!A.drag)return;const g=geo();setH((g.ground-ptr(e,cv)[1])/g.ppm);});
+const up=()=>{if(!A.drag)return;A.drag=false;drop();};
+cv.addEventListener('pointerup',up);cv.addEventListener('pointercancel',up);
+cv.addEventListener('keydown',e=>{if(e.key==='ArrowUp'){setH(A.h0+5);e.preventDefault();}else if(e.key==='ArrowDown'){setH(A.h0-5);e.preventDefault();}else if(e.key===' '||e.key==='Enter'){drop();e.preventDefault();}});
+$('h1').addEventListener('input',e=>setH(+e.target.value));
+$('b1').addEventListener('click',drop);
+function update(dt){
+  if(A.phase==='fall'){
+    A.t+=dt;A.v+=G*dt;A.y-=A.v*dt;A.gT+=dt;
+    if(A.gT>=0.25){A.gT-=0.25;A.ghosts.push({y:A.y,t:Math.round(A.t*4)/4});}
+    if(A.y<=CUSH){
+      A.y=CUSH;A.phase='land';A.landV=A.v;A.stopG=A.v*A.v/(2*STOP)/G;
+      s1.shake=Math.min(18,A.v/2);Snd.thump(Math.min(1,A.v/45));buzz(Math.min(140,Math.round(A.v*3)));
+      const g=geo();addParts(A.parts,g.hx,g.ground-CUSH*g.ppm*0.4,Math.round(10+A.v),A.v*6,['#1fc8b4','#fff2d6','#ffd23f'],true);
+    }
+    rd();
+  }else if(A.phase==='land'){
+    const a=A.landV*A.landV/(2*STOP);A.v=Math.max(0,A.v-a*dt);A.y-=A.v*dt;
+    if(A.v<=0){A.phase='bounce';A.bt=0;A.pen0=CUSH-A.y;rd();markDone(1);
+      const k=A.landV*3.6;
+      $('t1').innerHTML=`Depuis <strong>${A.h0} m</strong> : ${fmt(A.t,2)} s de chute et <strong>${fmt(k)} km/h</strong> à l'arrivée (${speedName(k)}). Le coussin le freine sur ${fmt(STOP,1)} m : environ <strong>${fmt(A.stopG)} g</strong>. ${A.stopG>15?'Beaucoup trop pour un humain : il faudrait un coussin bien plus épais.':'Supportable pour un super-héros entraîné.'}`;}
+  }else if(A.phase==='bounce'){
+    A.bt+=dt;A.y=CUSH-A.pen0*Math.exp(-3.2*A.bt)*Math.cos(9*A.bt);
+    if(A.bt>1.6){A.phase='rest';A.y=CUSH;Snd.ding();}
+  }
+  stepParts(A.parts,dt,500);
+  return A.phase==='fall'?A.v/45:0;
+}
+function gauge(c,cx,cy,r,kmh){
+  const a0=Math.PI*0.8,sw=Math.PI*1.4,ang=v=>a0+clamp(v/250,0,1)*sw;
+  c.fillStyle='rgba(11,16,38,.82)';c.beginPath();c.arc(cx,cy,r+10,0,7);c.fill();
+  c.lineWidth=r*0.14;c.lineCap='butt';
+  for(const [a,b,col] of [[0,50,'#1fc8b4'],[50,110,'#ffd23f'],[110,200,'#ff7a1a'],[200,250,'#ff4766']]){c.strokeStyle=col;c.globalAlpha=0.85;c.beginPath();c.arc(cx,cy,r,ang(a),ang(b));c.stroke();}
+  c.globalAlpha=1;mono(c,Math.max(9,r*0.17));c.fillStyle='#a3abcf';c.textAlign='center';c.textBaseline='middle';
+  for(const v of [0,50,110,200]){const a=ang(v);c.fillText(v,cx+Math.cos(a)*r*0.7,cy+Math.sin(a)*r*0.7);}
+  const a=ang(kmh);c.strokeStyle='#f4efe4';c.lineWidth=3;c.lineCap='round';seg(c,cx,cy,cx+Math.cos(a)*r*0.95,cy+Math.sin(a)*r*0.95);
+  c.fillStyle='#f4efe4';c.beginPath();c.arc(cx,cy,4,0,7);c.fill();
+  mono(c,Math.max(13,r*0.32),500);c.fillText(fmt(kmh),cx,cy+r*0.48);mono(c,Math.max(9,r*0.15));c.fillStyle='#a3abcf';c.fillText('km/h',cx,cy+r*0.78);
+}
+function draw(){
+  const c=s1.c,g=geo(),{W,H,ground,ppm,bx,bw,hx,s,Y}=g;
+  c.save();shakeIt(s1);
+  sky(c,W,H,null);skyline(c,W,H,0,ground,'#10163a',0.9);
+  const bTop=Y(102);building(c,bx,bTop,bw,ground-bTop,7,clamp(bw/7,9,15));
+  mono(c,10);c.fillStyle='#a3abcf';c.textAlign='right';c.textBaseline='middle';
+  for(let m=0;m<=100;m+=10){const y=Y(m);c.fillRect(bx-6,y,6,1);if(m%20===0)c.fillText(m+' m',bx-9,y);}
+  c.fillStyle='#0e1330';c.fillRect(0,ground,W,H-ground);c.fillStyle='rgba(255,210,63,.5)';for(let x=8;x<W;x+=40)c.fillRect(x,ground+14,20,3);
+  const ch=Math.min(CUSH,Math.max(0.15,A.y))*ppm,cw=Math.max(70,s*1.8)+(CUSH*ppm-ch)*1.6;
+  rr(c,hx-cw/2,ground-ch,cw,ch,10);c.fillStyle='#1fc8b4';c.fill();c.save();c.clip();c.fillStyle='rgba(255,242,214,.55)';for(let x=hx-cw/2-20;x<hx+cw/2;x+=18)c.fillRect(x,ground-ch,8,ch);c.restore();
+  const hipY=y=>Y(y)-0.42*s;
+  if(A.phase==='aim'){
+    c.fillStyle='#2a3466';c.fillRect(bx+bw,Y(A.h0),hx-bx-bw+s*0.25,5);
+    c.setLineDash([5,6]);c.strokeStyle='rgba(244,239,228,.35)';c.lineWidth=1.5;seg(c,hx+s*0.6,Y(A.h0),hx+s*0.6,ground-CUSH*ppm);c.setLineDash([]);
+    disp(c,16);c.fillStyle='#ffd23f';c.textAlign='left';c.textBaseline='middle';c.fillText(A.h0+' m',hx+s*0.6+8,(Y(A.h0)+ground)/2);
+  }
+  for(const gh of A.ghosts){if(gh.t===0)continue;c.globalAlpha=0.22;hero(c,hx,hipY(gh.y),s,{pose:'flail'});c.globalAlpha=1;
+    if(Math.round(gh.t*4)%2===0){mono(c,10);c.fillStyle='rgba(244,239,228,.7)';c.textAlign='left';c.textBaseline='middle';c.fillText(fmt(gh.t,1)+' s',hx+s*0.45,hipY(gh.y)-s*0.3);}}
+  if(A.phase==='fall'&&A.v>6){c.strokeStyle='rgba(244,239,228,.45)';c.lineWidth=1.5;const n=reduce?3:Math.min(16,Math.round(A.v/2.5));const hy=hipY(A.y);for(let i=0;i<n;i++){const x=hx+(Math.random()-.5)*s*1.6,y=hy-s*0.9-Math.random()*s;seg(c,x,y,x,y-A.v*1.6);}}
+  const pose=A.phase==='fall'?'flail':(A.phase==='aim'?(A.drag?'cheer':'stand'):'cheer');
+  hero(c,hx,hipY(A.y),s,{pose,rot:A.phase==='fall'?Math.sin(T*9)*0.08:0,kick:A.phase==='fall'?Math.sin(T*16):0});
+  if(A.phase==='aim'&&!A.drag){disp(c,14);c.fillStyle='#f4efe4';c.textAlign='center';c.textBaseline='alphabetic';c.fillText('Glisse-moi !',hx,hipY(A.y)-s*1.0);}
+  drawParts(c,A.parts);
+  if(A.phase==='bounce'||A.phase==='rest')burst(c,Math.min(W-90,hx+Math.max(80,s*2.4)),ground-CUSH*ppm-s*1.4,fmt(A.stopG)+' g',18,A.stopG>15?'#ff4766':'#ffd23f',A.phase==='bounce'?A.bt*3:1);
+  const r=clamp(W*0.085,44,70);gauge(c,W-r-20,r+24,r,A.v*3.6);
+  c.restore();
+}
+rd();scenes.push({st:s1,update,draw});
+}
+
+/* =========================================================
+   2 — La course
+   ========================================================= */
+{
+const s2=stage($('c2'),0.55,330,440),cv=$('c2');
+const SLOW=4;
+const L=[{n:'Héros',v:30,k:'hero'},{n:'Voiture',v:27.8,k:'car'},{n:'TGV',v:83,k:'tgv'},{n:'Avion',v:250,k:'plane'},{n:'Toile',v:300,k:'web'},{n:'Son',v:343,k:'sound'}];
+const R={phase:'ready',t:0,cd:0,fin:[],lastBeep:4};
+const geo=()=>{const W=s2.W,H=s2.H,left=clamp(W*0.2,76,120),right=W-28,top=30,laneH=(H-top-34)/6;return{W,H,left,right,top,laneH,ppm:(right-left)/30};};
+function rd(){const v=L[4].v;$('r2v').textContent=v+' m/s';$('r2k').textContent=fmt(v*3.6)+' km/h';$('r2f').textContent=fmt(30/v,2)+' s';$('r2h').textContent=fmt(30*30/v,1)+' m';$('v2v').textContent=v+' m/s';$('v2').value=v;}
+function setV(v){if(R.phase==='run'||R.phase==='count')return;L[4].v=clamp(Math.round(v/10)*10,20,600);R.phase='ready';rd();}
+function start(){Snd.init();if(R.phase==='run'||R.phase==='count')return;R.phase='count';R.cd=3;R.lastBeep=4;R.t=0;R.fin=[];}
+$('v2').addEventListener('input',e=>setV(+e.target.value));$('b2').addEventListener('click',start);
+cv.addEventListener('pointerup',start);
+cv.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){start();e.preventDefault();}else if(e.key==='ArrowRight'){setV(L[4].v+10);}else if(e.key==='ArrowLeft'){setV(L[4].v-10);}});
+function update(dt){
+  if(R.phase==='count'){R.cd-=dt;const s=Math.ceil(R.cd);if(s<R.lastBeep&&s>0){R.lastBeep=s;Snd.beep(false);}if(R.cd<=0){R.phase='run';R.t=0;Snd.beep(true);Snd.thwip();}}
+  else if(R.phase==='run'){
+    R.t+=dt/SLOW;
+    L.forEach((l,i)=>{if(!R.fin.includes(i)&&l.v*R.t>=30){R.fin.push(i);if(l.k==='web'){Snd.ding();buzz(20);}}});
+    if(R.fin.length===L.length){R.phase='done';markDone(2);const w=L[4].v,place=R.fin.indexOf(4)+1;
+      $('t2').innerHTML=`La toile arrive <strong>${place===1?'1re':place+'e'}</strong> en <strong>${fmt(30/w,2)} s</strong>. Pendant ce temps, le héros a avancé de <strong>${fmt(900/w,1)} m</strong>${900/w>5?' : il risque de rater sa cible !':' : il est presque au même endroit.'} La voiture met ${fmt(30/27.8,2)} s.`;}
+  }
+  return 0;
+}
+function icon(c,l,x,y,h,t){
+  c.save();c.translate(x,y);
+  if(l.k==='hero'){hero(c,-h*0.2,h*0.15,h*0.9,{pose:'cheer',rot:0.35,kick:Math.sin(T*14)});}
+  else if(l.k==='car'){c.fillStyle='#a3abcf';rr(c,-h*0.9,-h*0.15,h*0.9,h*0.3,4);c.fill();rr(c,-h*0.65,-h*0.38,h*0.45,h*0.26,4);c.fill();c.fillStyle='#0b1026';for(const wx of [-0.72,-0.18]){c.beginPath();c.arc(wx*h,h*0.17,h*0.11,0,7);c.fill();}}
+  else if(l.k==='tgv'){c.fillStyle='#e8ecf7';c.beginPath();c.moveTo(-h*1.8,-h*0.2);c.lineTo(-h*0.3,-h*0.2);c.quadraticCurveTo(h*0.15,-h*0.18,h*0.15,h*0.2);c.lineTo(-h*1.8,h*0.2);c.closePath();c.fill();c.fillStyle='#1fc8b4';c.fillRect(-h*1.8,h*0.02,h*1.9,h*0.06);}
+  else if(l.k==='plane'){c.fillStyle='#f4efe4';rr(c,-h*1.2,-h*0.1,h*1.3,h*0.2,h*0.1);c.fill();c.beginPath();c.moveTo(-h*0.6,0);c.lineTo(-h*0.85,-h*0.45);c.lineTo(-h*0.65,-h*0.45);c.lineTo(-h*0.3,0);c.fill();c.beginPath();c.moveTo(-h*1.1,0);c.lineTo(-h*1.25,-h*0.3);c.lineTo(-h*1.1,-h*0.3);c.lineTo(-h*0.95,0);c.fill();}
+  else if(l.k==='web'){dart(c,0,0,0,h*0.32);}
+  else if(l.k==='sound'){c.strokeStyle='#7fe3ff';c.lineWidth=2;for(let i=0;i<3;i++){c.globalAlpha=1-i*0.3;c.beginPath();c.arc(-i*h*0.25,0,h*0.42,-1.1,1.1);c.stroke();}c.globalAlpha=1;}
+  c.restore();
+}
+function draw(){
+  const c=s2.c,g=geo(),{W,H,left,right,top,laneH,ppm}=g;
+  c.save();shakeIt(s2);
+  sky(c,W,H,null);
+  for(let i=0;i<6;i++){c.fillStyle=i%2?'rgba(42,52,102,.35)':'rgba(19,26,58,.6)';c.fillRect(0,top+i*laneH,W,laneH);}
+  for(let i=0;i<Math.ceil(laneH*6/8);i++){c.fillStyle=i%2?'#f4efe4':'#0b1026';c.fillRect(right,top+i*8,5,8);c.fillStyle=i%2?'#0b1026':'#f4efe4';c.fillRect(right+5,top+i*8,5,8);}
+  c.strokeStyle='rgba(163,171,207,.5)';c.lineWidth=1;seg(c,left,top,left,top+laneH*6);
+  mono(c,10);c.fillStyle='#a3abcf';c.textAlign='center';c.textBaseline='top';for(let m=0;m<=30;m+=10)c.fillText(m+' m',left+m*ppm,top+laneH*6+6);
+  const running=R.phase==='run'||R.phase==='done';
+  L.forEach((l,i)=>{
+    const cy=top+(i+0.5)*laneH,pos=running?Math.min(30,l.v*R.t):0,x=left+pos*ppm;
+    if(l.k==='web'&&running){c.strokeStyle='#eaf4ff';c.lineWidth=1.5;c.beginPath();for(let k=0;k<=20;k++){const f=k/20,xx=left+(x-left)*f;const yy=cy+Math.sin(f*14-T*30)*2*Math.sin(f*Math.PI);k?c.lineTo(xx,yy):c.moveTo(xx,yy);}c.stroke();}
+    icon(c,l,x,cy,Math.min(laneH*0.75,34),T);
+    c.fillStyle=i%2?'#1a2150':'#111735';c.fillRect(0,cy-laneH/2,left-4,laneH);
+    disp(c,Math.min(14,laneH*0.36));c.textAlign='left';c.textBaseline='middle';c.fillStyle=l.k==='web'?'#ffd23f':'#f4efe4';c.fillText(l.n,8,cy-laneH*0.14);
+    mono(c,10);c.fillStyle='#a3abcf';c.fillText(fmt(l.v*3.6)+' km/h',8,cy+laneH*0.22);
+    const fi=R.fin.indexOf(i);
+    if(fi>=0){const col=fi===0?'#ffd23f':fi===1?'#e8ecf7':fi===2?'#ff7a1a':'#a3abcf';c.fillStyle=col;c.beginPath();c.arc(right-18,cy,Math.min(11,laneH*0.3),0,7);c.fill();disp(c,Math.min(12,laneH*0.3));c.fillStyle='#0b1026';c.textAlign='center';c.fillText(fi+1,right-18,cy+1);
+      mono(c,11);const tt=fmt(30/l.v,2)+' s',tw=c.measureText(tt).width;c.fillStyle='rgba(11,16,38,.85)';c.fillRect(right-38-tw,cy-9,tw+8,18);c.fillStyle='#f4efe4';c.textAlign='right';c.fillText(tt,right-34,cy);}
+  });
+  if(R.phase==='count'){const n=Math.ceil(R.cd);burst(c,W/2,H/2,String(n),40,'#ffd23f',1);}
+  if(R.phase==='run'){mono(c,12);c.fillStyle='#7fe3ff';c.textAlign='right';c.textBaseline='top';c.fillText('Ralenti ×'+SLOW+' · '+fmt(Math.min(R.t,30/27.8),2)+' s',W-12,8);}
+  if(R.phase==='ready'){mono(c,12);c.fillStyle='#a3abcf';c.textAlign='left';c.textBaseline='top';c.fillText('Touche la piste pour le départ',left+8,8);}
+  c.restore();
+}
+rd();scenes.push({st:s2,update,draw});
+}
+
+/* =========================================================
+   3 — Le son
+   ========================================================= */
+{
+const s3=stage($('c3'),0.5,320,430),cv=$('c3');
+const B={v:300,phase:'aim',aiming:false,downX:0,pull:0,simT:0,tipM:0,heroM:0,rings:[],last:0,parts:[],hitT:0,slow:16,E:0};
+const geo=()=>{const W=s3.W,H=s3.H,s=clamp(H*0.13,34,52),hip=H*0.55,hx0=Math.max(56,W*0.09),wall=W-Math.max(46,W*0.07),hand0=hx0+s*0.42,ppm=(wall-hand0)/30;return{W,H,s,hip,hx0,hand0,wall,ppm,handY:hip-s*0.34};};
+function rd(){const v=B.v,m=v/SND;$('r3v').textContent=v+' m/s';$('r3k').textContent=fmt(v*3.6)+' km/h';$('r3m').textContent=fmt(m,2);$('r3b').textContent=m>=1?'CRACK !':'thwip';$('v3v').textContent=v+' m/s';$('v3').value=v;}
+function setV(v){B.v=clamp(Math.round(v/10)*10,50,600);rd();}
+function fire(){Snd.init();if(B.phase==='fly')return;B.phase='fly';B.simT=0;B.tipM=0;B.heroM=0;B.rings=[];B.last=0;B.parts=[];B.slow=1.7*B.v/30;if(B.v>=SND){Snd.crack();buzz(80);s3.shake=8;}else Snd.thwip();}
+cv.addEventListener('pointerdown',e=>{if(B.phase==='fly')return;B.aiming=true;B.phase='aim';B.downX=ptr(e,cv)[0];B.pull=0;cap(cv,e);});
+cv.addEventListener('pointermove',e=>{if(!B.aiming)return;const mp=s3.W*0.3;B.pull=clamp(B.downX-ptr(e,cv)[0],0,mp);if(B.pull>4)setV(50+B.pull/mp*550);});
+cv.addEventListener('pointerup',()=>{if(!B.aiming)return;B.aiming=false;fire();});
+cv.addEventListener('pointercancel',()=>{B.aiming=false;B.pull=0;});
+cv.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){setV(B.v+10);e.preventDefault();}else if(e.key==='ArrowLeft'){setV(B.v-10);e.preventDefault();}else if(e.key===' '||e.key==='Enter'){fire();e.preventDefault();}});
+$('v3').addEventListener('input',e=>{setV(+e.target.value);if(B.phase!=='fly')B.phase='aim';});
+$('b3').addEventListener('click',fire);
+function update(dt){
+  if(B.phase==='fly'||B.phase==='after'){
+    B.simT+=dt/B.slow;
+    if(B.phase==='fly'){
+      B.tipM=Math.min(30,B.v*B.simT);B.heroM=30*Math.min(B.simT,30/B.v);
+      while(B.last+0.6<=B.tipM){B.last+=0.6;B.rings.push({x:B.last,t:B.last/B.v});}
+      if(B.tipM>=30){B.phase='after';B.hitT=0;const g=geo();B.E=0.5*0.005*B.v*B.v;markDone(3);
+        s3.shake=clamp(B.v/35,3,16);addParts(B.parts,g.wall,g.handY,Math.round(clamp(B.v/10,10,60)),B.v*0.9+80,['#ffd23f','#fff2d6','#ff7a1a']);
+        Snd.thump(Math.min(1,B.v/600));buzz(40);
+        const m=B.v/SND;
+        $('t3').innerHTML=m>=1?`<strong>CRACK !</strong> À ${B.v} m/s (Mach ${fmt(m,2)}), la pointe va plus vite que son propre bruit : les ondes s'empilent en cône. C'est ce qui fait claquer un fouet.`:`<strong>Thwip.</strong> À ${B.v} m/s (Mach ${fmt(m,2)}), le son part devant la toile. Il faut encore ${SND-B.v} m/s pour passer le mur du son.`;}
+    }else{B.hitT+=dt;if(B.hitT>2.6)B.phase='done';}
+  }
+  stepParts(B.parts,dt,400);return 0;
+}
+function draw(){
+  const c=s3.c,g=geo(),{W,H,s,hip,hx0,hand0,wall,ppm,handY}=g;
+  c.save();shakeIt(s3);
+  sky(c,W,H,[W*0.55,H*0.2,Math.min(26,H*0.06)]);
+  skyline(c,W,H,0,H,'#10163a',1.1);skyline(c,W,H,17,H,'#141b44',0.7);
+  brick(c,wall,W,H);
+  c.strokeStyle='rgba(255,210,63,.6)';c.lineWidth=2;for(const rad of [8,16,24]){c.beginPath();c.arc(wall,handY,rad,Math.PI/2,Math.PI*1.5);c.stroke();}
+  const ry=H-22;c.strokeStyle='rgba(163,171,207,.6)';c.lineWidth=1;seg(c,hand0,ry,wall,ry);mono(c,10);c.fillStyle='#a3abcf';c.textAlign='center';c.textBaseline='top';
+  for(let m=0;m<=30;m+=5){const x=hand0+m*ppm;seg(c,x,ry-4,x,ry+4);if(m%10===0)c.fillText(m+' m',x,ry+6);}
+  const heroX=hx0+B.heroM*ppm;
+  const live=B.phase==='fly'||B.phase==='after';
+  if(live){c.lineWidth=1.5;for(const r of B.rings){const R=SND*(B.simT-r.t);if(R<=0)continue;const al=clamp(1-R/14,0,1)*0.65;if(al<=0)continue;c.strokeStyle=`rgba(127,227,255,${al})`;c.beginPath();c.arc(hand0+r.x*ppm,handY,R*ppm,0,7);c.stroke();}}
+  const tipX=hand0+B.tipM*ppm;
+  if(B.phase==='fly'&&B.v>SND){const mu=Math.asin(SND/B.v),Ln=Math.min(220,W*0.35);c.strokeStyle='rgba(255,71,102,.75)';c.lineWidth=2;seg(c,tipX,handY,tipX-Math.cos(mu)*Ln,handY-Math.sin(mu)*Ln);seg(c,tipX,handY,tipX-Math.cos(mu)*Ln,handY+Math.sin(mu)*Ln);}
+  const hand=hero(c,heroX,hip,s,{pose:'reach',arm:0,kick:live?Math.sin(T*10)*0.5:0});
+  if(live||B.phase==='done'){
+    const tx=B.phase==='fly'?tipX:wall;c.strokeStyle='#eaf4ff';c.lineWidth=2;c.beginPath();
+    for(let i=0;i<=24;i++){const f=i/24,x=hand[0]+(tx-hand[0])*f,amp=B.phase==='fly'?Math.sin(f*Math.PI)*6*Math.sin(f*18-T*40):0;i?c.lineTo(x,handY+amp):c.moveTo(x,handY);}c.stroke();
+    if(B.phase==='fly'){dart(c,tipX,handY,0,9);c.fillStyle='rgba(255,255,255,.25)';c.beginPath();c.arc(tipX,handY,9,0,7);c.fill();}
+    else{c.strokeStyle='#eaf4ff';c.lineWidth=1.5;for(let i=0;i<8;i++){const a=Math.PI/2+i*Math.PI/7;seg(c,wall,handY,wall+Math.cos(a)*22,handY+Math.sin(a)*22);}c.beginPath();c.arc(wall,handY,12,Math.PI/2,Math.PI*1.5);c.stroke();}
+  }
+  if(B.aiming&&B.pull>4){const px=hand[0]-B.pull;c.strokeStyle='#ffd23f';c.lineWidth=2;seg(c,hand[0],handY-6,px,handY);seg(c,hand[0],handY+6,px,handY);dart(c,px,handY,0,9);}
+  if(B.aiming||B.phase==='aim'){
+    const m=B.v/SND;c.textAlign='left';c.textBaseline='alphabetic';
+    disp(c,18);c.fillStyle=m>=1?'#ff4766':'#ffd23f';c.fillText(B.v+' m/s',hx0-s*0.3,hip-s*1.1);
+    mono(c,12);c.fillStyle='#f4efe4';c.fillText('Mach '+fmt(m,2)+(m>=1?' · supersonique !':''),hx0-s*0.3,hip-s*1.1+18);
+    if(!B.aiming){mono(c,12);c.fillStyle='#a3abcf';c.fillText('← Tire vers la gauche, puis lâche',16,24);}
+  }
+  if(live){mono(c,12,500);c.fillStyle='#7fe3ff';c.textAlign='left';c.textBaseline='top';c.fillText('Ralenti ×'+Math.round(B.slow),14,14);}
+  drawParts(c,B.parts);
+  if(B.phase==='after'||B.phase==='done'){const m=B.v>=SND,al=B.phase==='done'?1:Math.min(1,B.hitT*4);burst(c,wall-Math.max(90,W*0.14),handY-s*1.3,m?'CRACK !':'thwip',m?24:18,m?'#ff4766':'#1fc8b4',al);}
+  c.restore();
+}
+rd();scenes.push({st:s3,update,draw});
+}
+
+/* =========================================================
+   4 — La corde
+   ========================================================= */
+{
+const s4=stage($('c4'),0.5,300,420),cv=$('c4');
+const N=30;
+const Rp={pts:[],mode:'push',drag:false,tx:0,ty:0,auto:-1,seg:8,said:false,start:[0,0],moved:0};
+const geo=()=>{const W=s4.W,H=s4.H;return{W,H,ground:H-46,x0:W*0.1,len:W*0.42};};
+function lay(){const g=geo();Rp.seg=g.len/(N-1);Rp.pts=[];for(let i=0;i<N;i++){const x=g.x0+i*Rp.seg,y=g.ground-3;Rp.pts.push({x,y,px:x,py:y});}const ci=Rp.mode==='push'?0:N-1;Rp.tx=Rp.pts[ci].x;Rp.ty=Rp.pts[ci].y;Rp.start=[Rp.tx,Rp.ty];Rp.xb=g.x0+g.len;Rp.said=false;Rp.moved=0;Rp.auto=-1;}
+function setMode(m){Rp.mode=m;$('b4p').setAttribute('aria-pressed',m==='push');$('b4t').setAttribute('aria-pressed',m==='pull');$('r4m').textContent=m==='push'?'Pousser':'Tirer';$('r4r').textContent='à tester';lay();}
+$('b4p').addEventListener('click',()=>setMode('push'));$('b4t').addEventListener('click',()=>setMode('pull'));
+$('b4').addEventListener('click',()=>{Snd.init();lay();Rp.auto=0;});
+cv.addEventListener('pointerdown',e=>{Rp.drag=true;Rp.auto=-1;cap(cv,e);const p=ptr(e,cv);Rp.tx=p[0];Rp.ty=Math.min(p[1],geo().ground-3);});
+cv.addEventListener('pointermove',e=>{if(!Rp.drag)return;const p=ptr(e,cv);Rp.tx=p[0];Rp.ty=Math.min(p[1],geo().ground-3);});
+const up=()=>{Rp.drag=false;};cv.addEventListener('pointerup',up);cv.addEventListener('pointercancel',up);
+cv.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){lay();Rp.auto=0;e.preventDefault();}});
+function update(dt){
+  const g=geo();if(!Rp.pts.length||Math.abs(Rp.pts[0].y-(g.ground-3))>g.H)lay();
+  const ci=Rp.mode==='push'?0:N-1;
+  if(Rp.auto>=0){Rp.auto+=dt;const f=Math.min(1,Rp.auto/1.6),e=f*f*(3-2*f);
+    if(Rp.mode==='push'){Rp.tx=Rp.start[0]+e*g.W*0.38;Rp.ty=g.ground-3;}
+    else{Rp.tx=Rp.start[0]+e*(g.W*0.92-Rp.start[0]);Rp.ty=g.ground-3-Math.sin(e*Math.PI)*g.H*0.35;}
+    if(f>=1)Rp.auto=-1;}
+  if(Rp.mode==='push'){
+    /* a pushed rope buckles: its free end stays put (friction) and the rope bows up into humps of the same length */
+    const xa=clamp(Rp.tx,10,g.W-30),Lt=g.len;let D=Rp.xb-xa;
+    if(D>Lt){Rp.xb=xa+Lt;D=Lt;}if(D<0.3*Lt){Rp.xb=xa+0.3*Lt;D=0.3*Lt;}
+    const k=2,A=Math.min(g.H*0.4,D>=Lt?0:(D/(Math.PI*k))*2*Math.sqrt(Lt/D-1)),wob=reduce?0:Math.sin(T*12)*Math.min(3,A*0.08);
+    Rp.pts.forEach((p,j)=>{const f=j/(N-1);p.x=xa+D*f;p.y=g.ground-3-(A+wob)*Math.abs(Math.sin(Math.PI*k*f));p.px=p.x;p.py=p.y;});
+  }else{
+  const sub=3,h=dt/sub,GPX=1400;
+  for(let s=0;s<sub;s++){
+    Rp.pts.forEach((p,i)=>{if(i===ci)return;const vx=(p.x-p.px)*0.985,vy=(p.y-p.py)*0.985;p.px=p.x;p.py=p.y;p.x+=vx;p.y+=vy+GPX*h*h;});
+    const c=Rp.pts[ci];c.px=c.x;c.py=c.y;c.x+=(Rp.tx-c.x)*0.5;c.y+=(Rp.ty-c.y)*0.5;
+    for(let it=0;it<14;it++){
+      for(let i=0;i<N-1;i++){const a=Rp.pts[i],b=Rp.pts[i+1],dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy)||1e-6,df=(d-Rp.seg)/d;
+        const wa=i===ci?0:(a.y>=g.ground-3.5?0.12:1),wb=i+1===ci?0:(b.y>=g.ground-3.5?0.12:1),ws=wa+wb;if(ws<=0)continue;
+        a.x+=dx*df*wa/ws;a.y+=dy*df*wa/ws;b.x-=dx*df*wb/ws;b.y-=dy*df*wb/ws;}
+      for(const p of Rp.pts)if(p.y>g.ground-3){p.y=g.ground-3;p.px+=(p.x-p.px)*0.5;}
+    }
+  }
+  }
+  const a=Rp.pts[0],b=Rp.pts[N-1],str=Math.hypot(b.x-a.x,b.y-a.y)/(Rp.seg*(N-1));
+  Rp.moved=Math.max(Rp.moved,Math.abs(Rp.pts[ci].x-Rp.start[0]));
+  $('r4s').textContent=fmt(clamp(str*100,0,100))+' %';
+  if(!Rp.said&&Rp.moved>g.W*0.15){
+    if(Rp.mode==='push'&&str<0.8){Rp.said='ÇA PLIE !';$('r4r').textContent='elle se plie';Snd.boing();markDone(4);}
+    else if(Rp.mode==='pull'&&Rp.moved>g.W*0.25&&str>0.85){Rp.said='ÇA SUIT !';$('r4r').textContent='elle suit';Snd.ding();markDone(4);}
+    if(Rp.said)Rp.saidT=0;}
+  if(Rp.said)Rp.saidT+=dt;
+  return 0;
+}
+function draw(){
+  const c=s4.c,g=geo(),{W,H,ground}=g;
+  c.save();sky(c,W,H,[W*0.82,H*0.2,Math.min(22,H*0.06)]);skyline(c,W,H,5,ground,'#10163a',0.8);
+  c.fillStyle='#0e1330';c.fillRect(0,ground,W,H-ground);c.fillStyle='#2a3466';c.fillRect(0,ground,W,2);
+  if(!Rp.pts.length)lay();
+  const P=Rp.pts;
+  c.strokeStyle='#eaf4ff';c.lineWidth=3.5;c.lineCap='round';c.lineJoin='round';c.beginPath();c.moveTo(P[0].x,P[0].y);
+  for(let i=1;i<N-1;i++){const mx=(P[i].x+P[i+1].x)/2,my=(P[i].y+P[i+1].y)/2;c.quadraticCurveTo(P[i].x,P[i].y,mx,my);}c.lineTo(P[N-1].x,P[N-1].y);c.stroke();
+  if(Rp.mode==='push'){const p=P[0];c.strokeStyle='#ff7a1a';c.lineWidth=12;seg(c,-10,p.y-6,p.x-12,p.y-2);c.fillStyle='#ff7a1a';c.beginPath();c.arc(p.x-8,p.y-2,11,0,7);c.fill();c.fillStyle='#1fc8b4';c.fillRect(p.x-30,p.y-10,8,16);}
+  else{const p=P[N-1],q=P[N-2];dart(c,p.x,p.y,Math.atan2(p.y-q.y,p.x-q.x),12);c.fillStyle='rgba(255,255,255,.22)';c.beginPath();c.arc(p.x,p.y,13,0,7);c.fill();}
+  disp(c,14);c.fillStyle='#f4efe4';c.textAlign='left';c.textBaseline='top';c.fillText(Rp.mode==='push'?'On pousse la corde':'Une pointe tire la corde',14,12);
+  if(!Rp.drag&&Rp.moved<5&&Rp.auto<0){mono(c,12);c.fillStyle='#a3abcf';c.fillText(Rp.mode==='push'?'Attrape la main et pousse vers la droite →':'Attrape la pointe et tire vers la droite →',14,36);}
+  if(Rp.said)burst(c,W*0.7,H*0.3,Rp.said,20,Rp.mode==='push'?'#ff4766':'#1fc8b4',Math.min(1,Rp.saidT*4));
+  c.restore();
+}
+setMode('push');scenes.push({st:s4,update,draw});
+}
+
+/* =========================================================
+   5 — L'impact
+   ========================================================= */
+{
+const s5=stage($('c5'),0.5,320,430),cv=$('c5');
+const I={v:300,phase:'ready',x:0,hitT:0,dent:0,parts:[],E:0,shown:0};
+const geo=()=>{const W=s5.W,H=s5.H,wall=W-Math.max(50,W*0.08),x0=W*0.08,y=H*0.62;return{W,H,wall,x0,y};};
+function E(v){return 0.5*0.005*v*v;}
+function rd(){const v=I.v,e=E(v);$('r5v').textContent=v+' m/s';$('r5e').textContent=fmt(e)+' J';$('r5c').textContent=fmt(e/90,1)+' balle'+(e/90>=2?'s':'')+' de tennis';$('r5g').textContent=fmt(v*v/0.002/G/1e6,1)+' millions de g';$('v5v').textContent=v+' m/s';$('v5').value=v;}
+function setV(v){I.v=clamp(Math.round(v/10)*10,50,600);rd();if(I.phase!=='fly'){I.phase='ready';I.shown=0;I.dent=0;}}
+function fire(){Snd.init();if(I.phase==='fly')return;I.phase='fly';I.x=0;I.parts=[];I.shown=0;I.dent=0;Snd.thwip();}
+$('v5').addEventListener('input',e=>setV(+e.target.value));$('b5').addEventListener('click',fire);
+cv.addEventListener('pointerup',fire);
+cv.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){fire();e.preventDefault();}else if(e.key==='ArrowRight')setV(I.v+10);else if(e.key==='ArrowLeft')setV(I.v-10);});
+let prevE=null;
+function update(dt){
+  if(I.phase==='fly'){I.x+=dt/0.7;if(I.x>=1){I.x=1;I.phase='hit';I.hitT=0;I.E=E(I.v);const g=geo();
+    I.dent=4+Math.sqrt(I.E)*1.1;s5.shake=clamp(Math.sqrt(I.E)/1.8,3,18);addParts(I.parts,g.wall,g.y,Math.round(clamp(I.E/8,10,80)),120+Math.sqrt(I.E)*14,['#c98aa0','#fff2d6','#ffd23f']);
+    if(I.E>300)Snd.crack();else Snd.thump(Math.min(1,I.E/400));buzz(Math.min(120,Math.round(I.E/6)));markDone(5);
+    const ratio=prevE?I.E/prevE:null;
+    $('t5').innerHTML=`<strong>${fmt(I.E)} J</strong>, l'énergie de ${fmt(I.E/90,1)} balle(s) de tennis servie(s), concentrée sur une pointe de 5 g.`+(ratio&&Math.abs(ratio-1)>0.05?` Par rapport au tir précédent : vitesse ×${fmt(Math.sqrt(ratio),1)}, énergie <strong>×${fmt(ratio,1)}</strong>.`:' Change la vitesse et relance pour comparer.');
+    prevE=I.E;}}
+  else if(I.phase==='hit'){I.hitT+=dt;I.shown=Math.min(I.E/10,I.shown+dt*Math.max(30,I.E/10/0.8));}
+  stepParts(I.parts,dt,500);return 0;
+}
+function draw(){
+  const c=s5.c,g=geo(),{W,H,wall,x0,y}=g;
+  c.save();shakeIt(s5);sky(c,W,H,null);skyline(c,W,H,9,H,'#10163a',1);
+  brick(c,wall,W,H);
+  if(I.dent>0){c.fillStyle='#1a0d16';c.beginPath();c.arc(wall,y,I.dent,Math.PI/2,Math.PI*1.5);c.fill();c.strokeStyle='#1a0d16';c.lineWidth=1.5;
+    for(let i=0;i<9;i++){const a=Math.PI/2+i*Math.PI/8+0.1,L=I.dent*(1.4+hash(i,3,(I.v|0))*1.4);seg(c,wall+Math.cos(a)*I.dent*0.8,y+Math.sin(a)*I.dent*0.8,wall+Math.cos(a)*L,y+Math.sin(a)*L);}}
+  const dx=I.phase==='ready'?x0:(x0+(wall-x0-8)*I.x);
+  if(I.phase==='fly'){c.strokeStyle='rgba(234,244,255,.5)';c.lineWidth=2;seg(c,x0,y,dx,y);for(let i=0;i<5;i++){c.globalAlpha=0.15*(5-i);dart(c,dx-i*18,y,0,9);}c.globalAlpha=1;}
+  dart(c,dx,y,0,10);
+  mono(c,11);c.fillStyle='#a3abcf';c.textAlign='left';c.textBaseline='top';if(I.phase==='ready')c.fillText('pointe de 5 g',x0-10,y+14);
+  // energy grid
+  const cell=clamp(W*0.022,8,14),gap=2,cols=15,gx=16,gy=16,n=I.phase==='hit'?Math.floor(I.shown):(I.phase==='ready'?Math.floor(E(I.v)/10):0);
+  const preview=I.phase==='ready';
+  for(let i=0;i<Math.max(n,9);i++){const r=Math.floor(i/cols),k=i%cols,x=gx+k*(cell+gap),yy=gy+22+r*(cell+gap);
+    if(i<n){c.globalAlpha=preview?0.35:1;c.fillStyle=i<9?'#1fc8b4':'#ff7a1a';c.fillRect(x,yy,cell,cell);c.globalAlpha=1;}
+    if(i<9){c.strokeStyle='#ffd23f';c.lineWidth=1;c.strokeRect(x+0.5,yy+0.5,cell-1,cell-1);}}
+  mono(c,11);c.fillStyle='#f4efe4';c.textAlign='left';c.textBaseline='top';c.fillText((preview?'Prévu : ':'')+fmt(n*10)+' J · 1 carré = 10 J',gx,gy);
+  const rows=Math.ceil(Math.max(n,9)/cols);mono(c,10);c.fillStyle='#ffd23f';c.fillText('cadre jaune = 1 balle de tennis servie (≈ 90 J)',gx,gy+26+rows*(cell+gap));
+  drawParts(c,I.parts);
+  if(I.phase==='hit')burst(c,wall-Math.max(80,W*0.13),y-60,I.E>300?'BAM !':'tac',I.E>300?24:16,I.E>300?'#ff4766':'#ffd23f',Math.min(1,I.hitT*4));
+  c.restore();
+}
+rd();scenes.push({st:s5,update,draw});
+}
+
+/* =========================================================
+   6 — Les g
+   ========================================================= */
+{
+const s6=stage($('c6'),0.52,320,430),cv=$('c6');
+const P=[
+ {n:'Canapé',g:1,k:'still',c:'un adulte'},
+ {n:'Avion de ligne',g:1,k:'cruise',c:'un adulte'},
+ {n:'Grand huit',g:4,k:'loop',c:'un piano'},
+ {n:'Pilote de chasse',g:9,k:'turn',c:'une petite voiture'},
+ {n:'Pointe de toile',g:4.6e6,k:'hit',c:'un camion (pour la pointe de 5 g !)'}];
+const S={sel:0,t:0,gD:1,sq:1,seen:new Set([0])};
+const box=$('g6opts');
+P.forEach((p,i)=>{const b=document.createElement('button');b.className='opt';b.textContent=p.n;b.setAttribute('aria-pressed',i===0);b.addEventListener('click',()=>pick(i));box.appendChild(b);});
+function pick(i){Snd.init();S.sel=i;S.t=0;S.seen.add(i);[...box.children].forEach((b,k)=>b.setAttribute('aria-pressed',k===i));const p=P[i];
+  $('r6n').textContent=p.n;$('r6g').textContent=p.g>1000?'≈ 4,6 millions de g':fmt(p.g)+' g';
+  $('r6k').textContent=p.k==='hit'?'≈ 23 tonnes':fmt(75*p.g)+' kg';$('r6c').textContent=p.c;
+  if(p.k==='hit'){s6.shake=14;Snd.crack();buzz(80);}else if(p.g>=4){Snd.thump(p.g/10);buzz(p.g*8);}else Snd.ding();
+  const msg={still:'Assis sur le canapé : <strong>1 g</strong>. C’est le poids normal, celui que la Terre te donne tout le temps.',
+    cruise:'À 900 km/h en ligne droite : toujours <strong>1 g</strong> ! On ne sent pas la vitesse, seulement les changements de vitesse.',
+    loop:'Dans la boucle du grand huit : environ <strong>4 g</strong>. La balance indique 300 kg, le poids d’un piano.',
+    turn:'Virage serré à 900 km/h : environ <strong>9 g</strong>. Le pilote pèse comme une petite voiture. Au-delà, on peut s’évanouir.',
+    hit:'La pointe s’arrête en un millimètre : <strong>des millions de g</strong>, pendant quelques millionièmes de seconde. Le héros ne sent pas ça : c’est la pointe qui encaisse.'}[p.k];
+  $('t6').innerHTML=msg;if(S.seen.size>=3)markDone(6);}
+cv.addEventListener('pointerup',()=>pick((S.sel+1)%P.length));
+cv.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'||e.key==='ArrowRight'){pick((S.sel+1)%P.length);e.preventDefault();}});
+function update(dt){S.t+=dt;const p=P[S.sel];S.gD+=(p.g-S.gD)*Math.min(1,dt*4);const sq=p.k==='hit'?1:clamp(1/(1+(p.g-1)*0.06),0.62,1);S.sq+=(sq-S.sq)*Math.min(1,dt*5);return 0;}
+function meter(c,cx,cy,r,g){
+  const f=v=>clamp(Math.log10(Math.max(1,v))/7,0,1),a0=Math.PI,ang=v=>a0+f(v)*Math.PI;
+  c.lineWidth=r*0.16;
+  for(const [a,b,col] of [[1,4,'#1fc8b4'],[4,9,'#ffd23f'],[9,100,'#ff7a1a'],[100,1e7,'#ff4766']]){c.strokeStyle=col;c.beginPath();c.arc(cx,cy,r,ang(a),ang(b));c.stroke();}
+  mono(c,10);c.fillStyle='#a3abcf';c.textAlign='center';c.textBaseline='middle';
+  for(const [v,l] of [[1,'1 g'],[100,'100'],[1e6,'1 M']]){const a=ang(v);c.fillText(l,cx+Math.cos(a)*r*0.72,cy+Math.sin(a)*r*0.72);}
+  const a=ang(g)+(g>1e5&&!reduce?Math.sin(T*60)*0.02:0);c.strokeStyle='#f4efe4';c.lineWidth=3;c.lineCap='round';seg(c,cx,cy,cx+Math.cos(a)*r,cy+Math.sin(a)*r);
+  c.fillStyle='#f4efe4';c.beginPath();c.arc(cx,cy,5,0,7);c.fill();
+}
+function draw(){
+  const c=s6.c,W=s6.W,H=s6.H,p=P[S.sel],t=S.t;
+  c.save();shakeIt(s6);sky(c,W,H,null);
+  const split=W*0.5,pcx=split*0.5,pcy=H*0.5;
+  c.fillStyle='rgba(19,26,58,.5)';c.fillRect(split,0,W-split,H);c.fillStyle='#2a3466';c.fillRect(split,0,2,H);
+  // left: motion
+  disp(c,14);c.fillStyle='#ffd23f';c.textAlign='left';c.textBaseline='top';c.fillText(p.n,14,12);
+  const R=Math.min(split*0.34,H*0.3);
+  if(p.k==='still'){c.fillStyle='#5a3a8a';rr(c,pcx-R,pcy,R*2,R*0.5,12);c.fill();rr(c,pcx-R,pcy-R*0.5,R*2,R*0.55,12);c.fill();hero(c,pcx,pcy-R*0.02,R*0.6,{pose:'sit'});mono(c,11);c.fillStyle='#a3abcf';c.textAlign='center';c.fillText('0 km/h',pcx,pcy+R*0.7);}
+  else if(p.k==='cruise'){for(let i=0;i<6;i++){const x=((i*97-t*260)%(split+120)+split+120)%(split+120)-60,y=30+hash(i,4,4)*(H-60);c.fillStyle='rgba(234,244,255,.18)';c.beginPath();c.ellipse(x,y,40,12,0,0,7);c.fill();}
+    c.save();c.translate(pcx,pcy);c.fillStyle='#f4efe4';rr(c,-R*0.9,-R*0.1,R*1.8,R*0.2,R*0.1);c.fill();c.beginPath();c.moveTo(-R*0.1,0);c.lineTo(-R*0.5,R*0.6);c.lineTo(-R*0.25,R*0.6);c.lineTo(R*0.25,0);c.fill();c.beginPath();c.moveTo(-R*0.75,0);c.lineTo(-R*0.95,-R*0.4);c.lineTo(-R*0.75,-R*0.4);c.lineTo(-R*0.55,0);c.fill();c.restore();
+    mono(c,11);c.fillStyle='#a3abcf';c.textAlign='center';c.fillText('900 km/h en ligne droite',pcx,pcy+R*0.9);}
+  else if(p.k==='loop'||p.k==='turn'){const rr2=p.k==='loop'?R*0.75:R;c.strokeStyle=p.k==='loop'?'#7a5aa8':'rgba(234,244,255,.25)';c.lineWidth=p.k==='loop'?6:2;c.setLineDash(p.k==='turn'?[6,8]:[]);c.beginPath();c.arc(pcx,pcy,rr2,0,7);c.stroke();c.setLineDash([]);
+    const a=t*(p.k==='loop'?2.4:1.6);const x=pcx+Math.cos(a)*rr2,y=pcy+Math.sin(a)*rr2;
+    for(let i=1;i<14;i++){const b=a-i*0.06;c.fillStyle=`rgba(255,122,26,${0.5-i*0.035})`;c.beginPath();c.arc(pcx+Math.cos(b)*rr2,pcy+Math.sin(b)*rr2,4,0,7);c.fill();}
+    c.save();c.translate(x,y);c.rotate(a+Math.PI/2);if(p.k==='loop'){c.fillStyle='#ff7a1a';rr(c,-12,-8,24,14,4);c.fill();c.fillStyle='#0b1026';c.beginPath();c.arc(-7,7,3,0,7);c.arc(7,7,3,0,7);c.fill();}else{c.fillStyle='#e8ecf7';c.beginPath();c.moveTo(14,0);c.lineTo(-10,-9);c.lineTo(-6,0);c.lineTo(-10,9);c.closePath();c.fill();}c.restore();
+    c.strokeStyle='rgba(255,210,63,.7)';arrow(c,x,y,x+(pcx-x)*0.45,y+(pcy-y)*0.45,'rgba(255,210,63,.85)',2);
+    mono(c,11);c.fillStyle='#a3abcf';c.textAlign='center';c.textBaseline='top';c.fillText(p.k==='loop'?'boucle de 10 m · 70 km/h':'virage à 900 km/h',pcx,H-26);}
+  else{const wx=split-40,cyc=(t%1.4)/1.4,x=24+(wx-34)*Math.min(1,cyc*3);brick(c,wx,split,H);c.fillStyle='#4a2236';if(cyc>=0.33){c.fillStyle='#1a0d16';c.beginPath();c.arc(wx,pcy,10,Math.PI/2,Math.PI*1.5);c.fill();}
+    dart(c,x,pcy,0,10);if(cyc>=0.33&&cyc<0.45)burst(c,wx-50,pcy-40,'CRAC',14,'#ff4766',1);mono(c,11);c.fillStyle='#a3abcf';c.textAlign='left';c.textBaseline='top';c.fillText('arrêt sur 1 mm',24,H-26);}
+  // right: seat + scale
+  const rcx=split+(W-split)*0.38,base=H*0.78,s=clamp(H*0.26,60,110);
+  c.fillStyle='#232d63';rr(c,rcx-s*0.5,base-s*0.95,s*0.18,s*0.95,6);c.fill();rr(c,rcx-s*0.5,base-s*0.12,s*1.0,s*0.14,6);c.fill();
+  if(p.k==='hit'){mono(c,11);c.fillStyle='#a3abcf';c.textAlign='center';c.textBaseline='bottom';c.fillText('Le héros est tranquille.',rcx+s*0.05,base-s*1.15);}
+  const sq=S.sq;hero(c,rcx-s*0.18,base-s*0.12-s*0.36*sq,s,{pose:'sit',sy:sq,sx:1+(1-sq)*0.5,droop:(1-sq)*6});
+  c.fillStyle='#e8ecf7';rr(c,rcx-s*0.6,base+4,s*1.2,s*0.2,6);c.fill();c.fillStyle='#0b1026';rr(c,rcx-s*0.28,base+8,s*0.56,s*0.12,3);c.fill();
+  mono(c,Math.max(10,s*0.1),500);c.fillStyle='#1fc8b4';c.textAlign='center';c.textBaseline='middle';c.fillText(p.k==='hit'?'75 kg':fmt(75*S.gD)+' kg',rcx,base+8+s*0.06);
+  const mr=Math.min((W-split)*0.24,H*0.2);meter(c,W-mr-18,mr+30,mr,S.gD);
+  disp(c,Math.max(13,mr*0.28));c.fillStyle=S.gD>=9?'#ff4766':'#f4efe4';c.textAlign='center';c.textBaseline='top';c.fillText(S.gD>1000?fmt(S.gD/1e6,1)+' M g':fmt(S.gD,S.gD<10?1:0)+' g',W-mr-18,mr+40);
+  c.restore();
+}
+scenes.push({st:s6,update,draw});
+}
+
+/* =========================================================
+   7 — Le swing (pendule)
+   ========================================================= */
+{
+const s7=stage($('c7'),0.62,360,480),cv=$('c7');
+const P={L:20,x:0,y:-20,vx:0,vy:0,drag:false,maxX:1,x1:1,trail:[],run:false};
+const geo=()=>{const W=s7.W,H=s7.H,ax=W*0.5,ay=H*0.44,ppm=Math.min(H*0.5,W*0.44)/40,s=clamp(H*0.085,28,40);return{W,H,ax,ay,ppm,s};};
+function rd(Tn){const sp=Math.hypot(P.vx,P.vy),x=Tn/(M*G);$('r7v').textContent=fmt(sp*3.6)+' km/h';$('r7t').textContent=fmt(Math.max(0,Tn)/1000,1)+' kN';$('r7x').textContent=Tn<0?'toile molle':fmt(x,1)+' ×';$('r7m').textContent=fmt(P.maxX,1)+' ×';}
+function hang(){P.x=0;P.y=-P.L;P.vx=0;P.vy=0;P.trail=[];P.maxX=1;P.run=false;}
+function launch(){Snd.init();P.x=0;P.y=-P.L;P.vx=+$('v7').value;P.vy=0;P.trail=[];P.maxX=1;P.run=true;Snd.thwip();}
+$('v7').addEventListener('input',e=>{$('v7v').textContent=e.target.value+' m/s';});
+$('l7').addEventListener('input',e=>{P.L=+e.target.value;$('l7v').textContent=P.L+' m';hang();});
+$('b7').addEventListener('click',launch);
+function toWorld(e){const g=geo(),p=ptr(e,cv);let dx=(p[0]-g.ax)/g.ppm,dy=(g.ay-p[1])/g.ppm;const a=Math.atan2(dx,-dy),aa=clamp(a,-1.5,1.5);return [Math.sin(aa)*P.L,-Math.cos(aa)*P.L];}
+cv.addEventListener('pointerdown',e=>{P.drag=true;cap(cv,e);const w=toWorld(e);P.x=w[0];P.y=w[1];P.vx=0;P.vy=0;P.trail=[];P.run=false;});
+cv.addEventListener('pointermove',e=>{if(!P.drag)return;const w=toWorld(e);P.x=w[0];P.y=w[1];});
+const up=()=>{if(!P.drag)return;P.drag=false;P.run=true;P.maxX=1;Snd.init();};cv.addEventListener('pointerup',up);cv.addEventListener('pointercancel',up);
+cv.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){launch();e.preventDefault();}});
+let Tn=M*G,lastBig=0;
+function update(dt){
+  if(P.run&&!P.drag){
+    const n=16,h=dt/n;
+    for(let i=0;i<n;i++){P.vy-=G*h;P.x+=P.vx*h;P.y+=P.vy*h;const d=Math.hypot(P.x,P.y);if(d>P.L){const ux=P.x/d,uy=P.y/d;P.x=ux*P.L;P.y=uy*P.L;const vr=P.vx*ux+P.vy*uy;if(vr>0){P.vx-=vr*ux;P.vy-=vr*uy;}}}
+    const d=Math.hypot(P.x,P.y),ux=P.x/d,uy=P.y/d,v2=P.vx*P.vx+P.vy*P.vy;
+    Tn=d>=P.L-0.05?M*(v2/P.L-G*uy):-1;
+    P.trail.push([P.x,P.y]);if(P.trail.length>70)P.trail.shift();
+    if(Tn>0){const x=Tn/(M*G);if(x>P.maxX){P.maxX=x;}if(x>4&&T-lastBig>0.8){lastBig=T;buzz(30);}}
+    if(P.maxX>=3)markDone(7);
+  }else{const d=Math.hypot(P.x,P.y);Tn=P.drag?M*G*(-P.y/d):M*G;}
+  rd(Tn);
+  return P.run?Math.hypot(P.vx,P.vy)/40:0;
+}
+function draw(){
+  const c=s7.c,g=geo(),{W,H,ax,ay,ppm,s}=g;
+  c.save();sky(c,W,H,[W*0.15,H*0.15,Math.min(22,H*0.05)]);
+  skyline(c,W,H,3,H,'#10163a',1);
+  const bw=Math.max(60,W*0.14);building(c,W-bw,ay-14,bw,H-ay+14,11,10);
+  c.fillStyle='#2a3466';c.fillRect(ax,ay-6,W-bw-ax,8);c.fillStyle='#ffd23f';c.beginPath();c.arc(ax,ay,6,0,7);c.fill();
+  c.setLineDash([3,6]);c.strokeStyle='rgba(163,171,207,.25)';c.lineWidth=1;c.beginPath();c.arc(ax,ay,P.L*ppm,0,7);c.stroke();c.setLineDash([]);
+  for(let i=1;i<P.trail.length;i++){const a=P.trail[i-1],b=P.trail[i];c.strokeStyle=`rgba(255,122,26,${i/P.trail.length*0.6})`;c.lineWidth=3;seg(c,ax+a[0]*ppm,ay-a[1]*ppm,ax+b[0]*ppm,ay-b[1]*ppm);}
+  const hx=ax+P.x*ppm,hy=ay-P.y*ppm,ang=Math.atan2(ay-hy,ax-hx);
+  const slack=Tn<0;
+  c.strokeStyle=slack?'rgba(234,244,255,.5)':'#eaf4ff';c.lineWidth=2.4;
+  if(slack){c.beginPath();c.moveTo(ax,ay);c.quadraticCurveTo((ax+hx)/2,(ay+hy)/2+30,hx,hy);c.stroke();}else seg(c,ax,ay,hx,hy);
+  const rot=Math.atan2(P.x,-P.y)*0.8;
+  hero(c,hx,hy+s*0.6,s,{pose:'reach',arm:Math.atan2(ay-(hy+s*0.6-s*0.34),ax-hx),rot:clamp(rot,-1,1)*0.4,kick:Math.sin(T*5)*0.4});
+  const unit=Math.min(44,H*0.09);
+  arrow(c,hx,hy,hx,hy+unit,'#ff7a1a',3);
+  if(!slack){const k=Math.min(Tn/(M*G),P.L*ppm/unit*0.9);arrow(c,hx,hy,hx+Math.cos(ang)*unit*k,hy+Math.sin(ang)*unit*k,'#f4efe4',3);
+    disp(c,13);c.fillStyle='#f4efe4';c.textAlign='left';c.textBaseline='middle';const lx=hx+Math.cos(ang)*unit*k*0.6+10,ly=hy+Math.sin(ang)*unit*k*0.6;c.fillText(fmt(Tn/(M*G),1)+' ×',lx,ly);}
+  mono(c,11);c.fillStyle='#ff7a1a';c.textAlign='left';c.textBaseline='top';c.fillText('poids',hx+6,hy+unit-4);
+  if(slack){disp(c,14);c.fillStyle='#ffd23f';c.textAlign='center';c.fillText('toile molle !',hx,hy-s*1.4);}
+  if(!P.run&&!P.drag){mono(c,12);c.fillStyle='#a3abcf';c.textAlign='left';c.textBaseline='top';c.fillText('Tire le héros sur le côté, puis lâche',14,12);}
+  c.restore();
+}
+hang();scenes.push({st:s7,update,draw});
+}
+
+/* =========================================================
+   8 — L'élasticité
+   ========================================================= */
+{
+const s8=stage($('c8'),0.6,360,480),cv=$('c8');
+const SL=46,V0=Math.sqrt(2*G*SL);
+const cols=[{d:0.2,label:'Toile rigide'},{d:2,label:'Ta toile'}];
+const S={phase:'ready',t:0};
+cols.forEach(o=>{o.y=0;o.v=0;o.ph='ready';o.peak=0;o.bt=0;o.parts=[];});
+const geo=()=>{const W=s8.W,H=s8.H,top=40,ppm=(H-top-20)/(SL+9),s=clamp(H*0.08,26,38);return{W,H,top,ppm,s,cw:W/2};};
+function gOf(d){return V0*V0/(2*d)/G;}
+function rd(){$('r8v').textContent=fmt(V0*3.6)+' km/h';$('r8a').textContent=fmt(gOf(cols[0].d))+' g';$('r8b').textContent=fmt(gOf(cols[1].d))+' g';$('d8v').textContent=fmt(cols[1].d,1)+' m';}
+function reset(){cols.forEach(o=>{o.y=0;o.v=0;o.ph='ready';o.peak=0;o.parts=[];});S.phase='ready';}
+function go(){Snd.init();reset();S.phase='run';cols.forEach(o=>o.ph='fall');Snd.tone(600,300,0.2,0.08,'triangle');}
+$('d8').addEventListener('input',e=>{cols[1].d=+e.target.value;rd();if(S.phase!=='run')reset();});
+$('b8').addEventListener('click',go);cv.addEventListener('pointerup',go);
+cv.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){go();e.preventDefault();}});
+function update(dt){
+  const g=geo();let w=0;
+  cols.forEach((o,i)=>{
+    if(o.ph==='fall'){o.v+=G*dt;o.y+=o.v*dt;w=Math.max(w,o.v/45);if(o.y>=SL){o.y=SL;o.ph='stretch';o.v0=o.v;}}
+    else if(o.ph==='stretch'){const a=o.v0*o.v0/(2*o.d);o.v=Math.max(0,o.v-a*dt);o.y+=o.v*dt;if(o.v<=0){o.ph='osc';o.bt=0;o.peak=a/G;
+      const x=g.cw*i+g.cw/2,y=g.top+o.y*g.ppm;addParts(o.parts,x,y,Math.round(clamp(o.peak/4,8,50)),clamp(o.peak*3,80,400),['#eaf4ff','#ffd23f'],false);
+      if(o.peak>40){s8.shake=Math.max(s8.shake,16);Snd.crack();buzz(120);}else{Snd.boing();buzz(30);}}}
+    else if(o.ph==='osc'){o.bt+=dt;o.y=SL+o.d*0.55+o.d*0.45*Math.exp(-2.2*o.bt)*Math.cos(9*o.bt);if(o.bt>2.2)o.ph='rest';}
+    stepParts(o.parts,dt,300);
+  });
+  if(S.phase==='run'&&cols.every(o=>o.ph==='rest'||o.ph==='osc')){S.phase='done';markDone(8);
+    $('t8').innerHTML=`Même chute, même vitesse (${fmt(V0*3.6)} km/h). Toile rigide : arrêt sur ${fmt(cols[0].d,1)} m, <strong>${fmt(gOf(cols[0].d))} g</strong>. Ta toile : arrêt sur ${fmt(cols[1].d,1)} m, <strong>${fmt(gOf(cols[1].d))} g</strong>. ${gOf(cols[1].d)<=10?'Presque aussi doux qu’un virage de pilote !':gOf(cols[1].d)<=30?'Dur, mais un super-héros tient le coup.':'Encore trop brutal : étire-la davantage.'}`;}
+  return w;
+}
+function bar(c,x,y0,y1,val,peak){
+  const f=v=>clamp(Math.log10(Math.max(1,v))/Math.log10(300),0,1),Y=v=>y1-f(v)*(y1-y0);
+  c.fillStyle='#232d63';c.fillRect(x-5,y0,10,y1-y0);const col=val<10?'#1fc8b4':val<30?'#ffd23f':'#ff4766';c.fillStyle=col;c.fillRect(x-5,Y(val),10,y1-Y(val));
+  if(peak>0){c.fillStyle='#f4efe4';c.fillRect(x-8,Y(peak)-1,16,2);}
+  mono(c,9);c.fillStyle='#a3abcf';c.textAlign='right';c.textBaseline='middle';for(const v of [1,10,100]){c.fillText(v+' g',x-9,Y(v));}
+}
+function draw(){
+  const c=s8.c,g=geo(),{W,H,top,ppm,s,cw}=g;
+  c.save();shakeIt(s8);sky(c,W,H,null);
+  c.fillStyle='#2a3466';c.fillRect(cw-1,0,2,H);
+  cols.forEach((o,i)=>{
+    const x=cw*i+cw/2,ay=top-6;
+    c.fillStyle='#2a3466';c.fillRect(x-40,ay-8,80,8);c.fillStyle='#ffd23f';c.beginPath();c.arc(x,ay,5,0,7);c.fill();
+    disp(c,clamp(cw*0.065,10,13));c.fillStyle=i?'#1fc8b4':'#ff8aa0';c.textAlign='center';c.textBaseline='top';c.fillText(o.label+' · '+fmt(o.d,1)+' m',x,8);
+    const hy=top+o.y*ppm;
+    const ext=Math.max(0,o.y-SL),st=clamp(ext/Math.max(0.2,o.d),0,1);
+    if(o.y<SL){const sag=(SL-o.y)*ppm*0.5;c.strokeStyle='rgba(234,244,255,.7)';c.lineWidth=2;c.beginPath();c.moveTo(x,ay);c.bezierCurveTo(x+sag*0.6,ay+sag,x+sag*0.6,hy+sag*0.4,x,hy-s*0.8);c.stroke();}
+    else{c.strokeStyle=`rgb(${Math.round(234+21*st)},${Math.round(244-170*st)},${Math.round(255-153*st)})`;c.lineWidth=2.6-st*1.2;seg(c,x,ay,x,hy-s*0.8);}
+    mono(c,10);c.fillStyle='rgba(163,171,207,.6)';c.textAlign='left';c.textBaseline='middle';c.fillText('46 m',x+8,top+SL*ppm);c.fillStyle='rgba(163,171,207,.3)';c.fillRect(x-30,top+SL*ppm,60,1);
+    const pose=o.ph==='fall'?'flail':'cheer';
+    hero(c,x,hy+s*0.15,s,{pose,rot:o.ph==='fall'?Math.sin(T*9)*0.1:0,kick:o.ph==='fall'?Math.sin(T*16):0});
+    drawParts(c,o.parts);
+    bar(c,cw*i+cw-22,top+20,H-30,o.ph==='stretch'?o.v0*o.v0/(2*o.d)/G:(o.ph==='osc'?o.peak*Math.exp(-3*o.bt):0),o.peak);
+    if(o.ph==='osc'||o.ph==='rest'){const big=o.peak>40;burst(c,x-cw*0.12,hy-s*1.3,big?'CRAC !':'BOING',big?18:15,big?'#ff4766':'#1fc8b4',o.ph==='osc'?o.bt*4:1);
+      disp(c,15);c.fillStyle=big?'#ff4766':'#ffd23f';c.textAlign='center';c.textBaseline='top';c.fillText(fmt(o.peak)+' g',x,hy+s*0.7);}
+  });
+  if(S.phase==='ready'){mono(c,12);c.fillStyle='#a3abcf';c.textAlign='center';c.textBaseline='bottom';c.fillText('Touche pour lâcher les deux héros',W/2,H-8);}
+  c.restore();
+}
+rd();scenes.push({st:s8,update,draw});
+}
+
+/* =========================================================
+   Mission finale — le jeu
+   ========================================================= */
+{
+const s9=stage($('c9'),0.56,360,480),cv=$('c9');
+const C={state:'ready',x:8,y:46,vx:0,vy:0,att:null,L:0,hold:false,blds:[],nextX:0,cam:8,g:1,gD:1,maxG:1,best:0,miss:0,parts:[],flash:0,cd:0,ouch:0};
+try{C.best=+localStorage.getItem('toile-record')||0}catch(e){}
+function kOf(){return 40000*Math.pow(250/40000,(+$('k9').value)/100);}
+function kLabel(){const v=+$('k9').value;return v<20?'rigide':v<40?'ferme':v<62?'normale':v<82?'souple':'élastique';}
+$('k9').addEventListener('input',()=>{$('k9v').textContent=kLabel();});$('k9v').textContent=kLabel();
+function genTo(X){while(C.nextX<X){const i=C.blds.length;const w=10+hash(i,9,1)*11,h=28+hash(i,9,2)*44;C.blds.push({x:C.nextX,w,h,seed:i+3});C.nextX+=w+8+hash(i,9,3)*15;}}
+function reset(){C.blds=[{x:-8,w:22,h:46,seed:2}];C.nextX=22;genTo(300);C.x=8;C.y=46;C.vx=0;C.vy=0;C.att=null;C.state='ready';C.maxG=1;C.g=1;C.cam=8;C.parts=[];C.flash=0;}
+reset();
+const geo=()=>{const W=s9.W,H=s9.H,gy=H-18,ppm=(H-30)/90,s=clamp(H*0.075,26,36);return{W,H,gy,ppm,s,leg:0.42*s/ppm,sx:x=>(x-C.cam)*ppm+W*0.3,sy:y=>gy-y*ppm};};
+function pick(){let best=null,bs=1e9;for(const b of C.blds){const ax=b.x+b.w/2,ay=b.h;if(ax<C.x+3||ax>C.x+56||ay<C.y+2)continue;if(Math.hypot(ax-C.x,ay-C.y)>58)continue;const sc=Math.abs(ax-(C.x+20));if(sc<bs){bs=sc;best={x:ax,y:ay};}}return best;}
+function attach(first){const a=pick();if(a){C.att=a;C.L=Math.hypot(a.x-C.x,a.y-C.y);Snd.thwip();buzz(15);}else if(first){C.miss=0.7;}}
+function press(){Snd.init();if(C.state==='over'){reset();return;}if(C.state==='ready'){C.state='play';C.vx=13;C.vy=5;}C.hold=true;attach(true);}
+function release(){C.hold=false;C.att=null;}
+cv.addEventListener('pointerdown',e=>{cap(cv,e);press();});
+cv.addEventListener('pointerup',release);cv.addEventListener('pointercancel',release);
+cv.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){if(!e.repeat)press();e.preventDefault();}});
+cv.addEventListener('keyup',e=>{if(e.key===' '||e.key==='Enter'){release();e.preventDefault();}});
+function verdict(){const d=Math.max(0,Math.round(C.x-8)),g=C.maxG;
+  const v=g>=12?'Toile trop <strong>rigide</strong> : chaque accrochage est un choc énorme. Essaie plus souple.':g>=6?'Comme un <strong>pilote de chasse</strong> : costaud, mais ça passe.':'Toile douce : trajet <strong>confortable</strong>. Attention, une toile très élastique s’étire et descend plus bas.';
+  return `<strong>${d} m</strong> parcourus, pic à <strong>${fmt(g,1)} g</strong>. ${v}`;}
+function update(dt){
+  stepParts(C.parts,dt,400);C.flash=Math.max(0,C.flash-dt*2.5);C.miss=Math.max(0,C.miss-dt);C.cd=Math.max(0,C.cd-dt);
+  if(C.state!=='play'){C.g=C.state==='ready'?1:0;C.gD+=(C.g-C.gD)*0.15;return 0;}
+  const g=geo(),k=kOf(),damp=2*0.22*Math.sqrt(k*M),n=12,h=dt/n;let gmax=0;
+  if(C.hold&&!C.att)attach(false);
+  for(let i=0;i<n;i++){
+    let ax=0,ay=-G,Tn=0;
+    if(C.att){const dx=C.att.x-C.x,dy=C.att.y-C.y,d=Math.hypot(dx,dy)||1e-6;if(d>C.L){const away=-(C.vx*dx+C.vy*dy)/d;Tn=Math.max(0,k*(d-C.L)+damp*away);ax+=Tn/M*dx/d;ay+=Tn/M*dy/d;}}
+    const sp=Math.hypot(C.vx,C.vy);ax-=0.0015*sp*C.vx;ay-=0.0015*sp*C.vy;
+    C.vx+=ax*h;C.vy+=ay*h;C.x+=C.vx*h;C.y+=C.vy*h;
+    const gf=Tn/(M*G);if(gf>gmax)gmax=gf;
+  }
+  C.g=gmax;if(gmax>C.maxG)C.maxG=gmax;C.gD+=(gmax-C.gD)*0.3;
+  if(gmax>9&&C.cd<=0){s9.shake=Math.min(18,(gmax-9)*1.3+5);C.flash=1;C.ouch=gmax;C.cd=0.7;Snd.thump(Math.min(1,gmax/20));buzz(70);}
+  genTo(C.x+300);
+  C.cam+=(C.x-C.cam)*Math.min(1,dt*5);
+  if(C.y<=g.leg){C.y=g.leg;C.state='over';C.att=null;C.hold=false;s9.shake=10;Snd.thump(0.6);buzz(120);
+    addParts(C.parts,g.sx(C.x),g.gy,30,220,['#a3abcf','#fff2d6'],true);
+    const d=Math.max(0,Math.round(C.x-8));if(d>C.best){C.best=d;try{localStorage.setItem('toile-record',d)}catch(e){}}
+    if(d>=100)markDone(9);
+    $('t9').innerHTML=verdict();}
+  return Math.hypot(C.vx,C.vy)/40;
+}
+function gmeter(c,W,H,val,maxV){
+  const x=W-30,y0=40,y1=H-52,sc=v=>y1-clamp(v/16,0,1)*(y1-y0);
+  c.fillStyle='rgba(11,16,38,.72)';rr(c,W-112,y0-28,104,y1-y0+46,10);c.fill();
+  c.fillStyle='#232d63';c.fillRect(x-6,y0,12,y1-y0);
+  const col=val<4?'#1fc8b4':val<9?'#ffd23f':'#ff4766';c.fillStyle=col;c.fillRect(x-6,sc(val),12,y1-sc(val));
+  c.fillStyle='#f4efe4';c.fillRect(x-10,sc(maxV)-1,20,2);
+  mono(c,10);c.textAlign='right';c.textBaseline='middle';
+  for(const [v,l] of [[0,'apesanteur'],[1,'canapé'],[4,'grand huit'],[9,'pilote'],[16,'aïe !']]){c.fillStyle=v>=9?'#ff8aa0':'#a3abcf';c.fillText(l,x-12,sc(v));c.fillRect(x+7,sc(v),4,1);}
+  disp(c,13);c.textAlign='center';c.fillStyle=col;c.fillText(fmt(val,1)+' g',W-60,y0-14);
+}
+function overlay(c,W,H,lines){
+  const w=Math.min(W-150,420),x=(W-140-w)/2+10,h=24+lines.length*26,y=H*0.22;
+  c.fillStyle='rgba(11,16,38,.86)';rr(c,x,y,w,h,12);c.fill();c.strokeStyle='#2a3466';c.lineWidth=1.5;c.stroke();
+  c.textAlign='center';c.textBaseline='top';
+  lines.forEach((l,i)=>{if(i===0){disp(c,20);c.fillStyle='#ffd23f';}else{c.font='600 15px "Baloo 2", system-ui, sans-serif';c.fillStyle='#f4efe4';}c.fillText(l,x+w/2,y+14+i*26,w-20);});
+}
+function draw(){
+  const c=s9.c,g=geo(),{W,H,gy,ppm,s,sx,sy}=g;
+  c.save();shakeIt(s9);
+  sky(c,W,H,[W*0.7,H*0.18,Math.min(24,H*0.055)]);
+  skyline(c,W,H,C.cam*ppm*0.25,gy,'#0f1538',1);skyline(c,W,H,C.cam*ppm*0.5+40,gy,'#121a45',0.75);
+  for(const b of C.blds){const x=sx(b.x),w=b.w*ppm;if(x>W||x+w<0)continue;building(c,x,sy(b.h),w,b.h*ppm,b.seed,9);
+    const axp=sx(b.x+b.w/2),ayp=sy(b.h);c.strokeStyle='#4a5596';c.lineWidth=2;seg(c,axp,ayp,axp,ayp-8);c.fillStyle='#ff4766';c.fillRect(axp-2,ayp-11,4,4);}
+  c.fillStyle='#0e1330';c.fillRect(0,gy,W,H-gy);c.fillStyle='rgba(255,210,63,.45)';const off=(C.cam*ppm)%40;for(let x=-off;x<W;x+=40)c.fillRect(x,gy+8,20,3);
+  if(C.state==='play'&&!C.att){const a=pick();if(a){const r=8+Math.sin(T*8)*3;c.strokeStyle='#ffd23f';c.lineWidth=2.5;c.beginPath();c.arc(sx(a.x),sy(a.y)-9,r,0,7);c.stroke();}}
+  const hx=sx(C.x),hy=sy(C.y)-s*0.42,sp=Math.hypot(C.vx,C.vy);
+  if(C.state==='play'&&sp>16){c.strokeStyle='rgba(244,239,228,.35)';c.lineWidth=1.5;const n=reduce?2:Math.min(10,Math.round(sp/4)),ux=C.vx/sp,uy=-C.vy/sp;for(let i=0;i<n;i++){const ox=(Math.random()-.5)*s*1.4,oy=(Math.random()-.5)*s*1.4-s*0.3;seg(c,hx+ox-ux*s*0.8,hy+oy-uy*s*0.8,hx+ox-ux*(s*0.8+sp*2),hy+oy-uy*(s*0.8+sp*2));}}
+  let o={pose:'stand'};
+  if(C.state==='play'){o={rot:clamp(C.vx*0.012,-0.35,0.35),pose:C.att?'reach':'cheer',kick:Math.sin(T*6)*0.6};if(C.att)o.arm=Math.atan2(sy(C.att.y)-(hy-s*0.34),sx(C.att.x)-hx);}
+  else if(C.state==='over')o={rot:Math.PI/2,pose:'flail'};
+  const hand=hero(c,hx,C.state==='over'?sy(0)-s*0.2:hy,s,o);
+  if(C.att){const ax=sx(C.att.x),ay=sy(C.att.y),d=Math.hypot(C.att.x-C.x,C.att.y-C.y),st=clamp((d-C.L)/Math.max(1,C.L)*6,0,1);
+    c.strokeStyle=`rgb(${Math.round(234+21*st)},${Math.round(244-170*st)},${Math.round(255-153*st)})`;c.lineWidth=2.4-st;seg(c,hand[0],hand[1],ax,ay-9);}
+  drawParts(c,C.parts);
+  if(C.miss>0){disp(c,14);c.fillStyle='#ff8aa0';c.textAlign='center';c.textBaseline='alphabetic';c.globalAlpha=Math.min(1,C.miss*2);c.fillText(C.y>75?'Trop haut !':'Rien à attraper',hx,hy-s*1.3);c.globalAlpha=1;}
+  if(C.flash>0){c.fillStyle=`rgba(255,71,102,${C.flash*0.22})`;c.fillRect(0,0,W,H);burst(c,clamp(hx+60,70,W-180),clamp(hy-50,40,H-80),'AÏE ! '+fmt(C.ouch)+' g',16,'#ff4766',C.flash*1.5);}
+  gmeter(c,W,H,C.gD,C.maxG);
+  if(C.state==='ready')overlay(c,W,H,['Prêt ?','Garde le doigt appuyé : la toile part.','Lâche : tu voles.','Touche pour commencer']);
+  if(C.state==='over'){const d=Math.max(0,Math.round(C.x-8));overlay(c,W,H,['Oups !',d+' m · pic à '+fmt(C.maxG,1)+' g',d>=C.best&&d>0?'Nouveau record !':'Record : '+C.best+' m','Touche pour rejouer']);}
+  c.restore();
+  const d=Math.max(0,Math.round(C.x-8));$('r9d').textContent=d+' m';$('r9v').textContent=fmt(sp*3.6)+' km/h';$('r9g').textContent=fmt(C.maxG,1)+' g';$('r9b').textContent=C.best+' m';
+}
+scenes.push({st:s9,update,draw});
+}
+
+/* ---------- Main loop ---------- */
+let last=performance.now();
+function frame(now){
+  const dt=Math.min(0.033,Math.max(0,(now-last)/1000));last=now;T+=dt;
+  let wind=0;
+  for(const s of scenes)if(s.st.visible){wind+=s.update(dt)||0;s.draw();}
+  Snd.wind(wind);
+  requestAnimationFrame(frame);
+}
+for(const s of scenes)s.draw();
+requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

@@ -35,37 +35,25 @@ Public cible : enfants autour de 7 ans, curieux, capables de comprendre une idee
 
 Site statique sans backend.
 
-- index.html contient actuellement HTML, CSS et JavaScript.
-- Simulations principales en Canvas 2D et requestAnimationFrame.
-- Experiences secondaires en DOM/CSS/JavaScript.
-- Aucun framework.
-- Aucun build JS.
-- Aucun WASM actuellement.
-- Responsive, mobile-first.
-- devicePixelRatio pris en compte pour Canvas Retina.
+- index.html contient HTML, CSS et JavaScript (aucun framework, aucun build, aucune dépendance hors Google Fonts).
+- Les 8 chapitres et la mission finale sont chacun une scène Canvas 2D interactive, pilotée par une seule boucle requestAnimationFrame.
+- Chaque scène ne s'anime que lorsqu'elle est visible (IntersectionObserver).
+- Son via Web Audio (déclenché après le premier toucher), vibration optionnelle, mode savant pour les formules.
+- Progression 1/8 à 8/8 dans la barre de chapitres, record du jeu en localStorage.
+- labo.html redirige vers la mission finale (ancienne page de démo).
+- Responsive, mobile-first, devicePixelRatio pris en compte, prefers-reduced-motion respecté.
 
-Canvas 2D suffit aux simulations actuelles. Three.js/WebGL serait pertinent pour une future scene reellement 3D. WASM n'est justifie que si les calculs deviennent suffisamment lourds.
+## Les scènes
 
-## Direction visuelle
-
-- Rouge, bleu profond, blanc.
-- Skyline nocturne.
-- Personnage stylise construit dans le site, sans asset Marvel.
-- Onomatopees : THWIP, CRACK, BAM, SWOOSH.
-- Petite araignee-guide interactive.
-- Les effets doivent servir la notion scientifique.
-
-## UX mobile
-
-Le lien est partage par WhatsApp et ouvert sur telephone.
-
-Regles :
-- aucune interaction essentielle au hover ;
-- controles tactiles suffisamment grands ;
-- aucun scroll horizontal ;
-- Canvas responsive ;
-- texte court ;
-- une experience principale par chapitre.
+1. La chute : on glisse le héros en hauteur, chute stroboscopique (ombres toutes les 0,25 s), compteur km/h, coussin et g à l'arrêt.
+2. La toile : course sur 30 m entre héros, voiture, TGV, avion, toile et son.
+3. Le son : ondes sonores visibles, le cône de Mach apparaît au-delà de 343 m/s.
+4. La corde : pousser (la corde flambe) ou tirer avec une pointe (elle suit), au doigt.
+5. L'impact : énergie de la pointe de 5 g en carrés de 10 J, comparée à une balle de tennis servie.
+6. Les g : canapé, avion de ligne, grand huit, pilote, pointe ; héros écrasé sur son siège et balance.
+7. Le swing : pendule avec flèches de forces (poids et tension), toile molle détectée.
+8. L'élasticité : toile rigide contre toile réglable, même chute de 46 m.
+Mission finale : jeu de swing à travers la ville, jauge de g en direct, réglage rigide/élastique.
 
 ### Important : ne pas doubler les moteurs de rendu
 
